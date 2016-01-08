@@ -1,1 +1,1 @@
-Implementations of my course tasks
+Implementation of my course tasks
