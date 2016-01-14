@@ -55,3 +55,14 @@ if (abs(expected_all_theta - all_theta) < 0.001),
   else 
   disp('The training params NOT calculated correctly.');
 endif
+
+
+%%%% predictOneVsAll
+
+% input:
+clc; 
+all_theta = [1 -6 3; -2 4 -3];
+X = [1 7; 4 5; 7 8; 1 4];
+prediction_actual = predictOneVsAll(all_theta, X)
+%output:
+prediction_expected = [1 2 2 1]';

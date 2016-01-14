@@ -30,8 +30,15 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+prob = sigmoid(X * all_theta');
+%% more elegant version
+[foo p] = max(prob, [], 2)
 
-
+%% old multiline version
+%for i = 1:m
+%  p(i) = find(prob(i, :) == max(prob(i, :)));
+%endfor;
+%
 
 
 
