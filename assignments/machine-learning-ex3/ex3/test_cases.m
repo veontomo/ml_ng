@@ -66,3 +66,14 @@ X = [1 7; 4 5; 7 8; 1 4];
 prediction_actual = predictOneVsAll(all_theta, X)
 %output:
 prediction_expected = [1 2 2 1]';
+
+
+
+%%%% predict
+clc;
+Theta1 = reshape(sin(0 : 0.5 : 5.9), 4, 3);
+Theta2 = reshape(sin(0 : 0.3 : 5.9), 4, 5);
+X = reshape(sin(1:16), 8, 2);
+p_actual = predict(Theta1, Theta2, X)
+p_expected = [4 1 1 4 4 4 4 2]';
+if (p_actual == p_expected) printf("The prediction is correct.\n"); else printf("The prediction is wrong!\n"); endif;
