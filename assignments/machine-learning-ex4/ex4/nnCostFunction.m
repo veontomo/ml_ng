@@ -61,7 +61,11 @@ Theta2_grad = zeros(size(Theta2));
 %               the regularization separately and then add them to Theta1_grad
 %               and Theta2_grad from Part 2.
 %
-y2 = eye(num_labels, num_labels);
+% create a matrix y2 of size 5000x10
+y2 = zeros(m, num_labels);
+for i=1:m
+  y2(i, y(i)) = 1;
+endfor
 
 X = [ones(m, 1) X];
 a2 = sigmoid(X * Theta1');
