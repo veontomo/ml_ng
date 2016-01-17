@@ -71,7 +71,7 @@ X = [ones(m, 1) X];
 a2 = sigmoid(X * Theta1');
 A2 = [ones(size(a2, 1), 1) a2];
 h = sigmoid(A2 * Theta2');
-reg = trace(Theta1 * Theta1') + trace(Theta2 * Theta2') - trace(Theta1(:, 2:end) * Theta1(:, 2:end)') - trace(Theta2(:, 2:end) * Theta2(:, 2:end)');
+reg = trace(Theta1 * Theta1') + trace(Theta2 * Theta2') - trace(Theta1(:, 1) * Theta1(:, 1)') - trace(Theta2(:, 1) * Theta2(:, 1)');
 
 J = -1/m * (trace(y2' * log(h)) + trace((1 - y2)' * log(1-h) )) + lambda/(2*m)*reg;
 
