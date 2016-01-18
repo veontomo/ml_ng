@@ -68,7 +68,6 @@ prediction_actual = predictOneVsAll(all_theta, X)
 prediction_expected = [1 2 2 1]';
 
 
-
 %%%% predict
 clc;
 Theta1 = reshape(sin(0 : 0.5 : 5.9), 4, 3);
