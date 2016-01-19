@@ -82,9 +82,7 @@ for t=1:m
   a3 = sigmoid(z3);
   delta3 = a3 - y2(t);
   tmp = Theta2' * delta3;
-  delta2 = tmp .* [1; sigmoidGradient(z2)];
-  % drop the first element
-  delta2 = delta2(2:end);
+  delta2 = tmp(2:end) .* sigmoidGradient(z2);
   Delta1 = Delta1 + delta2 * A1';
   Delta2 = Delta2 + delta3 * A2';
 endfor
