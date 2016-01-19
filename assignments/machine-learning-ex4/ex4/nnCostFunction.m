@@ -99,7 +99,13 @@ Theta2_grad = Delta2/m;
 
 
 
+reg1 = Theta1;
+reg2 = Theta2;
+reg1(:, 1) = 0;
+reg2(:, 1) = 0;
 
+Theta1_grad = Theta1_grad + lambda/m * reg1;
+Theta2_grad = Theta2_grad + lambda/m * reg2;
 
 
 
