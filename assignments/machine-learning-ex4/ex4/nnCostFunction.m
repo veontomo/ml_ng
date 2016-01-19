@@ -69,6 +69,28 @@ J = -1/m * (trace(y2' * log(h)) + trace((1 - y2)' * log(1-h) )) + lambda/(2*m)*r
 %               over the training examples if you are implementing it for the 
 %               first time.
 %
+Delta1 = zeros(size(Theta1));
+Delta2 = zeros(size(Theta2));
+for t=1:m
+% X has already been augmented with 1 at the beginning
+  a1 = X(t, 2:end)';
+  A1 = [1; a1];
+  z2 = Theta1 * A1;
+  a2 = sigmoid(z2);
+  A2 = [1; a2];
+  z3 = Theta2 * A2;
+  a3 = sigmoid(z3);
+  delta3 = a3 - y2(t);
+  tmp = Theta2' * delta3;
+  delta2 = tmp .* [1; sigmoidGradient(z2)];
+  % drop the first element
+  delta2 = delta2(2:end);
+  Delta1 = Delta1 + delta2 * A1';
+  Delta2 = Delta2 + delta3 * A2';
+endfor
+Theta1_grad = Delta1/m;
+Theta2_grad = Delta2/m;
+
 % Part 3: Implement regularization with the cost function and gradients.
 %
 %         Hint: You can implement this around the code for
