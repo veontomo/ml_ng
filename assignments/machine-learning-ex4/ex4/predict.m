@@ -16,5 +16,10 @@ h2 = sigmoid([ones(m, 1) h1] * Theta2');
 
 % =========================================================================
 
+X = [ones(m, 1) X];
+a2 = sigmoid(X * Theta1');
+A2 = [ones(size(a2, 1), 1) a2];
+a3 = sigmoid(A2 * Theta2');
+[prob p] = max(a3, [], 2);
 
 end
