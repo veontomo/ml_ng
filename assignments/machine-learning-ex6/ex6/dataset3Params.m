@@ -26,8 +26,6 @@ errorMin = -1;
 pool = [0.01 0.03 0.1 0.3 1 3 10 30]
 for C1 = pool
   for sigma1 = pool
-  printf("C = %2.2f", C1);
-  printf("sigma = %2.2f", sigma1);
     model= svmTrain(X, y, C1, @(x1, x2) gaussianKernel(x1, x2, sigma1));
     predictions = svmPredict(model, Xval);
     error = mean(double(predictions ~= yval));
