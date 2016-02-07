@@ -20,7 +20,32 @@ idx = zeros(size(X,1), 1);
 %
 % Note: You can use a for-loop over the examples to compute this.
 %
-
+for i = 1:size(X, 1)
+%  printf("X(%d) = ", i);
+%  printf("%f ", X(i, :));
+%  printf("\n");
+%  printf("centroids(%d) = ", 1);
+%  printf("%f ", centroids(1, :));
+%  printf("\n");
+  dif =  X(i, :) - centroids(1, :);
+  minD = dif * dif';
+%  printf("distance to the first centroid: %f\n", minD);
+  idx(i) = 1;
+  for j = 2:K
+    dif =  X(i, :) - centroids(j, :);
+    tmpD = dif * dif';
+%   printf("centroids(%d) = ", j);
+%   printf("%f ", centroids(j, :));
+%   printf("\n");
+%   printf("distance to the centroid %d: %f\n", j, tmpD);
+%   printf("tmp = %d, current min = %d\n", tmpD, minD);
+    if (tmpD <= minD)
+ %     printf("centroid %d is closer", j);
+      minD = tmpD;
+      idx(i) = j;
+    endif;
+  endfor;
+endfor;
 
 
 
