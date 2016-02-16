@@ -1,1 +1,0 @@
-function c = cost(x, y, theta)
