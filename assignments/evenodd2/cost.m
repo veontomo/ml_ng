@@ -1,11 +1,8 @@
 function [J grad] = cost(X, Y, Theta)
-%  fprintf("X = ");
-%  fprintf("%u ", X(:, 2));
-%  fprintf("\nTheta = ");
-%  fprintf("%2.4f ", Theta);
-%  fprintf("\n");
   h = sigmoid(X * Theta'); % column
   m = size(X, 1);
-  J = (- Y' * log(h) - (1 - Y)' * log(1-h))/m;
+  %J = (- Y' * log(h) - (1 - Y)' * log(1-h))/m
+  J = -sum(log(h(find(Y==1)))) - sum(log(1-h(find(Y==0))));
+  J = J/m;
   grad = (h - Y)' * X/m;
 end
