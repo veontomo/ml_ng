@@ -1,5 +1,5 @@
-function [mu scale Xnorm] = normalize(X)
+function [mu range Xnorm] = normalize(X)
  mu = mean(X);
- scale = max(X) - min(X);
- Xnorm = (X - mu)/scale;
+ range = max(X) - min(X);
+ Xnorm = (X - mu) ./ repmat(range, size(X, 1), 1);
 end
