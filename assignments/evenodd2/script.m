@@ -1,17 +1,18 @@
-X = [1 2; 1 4; 1 5; 1 1; 1 9];
-Y = [1 1 0 0 0]';
+A = 1000;
+X = unique(round(A*unifrnd(0, 1, A, 1)));
+Y = mod(X, 2);
+X = [ones(size(X, 1), 1), X];
 theta_init = [0 0];
 
 
 % Set Options
-options = optimset('GradObj', 'on', 'MaxIter', 1000);
+options = optimset('GradObj', 'on', 'MaxIter', 400);
 
-% Optimize
-[theta, J, exit_flag] = fminunc(@(Theta)(cost(X, Y, Theta)), theta_init, options);
+cutoff = round(0.8*size(X, 1)); % the number of examples to track
+Jpool = zeros(1, cutoff);
+for i = 1:cutoff
+  [theta, J, exit_flag] = fminunc(@(Theta)(cost(X(1:i, :), Y(1:i, :), Theta)), theta_init, options);
+  Jpool(i) = J;
+endfor
 
-tx = linspace (-2, 2, 4)';
-ty = linspace (-1, 1, 3)';
-[xx, yy] = meshgrid (tx, ty);
-r = sqrt (xx .^ 2 + yy .^ 2) + eps;
-tz = sin (r) ./ r;
-mesh (tx, ty, tz);
+plot(1:cutoff, Jpool)
