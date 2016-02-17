@@ -1,7 +1,7 @@
 %%% Generate training examples
 %%% The training set consists of pair-wise different integer numbers
 
-A = 30; % the number of the training examples
+A = 500; % the number of the training examples
 Data = zeros(A, 1);
 maxLoopIter = 3;  % the maximal number of iterations to pick up a random 
                   % integer number before widening the range
@@ -32,7 +32,7 @@ theta_init = unifrnd(-2, 2, 1, size(X, 2));
 % Set Options
 options = optimset('GradObj', 'on', 'MaxIter', 100);
 
-trainingSize = 20; % the number of examples to train on
+trainingSize = 50; % the number of examples to train on
 Jpool = zeros(1, trainingSize);
 for i = 1:trainingSize
   [theta, J, exit_flag] = fminunc(@(Theta)(cost(X(1:i, :), Y(1:i, :), Theta)), theta_init, options);
@@ -65,8 +65,26 @@ endfor;
 Prec = tp/(tp + fp)
 Rec = tp/(tp + fn)
 Acc = (tp + tn)/(tp + tn + fn + fp)
+Fscore = 2*Prec*Rec/(Prec + Rec)
 
 
 
+%%%%%%%%%%%%% another model
+X = [ones(size(Data, 1), 1), Data, mod(Data, 4)];
+
+theta_init = unifrnd(-2, 2, 1, size(X, 2));
+
+
+% Set Options
+options = optimset('GradObj', 'on', 'MaxIter', 100);
+
+trainingSize = 100; % the number of examples to train on
+Jpool = zeros(1, trainingSize);
+for i = 1:trainingSize
+  [theta, J, exit_flag] = fminunc(@(Theta)(cost(X(1:i, :), Y(1:i, :), Theta)), theta_init, options);
+  Jpool(i) = J;
+endfor
+
+plot(1:trainingSize, Jpool)
 
 
