@@ -45,18 +45,28 @@ Ytest = Y((trainingSize+1):(trainingSize + testSize));
 
 Jtraining = zeros(1, trainingSize);
 Jtest = zeros(1, trainingSize);
+Fscore = zeros(1, trainingSize);
 for i = 1:trainingSize
   [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta)), theta_init, options);
   J2 = cost(Xtest, Ytest, theta);
   Jtest(i) = J2;
   Jtraining(i) = J;
+  
+  Ypredicted = Xtest * theta' > 0;
+  [tp tn fp fn] = classifyPredictions(Ytest, Ypredicted);
+  Prec = tp/(tp + fp);
+  Rec = tp/(tp + fn);
+  Acc = (tp + tn)/(tp + tn + fn + fp);
+  Fscore(i) = 2*Prec*Rec/(Prec + Rec);
+  
 endfor
 
-plot(1:trainingSize, Jtraining)
+plot(1:trainingSize, Jtraining, 'color', 'r')
 hold on;
-plot(1:trainingSize, Jtest)
+plot(1:trainingSize, Jtest, 'color', 'k')
+hold off;
 
-
+plot(1:trainingSize, Fscore, 'color', 'b')
 
 
 %%% Method precision, recall and accuracy
@@ -73,7 +83,7 @@ Fscore = 2*Prec*Rec/(Prec + Rec)
 
 
 %%%%%%%%%%%%% another model
-X = [ones(A, 1), DataNorm, mod(Data, 2)];
+X = [ones(A, 1), DataNorm, mod(Data, 4)];
 theta_init = unifrnd(-2, 2, 1, size(X, 2));
 
 
@@ -85,16 +95,24 @@ Ytest = Y((trainingSize+1):(trainingSize + testSize));
 
 Jtraining = zeros(1, trainingSize);
 Jtest = zeros(1, trainingSize);
+Fscore = zeros(1, trainingSize);
 for i = 1:trainingSize
   [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta)), theta_init, options);
   J2 = cost(Xtest, Ytest, theta);
   Jtest(i) = J2;
   Jtraining(i) = J;
+  Ypredicted = Xtest * theta' > 0;
+  [tp tn fp fn] = classifyPredictions(Ytest, Ypredicted);
+  Prec = tp/(tp + fp);
+  Rec = tp/(tp + fn);
+  Acc = (tp + tn)/(tp + tn + fn + fp);
+  Fscore(i) = 2*Prec*Rec/(Prec + Rec);
+
 endfor
 
-plot(1:trainingSize, Jtraining)
+plot(1:trainingSize, Jtraining, 'color', 'r')
 hold on;
-plot(1:trainingSize, Jtest)
+plot(1:trainingSize, Jtest, 'color', 'k')
 hold off;
 
 
@@ -108,3 +126,5 @@ Prec = tp/(tp + fp)
 Rec = tp/(tp + fn)
 Acc = (tp + tn)/(tp + tn + fn + fp)
 Fscore = 2*Prec*Rec/(Prec + Rec)
+
+
