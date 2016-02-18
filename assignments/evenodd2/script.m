@@ -77,19 +77,34 @@ X = [ones(A, 1), DataNorm, mod(Data, 2)];
 theta_init = unifrnd(-2, 2, 1, size(X, 2));
 
 
-% Set Options
-options = optimset('GradObj', 'on', 'MaxIter', 400);
+Xtraining = X(1:trainingSize, :);
+Ytraining = Y(1:trainingSize);
+Xtest = X((trainingSize+1):(trainingSize + testSize), :);
+Ytest = Y((trainingSize+1):(trainingSize + testSize));
 
-trainingSize = 500; % the number of examples to train on
+
 Jtraining = zeros(1, trainingSize);
+Jtest = zeros(1, trainingSize);
 for i = 1:trainingSize
-  [theta, J, exit_flag] = fminunc(@(Theta)(cost(X(1:i, :), Y(1:i, :), Theta)), theta_init, options);
+  [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta)), theta_init, options);
+  J2 = cost(Xtest, Ytest, theta);
+  Jtest(i) = J2;
   Jtraining(i) = J;
 endfor
 
 plot(1:trainingSize, Jtraining)
+hold on;
+plot(1:trainingSize, Jtest)
+hold off;
 
 
-yPredicted = X * theta' > 0;
-[tp tn fp fn] = classifyPredictions(Y, yPredicted)
+%%% Method precision, recall and accuracy
+printf("theta = ");
+theta
+Ypredicted = Xtest * theta' > 0;
+[tp tn fp fn] = classifyPredictions(Ytest, Ypredicted)
 
+Prec = tp/(tp + fp)
+Rec = tp/(tp + fn)
+Acc = (tp + tn)/(tp + tn + fn + fp)
+Fscore = 2*Prec*Rec/(Prec + Rec)
