@@ -26,27 +26,42 @@ Y = mod(Data, 2);
 
 %%% single-parameter model
 [mu range DataNorm] = normalize(Data);
-X = [ones(size(Data, 1), 1), DataNorm];
+X = [ones(A, 1), DataNorm];
 
+trainingSize = 2000; % the number of examples to train on
+testSize = 500; % the number of test examples
 
 % Training the model
 options = optimset('GradObj', 'on', 'MaxIter', 400);
 theta_init = unifrnd(0, 1, 1, size(X, 2));
 
-trainingSize = 2000; % the number of examples to train on
-Jpool = zeros(1, trainingSize);
-for i = 5:trainingSize
-  [theta, J, exit_flag] = fminunc(@(Theta)(cost(X(1:i, :), Y(1:i, :), Theta)), theta_init, options);
-  Jpool(i) = J;
+Xtraining = X(1:trainingSize, :);
+Ytraining = Y(1:trainingSize);
+Xtest = X((trainingSize+1):(trainingSize + testSize), :);
+Ytest = Y((trainingSize+1):(trainingSize + testSize));
+
+
+Jtraining = zeros(1, trainingSize);
+Jtest = zeros(1, trainingSize);
+for i = 1:trainingSize
+  [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta)), theta_init, options);
+  J2 = cost(Xtest, Ytest, theta);
+  Jtest(i) = J2;
+  Jtraining(i) = J;
 endfor
 
-plot(1:trainingSize, Jpool)
+plot(1:trainingSize, Jtraining)
+hold on;
+plot(1:trainingSize, Jtest)
+
+
+
 
 %%% Method precision, recall and accuracy
 printf("theta = ");
 theta
-yPredicted = X * theta' > 0;
-[tp tn fp fn] = classifyPredictions(Y, yPredicted)
+Ypredicted = Xtest * theta' > 0;
+[tp tn fp fn] = classifyPredictions(Ytest, Ypredicted)
 
 Prec = tp/(tp + fp)
 Rec = tp/(tp + fn)
@@ -64,13 +79,13 @@ theta_init = unifrnd(-2, 2, 1, size(X, 2));
 options = optimset('GradObj', 'on', 'MaxIter', 400);
 
 trainingSize = 500; % the number of examples to train on
-Jpool = zeros(1, trainingSize);
+Jtraining = zeros(1, trainingSize);
 for i = 1:trainingSize
   [theta, J, exit_flag] = fminunc(@(Theta)(cost(X(1:i, :), Y(1:i, :), Theta)), theta_init, options);
-  Jpool(i) = J;
+  Jtraining(i) = J;
 endfor
 
-plot(1:trainingSize, Jpool)
+plot(1:trainingSize, Jtraining)
 
 
 yPredicted = X * theta' > 0;
