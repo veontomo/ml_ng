@@ -115,6 +115,8 @@ hold on;
 plot(1:trainingSize, Jtest, 'color', 'k')
 hold off;
 
+plot(1:trainingSize, Fscore, 'color', 'b')
+
 
 %%% Method precision, recall and accuracy
 printf("theta = ");
