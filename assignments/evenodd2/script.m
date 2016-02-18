@@ -24,12 +24,14 @@ endfor;
 
 Y = mod(Data, 2);
 
-%%% single-parameter model
-[mu range DataNorm] = normalize(Data);
-X = [ones(A, 1), DataNorm];
 
+[mu range DataNorm] = normalize(Data);
 trainingSize = 2000; % the number of examples to train on
 testSize = 500; % the number of test examples
+
+
+%%% single-parameter model
+X = [ones(A, 1), DataNorm];
 
 % Training the model
 options = optimset('GradObj', 'on', 'MaxIter', 400);
@@ -71,7 +73,7 @@ Fscore = 2*Prec*Rec/(Prec + Rec)
 
 
 %%%%%%%%%%%%% another model
-X = [ones(size(Data, 1), 1), DataNorm, mod(Data, 2)];
+X = [ones(A, 1), DataNorm, mod(Data, 2)];
 theta_init = unifrnd(-2, 2, 1, size(X, 2));
 
 
