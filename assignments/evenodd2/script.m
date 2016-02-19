@@ -47,8 +47,8 @@ Jtraining = zeros(1, trainingSize);
 Jtest = zeros(1, trainingSize);
 Fscore = zeros(1, trainingSize);
 for i = 1:trainingSize
-  [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta)), theta_init, options);
-  J2 = cost(Xtest, Ytest, theta);
+  [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta, 0)), theta_init, options);
+  J2 = cost(Xtest, Ytest, theta, 0);
   Jtest(i) = J2;
   Jtraining(i) = J;
   
@@ -97,8 +97,8 @@ Jtraining = zeros(1, trainingSize);
 Jtest = zeros(1, trainingSize);
 Fscore = zeros(1, trainingSize);
 for i = 1:trainingSize
-  [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta)), theta_init, options);
-  J2 = cost(Xtest, Ytest, theta);
+  [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta, 0)), theta_init, options);
+  J2 = cost(Xtest, Ytest, theta, 0);
   Jtest(i) = J2;
   Jtraining(i) = J;
   Ypredicted = Xtest * theta' > 0;
@@ -128,5 +128,6 @@ Prec = tp/(tp + fp)
 Rec = tp/(tp + fn)
 Acc = (tp + tn)/(tp + tn + fn + fp)
 Fscore = 2*Prec*Rec/(Prec + Rec)
+
 
 
