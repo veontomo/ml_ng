@@ -33,82 +33,28 @@ testSize = 100; % the number of test examples
 %%% single-parameter model
 X = [ones(A, 1), DataNorm];
 
-% Training the model
-
+%%% Training the model
 displayFlow(X, Y, trainingSize, testSize, 0);
-
-options = optimset('GradObj', 'on', 'MaxIter', 400);
-theta_init = unifrnd(0, 1, 1, size(X, 2));
-
-Xtraining = X(1:trainingSize, :);
-Ytraining = Y(1:trainingSize);
-Xtest = X((trainingSize+1):(trainingSize + testSize), :);
-Ytest = Y((trainingSize+1):(trainingSize + testSize));
-
-
-Jtraining = zeros(1, trainingSize);
-Jtest = zeros(1, trainingSize);
-Fscore = zeros(1, trainingSize);
-
-
-for i = 1:trainingSize
-  [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta, 10)), theta_init, options);
-  J2 = cost(Xtest, Ytest, theta, 0);
-  Jtest(i) = J2;
-  Jtraining(i) = J;
-  %% Method precision, recall and accuracy
-  Ypredicted = Xtest * theta' > 0;
-  [tp tn fp fn] = classifyPredictions(Ytest, Ypredicted);
-  Prec = tp/(tp + fp);
-  Rec = tp/(tp + fn);
-  Acc = (tp + tn)/(tp + tn + fn + fp);
-  Fscore(i) = 2*Prec*Rec/(Prec + Rec);
-endfor
-subplot (2, 1, 1)
-hold on;
-plot(1:trainingSize, Jtraining, 'color', 'r')
-plot(1:trainingSize, Jtest, 'color', 'k')
-hold off;
-subplot (2, 1, 2)
-plot(1:trainingSize, Fscore, 'color', 'b')
-
-
+displayFlow(X, Y, trainingSize, testSize, 10);
 
 %%%%%%%%%%%%% another model
 X = [ones(A, 1), DataNorm, mod(Data, 2)];
-theta_init = unifrnd(-2, 2, 1, size(X, 2));
+displayFlow(X, Y, trainingSize, testSize, 0);
 
 
-Xtraining = X(1:trainingSize, :);
+%%%%  selecting lambda
+options = optimset('GradObj', 'on', 'MaxIter', 400);
+Xtraining = X(1:trainingSize, :)
 Ytraining = Y(1:trainingSize);
 Xtest = X((trainingSize+1):(trainingSize + testSize), :);
 Ytest = Y((trainingSize+1):(trainingSize + testSize));
-
-
-Jtraining = zeros(1, trainingSize);
-Jtest = zeros(1, trainingSize);
-Fscore = zeros(1, trainingSize);
-for i = 1:trainingSize
-  [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta, 3)), theta_init, options);
-  J2 = cost(Xtest, Ytest, theta, 0);
-  Jtest(i) = J2;
-  Jtraining(i) = J;
-  %% Method precision, recall and accuracy
-  Ypredicted = Xtest * theta' > 0;
-  [tp tn fp fn] = classifyPredictions(Ytest, Ypredicted);
-  Prec = tp/(tp + fp);
-  Rec = tp/(tp + fn);
-  Acc = (tp + tn)/(tp + tn + fn + fp);
-  Fscore(i) = 2*Prec*Rec/(Prec + Rec);
-
-endfor
-
-subplot (2, 1, 1)
-hold on;
-plot(1:trainingSize, Jtraining, 'color', 'r')
-plot(1:trainingSize, Jtest, 'color', 'k')
-hold off;
-subplot (2, 1, 2)
-plot(1:trainingSize, Fscore, 'color', 'b')
-
-
+theta_init = unifrnd(0, 1, 1, size(Xtraining, 2));
+lambdaPool = 0:50:1000
+Jlambda = zeros(size(lambdaPool));
+for i = 1: size(lambdaPool, 2)
+  lambda = lambdaPool(1, i);
+  [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining, Ytraining, Theta, lambda)), theta_init, options);    
+  J2 = cost(Xtest, Ytest, theta, lambda);
+  Jlambda(i) = J2;
+endfor;
+plot(lambdaPool, Jlambda, 'color', 'k')

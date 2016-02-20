@@ -16,10 +16,12 @@ function [J theta] = displayFlow(X, Y, trainingSize, testSize, lambda)
     %% Method precision, recall and accuracy
     Ypredicted = Xtest * theta' > 0;
     [tp tn fp fn] = classifyPredictions(Ytest, Ypredicted);
-    Prec = tp/(tp + fp);
-    Rec = tp/(tp + fn);
-    % Acc = (tp + tn)/(tp + tn + fn + fp);
-    Fscore(i) = 2*Prec*Rec/(Prec + Rec);
+    if !(tp == 0 & (fp == 0 | fn == 0))
+      Prec = tp/(tp + fp);
+      Rec = tp/(tp + fn);
+      % Acc = (tp + tn)/(tp + tn + fn + fp);
+      Fscore(i) = 2*Prec*Rec/(Prec + Rec);
+    endif
   endfor
   subplot (2, 1, 1)
   hold on;
