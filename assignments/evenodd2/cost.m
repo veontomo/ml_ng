@@ -3,7 +3,7 @@ function [J grad] = cost(X, Y, Theta, lambda)
   m = size(X, 1);
   %J = (- Y' * log(h) - (1 - Y)' * log(1-h))/m
   ThetaWithoutFirst = Theta(2:end);
-  J = -sum(log(h(find(Y==1)))) - sum(log(1-h(find(Y==0)))) + lambda/2 * ThetaWithoutFirst' * ThetaWithoutFirst;
+  J = -sum(log(h(find(Y==1)))) - sum(log(1-h(find(Y==0)))) + lambda/2 * ThetaWithoutFirst * ThetaWithoutFirst';
   J = J/m;
-  grad = (h - Y)' * X/m + lambda/m * ThetaWithoutFirst';
+  grad = (h - Y)' * X/m + lambda/m * [0 ThetaWithoutFirst];
 end

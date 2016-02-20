@@ -1,7 +1,7 @@
 %%% Generate training examples
 %%% The training set consists of pair-wise different integer numbers
 clc;clear;
-A = 4000; % the number of the training examples
+A = 1000; % the number of the training examples
 Data = zeros(A, 1);
 maxLoopIter = 3;  % the maximal number of iterations to pick up a random 
                   % integer number before widening the range
@@ -26,8 +26,8 @@ Y = mod(Data, 2);
 
 
 [mu range DataNorm] = normalize(Data);
-trainingSize = 2000; % the number of examples to train on
-testSize = 500; % the number of test examples
+trainingSize = 500; % the number of examples to train on
+testSize = 100; % the number of test examples
 
 
 %%% single-parameter model
@@ -51,7 +51,7 @@ for i = 1:trainingSize
   J2 = cost(Xtest, Ytest, theta, 0);
   Jtest(i) = J2;
   Jtraining(i) = J;
-  
+  %% Method precision, recall and accuracy
   Ypredicted = Xtest * theta' > 0;
   [tp tn fp fn] = classifyPredictions(Ytest, Ypredicted);
   Prec = tp/(tp + fp);
@@ -67,18 +67,6 @@ plot(1:trainingSize, Jtest, 'color', 'k')
 hold off;
 
 plot(1:trainingSize, Fscore, 'color', 'b')
-
-
-%%% Method precision, recall and accuracy
-printf("theta = ");
-theta
-Ypredicted = Xtest * theta' > 0;
-[tp tn fp fn] = classifyPredictions(Ytest, Ypredicted)
-
-Prec = tp/(tp + fp)
-Rec = tp/(tp + fn)
-Acc = (tp + tn)/(tp + tn + fn + fp)
-Fscore = 2*Prec*Rec/(Prec + Rec)
 
 
 
@@ -101,6 +89,7 @@ for i = 1:trainingSize
   J2 = cost(Xtest, Ytest, theta, 0);
   Jtest(i) = J2;
   Jtraining(i) = J;
+  %% Method precision, recall and accuracy
   Ypredicted = Xtest * theta' > 0;
   [tp tn fp fn] = classifyPredictions(Ytest, Ypredicted);
   Prec = tp/(tp + fp);
@@ -116,18 +105,6 @@ plot(1:trainingSize, Jtest, 'color', 'k')
 hold off;
 
 plot(1:trainingSize, Fscore, 'color', 'b')
-
-
-%%% Method precision, recall and accuracy
-printf("theta = ");
-theta
-Ypredicted = Xtest * theta' > 0;
-[tp tn fp fn] = classifyPredictions(Ytest, Ypredicted)
-
-Prec = tp/(tp + fp)
-Rec = tp/(tp + fn)
-Acc = (tp + tn)/(tp + tn + fn + fp)
-Fscore = 2*Prec*Rec/(Prec + Rec)
 
 
 
