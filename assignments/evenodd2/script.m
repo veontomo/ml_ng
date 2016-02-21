@@ -34,22 +34,26 @@ testSize = 100; % the number of test examples
 X = [ones(A, 1), DataNorm];
 
 %%% Training the model
-displayFlow(X, Y, trainingSize, testSize, 0);
-displayFlow(X, Y, trainingSize, testSize, 10);
+[Jtraining Jtest Fscore theta] = profileWRTInputSize(X, Y, trainingSize, testSize, 0);
+displayFlow(Jtraining, Jtest, Fscore);
+
+[Jtraining Jtest Fscore theta] = profileWRTInputSize(X, Y, trainingSize, testSize, 10);
+displayFlow(Jtraining, Jtest, Fscore);
 
 %%%%%%%%%%%%% another model
 X = [ones(A, 1), DataNorm, mod(Data, 2)];
-displayFlow(X, Y, trainingSize, testSize, 0);
+[Jtraining Jtest Fscore theta] = profileWRTInputSize(X, Y, trainingSize, testSize, 0);
+displayFlow(Jtraining, Jtest, Fscore);
 
 
 %%%%  selecting lambda
 options = optimset('GradObj', 'on', 'MaxIter', 400);
-Xtraining = X(1:trainingSize, :)
+Xtraining = X(1:trainingSize, :);
 Ytraining = Y(1:trainingSize);
 Xtest = X((trainingSize+1):(trainingSize + testSize), :);
 Ytest = Y((trainingSize+1):(trainingSize + testSize));
 theta_init = unifrnd(0, 1, 1, size(Xtraining, 2));
-lambdaPool = 0:50:1000
+lambdaPool = 0:50:2000
 Jlambda = zeros(size(lambdaPool));
 for i = 1: size(lambdaPool, 2)
   lambda = lambdaPool(1, i);
