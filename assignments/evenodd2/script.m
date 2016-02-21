@@ -53,7 +53,7 @@ Ytraining = Y(1:trainingSize);
 Xtest = X((trainingSize+1):(trainingSize + testSize), :);
 Ytest = Y((trainingSize+1):(trainingSize + testSize));
 theta_init = unifrnd(0, 1, 1, size(Xtraining, 2));
-lambdaPool = 0:50:2000
+lambdaPool = 0:10:1000;
 Jlambda = zeros(size(lambdaPool));
 for i = 1: size(lambdaPool, 2)
   lambda = lambdaPool(1, i);
@@ -62,3 +62,6 @@ for i = 1: size(lambdaPool, 2)
   Jlambda(i) = J2;
 endfor;
 plot(lambdaPool, Jlambda, 'color', 'k')
+xlabel("lambda");
+ylabel("cost function");
+
