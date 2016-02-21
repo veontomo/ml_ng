@@ -33,13 +33,10 @@ function [Jtraining Jtest Fscore theta] = profileWRTInputSize(X, Y, trainingSize
     %% Method precision, recall and accuracy
     Ypredicted = Xtest * theta' > 0;
     [tp tn fp fn] = classifyPredictions(Ytest, Ypredicted);
-    printf("[tp tn fp fn] = ");
-    printf("%u ", [tp tn fp fn]);
-    printf("\n");
     if !(tp == 0 & (fp == 0 | fn == 0))
       Prec = tp/(tp + fp);
       Rec = tp/(tp + fn);
-      % Acc = (tp + tn)/(tp + tn + fn + fp);
+      % avoid division-by-zero error
       if (Prec * Rec == 0) 
         Fscore(i) = 0;
       else 
