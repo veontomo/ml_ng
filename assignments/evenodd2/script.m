@@ -1,7 +1,7 @@
 %%% Generate training examples
 %%% The training set consists of pair-wise different integer numbers
 clc;clear;
-A = 10000; % the number of the training examples
+A = 10; % the number of the training examples
 Data = zeros(A, 1);
 maxLoopIter = 3;  % the maximal number of iterations to pick up a random 
                   % integer number before widening the range
@@ -26,8 +26,8 @@ Y = mod(Data, 2);
 
 
 [mu range DataNorm] = normalize(Data);
-trainingSize = 1000; % the number of examples to train on
-testSize = 200; % the number of test examples
+trainingSize = 6; % the number of examples to train on
+testSize = 2; % the number of test examples
 
 
 %%% single-parameter model
