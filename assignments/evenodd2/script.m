@@ -1,7 +1,7 @@
 %%% Generate training examples
 %%% The training set consists of pair-wise different integer numbers
 clc;clear;
-A = 10; % the number of the training examples
+A = 200; % the number of the training examples
 Data = zeros(A, 1);
 maxLoopIter = 3;  % the maximal number of iterations to pick up a random 
                   % integer number before widening the range
@@ -22,7 +22,8 @@ for i=1:A
   Data(i) = tmp;
 endfor;
 
-Y = mod(Data, 2);
+%%% Create outputs
+Y = arrayfun(@(x) mod(x, 5) == 3, Data);
 
 
 [mu range DataNorm] = normalize(Data);
