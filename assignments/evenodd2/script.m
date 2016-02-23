@@ -1,7 +1,7 @@
 %%% Generate training examples
 %%% The training set consists of pair-wise different integer numbers
 clc;clear;
-A = 4000; % the number of the training examples
+A = 10000; % the number of the training examples
 Data = zeros(A, 1);
 maxLoopIter = 3;  % the maximal number of iterations to pick up a random 
                   % integer number before widening the range
@@ -26,108 +26,44 @@ Y = mod(Data, 2);
 
 
 [mu range DataNorm] = normalize(Data);
-trainingSize = 2000; % the number of examples to train on
-testSize = 500; % the number of test examples
+trainingSize = 1000; % the number of examples to train on
+testSize = 200; % the number of test examples
 
 
 %%% single-parameter model
 X = [ones(A, 1), DataNorm];
 
-% Training the model
-options = optimset('GradObj', 'on', 'MaxIter', 400);
-theta_init = unifrnd(0, 1, 1, size(X, 2));
+%%% Training the model
+[Jtraining Jtest Fscore theta] = profileWRTInputSize(X, Y, trainingSize, testSize, 0);
+displayFlow(Jtraining, Jtest, Fscore);
 
-Xtraining = X(1:trainingSize, :);
-Ytraining = Y(1:trainingSize);
-Xtest = X((trainingSize+1):(trainingSize + testSize), :);
-Ytest = Y((trainingSize+1):(trainingSize + testSize));
-
-
-Jtraining = zeros(1, trainingSize);
-Jtest = zeros(1, trainingSize);
-Fscore = zeros(1, trainingSize);
-for i = 1:trainingSize
-  [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta, 0)), theta_init, options);
-  J2 = cost(Xtest, Ytest, theta, 0);
-  Jtest(i) = J2;
-  Jtraining(i) = J;
-  
-  Ypredicted = Xtest * theta' > 0;
-  [tp tn fp fn] = classifyPredictions(Ytest, Ypredicted);
-  Prec = tp/(tp + fp);
-  Rec = tp/(tp + fn);
-  Acc = (tp + tn)/(tp + tn + fn + fp);
-  Fscore(i) = 2*Prec*Rec/(Prec + Rec);
-  
-endfor
-
-plot(1:trainingSize, Jtraining, 'color', 'r')
-hold on;
-plot(1:trainingSize, Jtest, 'color', 'k')
-hold off;
-
-plot(1:trainingSize, Fscore, 'color', 'b')
-
-
-%%% Method precision, recall and accuracy
-printf("theta = ");
-theta
-Ypredicted = Xtest * theta' > 0;
-[tp tn fp fn] = classifyPredictions(Ytest, Ypredicted)
-
-Prec = tp/(tp + fp)
-Rec = tp/(tp + fn)
-Acc = (tp + tn)/(tp + tn + fn + fp)
-Fscore = 2*Prec*Rec/(Prec + Rec)
-
-
+[Jtraining Jtest Fscore theta] = profileWRTInputSize(X, Y, trainingSize, testSize, 10);
+displayFlow(Jtraining, Jtest, Fscore);
 
 %%%%%%%%%%%%% another model
-X = [ones(A, 1), DataNorm, mod(Data, 4)];
-theta_init = unifrnd(-2, 2, 1, size(X, 2));
+X = [ones(A, 1), DataNorm, mod(Data, 2)];
+[Jtraining Jtest Fscore theta] = profileWRTInputSize(X, Y, trainingSize, testSize, 0);
+displayFlow(Jtraining, Jtest, Fscore);
 
 
+%%%%  selecting lambda
+options = optimset('GradObj', 'on', 'MaxIter', 400);
 Xtraining = X(1:trainingSize, :);
 Ytraining = Y(1:trainingSize);
 Xtest = X((trainingSize+1):(trainingSize + testSize), :);
 Ytest = Y((trainingSize+1):(trainingSize + testSize));
-
-
-Jtraining = zeros(1, trainingSize);
-Jtest = zeros(1, trainingSize);
-Fscore = zeros(1, trainingSize);
-for i = 1:trainingSize
-  [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta, 0)), theta_init, options);
-  J2 = cost(Xtest, Ytest, theta, 0);
-  Jtest(i) = J2;
-  Jtraining(i) = J;
-  Ypredicted = Xtest * theta' > 0;
-  [tp tn fp fn] = classifyPredictions(Ytest, Ypredicted);
-  Prec = tp/(tp + fp);
-  Rec = tp/(tp + fn);
-  Acc = (tp + tn)/(tp + tn + fn + fp);
-  Fscore(i) = 2*Prec*Rec/(Prec + Rec);
-
-endfor
-
-plot(1:trainingSize, Jtraining, 'color', 'r')
-hold on;
-plot(1:trainingSize, Jtest, 'color', 'k')
-hold off;
-
-plot(1:trainingSize, Fscore, 'color', 'b')
-
-
-%%% Method precision, recall and accuracy
-printf("theta = ");
-theta
-Ypredicted = Xtest * theta' > 0;
-[tp tn fp fn] = classifyPredictions(Ytest, Ypredicted)
-
-Prec = tp/(tp + fp)
-Rec = tp/(tp + fn)
-Acc = (tp + tn)/(tp + tn + fn + fp)
-Fscore = 2*Prec*Rec/(Prec + Rec)
+theta_init = unifrnd(0, 1, 1, size(Xtraining, 2));
+lambdaPool = 0:10:1000;
+Jlambda = zeros(size(lambdaPool));
+for i = 1: size(lambdaPool, 2)
+  lambda = lambdaPool(1, i);
+  [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining, Ytraining, Theta, lambda)), theta_init, options);    
+  J2 = cost(Xtest, Ytest, theta, lambda);
+  Jlambda(i) = J2;
+endfor;
+plot(lambdaPool, Jlambda, 'color', 'k')
+xlabel("lambda");
+ylabel("cost function");
 
 
 
