@@ -27,12 +27,12 @@ Y = arrayfun(@(x) mod(x, 2), Data);
 
 
 [mu range DataNorm] = normalize(Data);
-trainingSize = 100; % the number of examples to train on
-testSize = 20; % the number of test examples
+trainingSize = 6; % the number of examples to train on
+testSize = 2; % the number of test examples
 
 
 %%% single-parameter model
-X = [ones(A, 1), DataNorm];
+X = [ones(DataNorm, 1), DataNorm];
 
 %%% Training the model
 [Jtraining Jtest Fscore theta] = profileWRTInputSize(X, Y, trainingSize, testSize, 0);

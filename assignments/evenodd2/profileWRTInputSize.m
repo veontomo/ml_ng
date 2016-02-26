@@ -35,16 +35,6 @@ function [Jtraining Jtest Fscore theta] = profileWRTInputSize(X, Y, trainingSize
     %% Method precision, recall and accuracy
     Ypredicted = Xtest * theta1' > 0;
     [tp tn fp fn] = classifyPredictions(Ytest, Ypredicted);
-    if !(tp == 0 & (fp == 0 | fn == 0))
-      Prec = tp/(tp + fp);
-      Rec = tp/(tp + fn);
-      % avoid division-by-zero error
-      if (Prec * Rec == 0) 
-        Fscore(i) = 0;
-      else 
-        Fscore(i) = 2*Prec*Rec/(Prec + Rec); 
-      endif;
-      
-    endif
+    Fscore(i) = calculateF1score(tp, tn, fp, fn);
   endfor
 end
