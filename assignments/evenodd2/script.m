@@ -1,7 +1,7 @@
 %%% Generate training examples
 %%% The training set consists of pair-wise different integer numbers
 clc;clear;
-A = 1000; % the number of the training examples
+A = 500; % the number of the training examples
 Data = zeros(A, 1);
 maxLoopIter = 3;  % the maximal number of iterations to pick up a random 
                   % integer number before widening the range
@@ -27,12 +27,12 @@ Y = arrayfun(@(x) mod(x, 2), Data);
 
 
 [mu range DataNorm] = normalize(Data);
-trainingSize = 6; % the number of examples to train on
-testSize = 2; % the number of test examples
+trainingSize = floor(0.8*A); % the number of examples to train on
+testSize = A - trainingSize; % the number of test examples
 
 
 %%% single-parameter model
-X = [ones(DataNorm, 1), DataNorm];
+X = [ones(size(DataNorm, 1), 1), DataNorm];
 
 %%% Training the model
 [Jtraining Jtest Fscore theta] = profileWRTInputSize(X, Y, trainingSize, testSize, 0);
@@ -42,7 +42,7 @@ displayFlow(Jtraining, Jtest, Fscore);
 displayFlow(Jtraining, Jtest, Fscore);
 
 %%%%%%%%%%%%% another model
-X = [ones(A, 1), DataNorm, mod(Data, 2)];
+X = [ones(size(DataNorm, 1), 1), DataNorm, mod(Data, 2)];
 [Jtraining Jtest Fscore theta] = profileWRTInputSize(X, Y, trainingSize, testSize, 0);
 displayFlow(Jtraining, Jtest, Fscore);
 

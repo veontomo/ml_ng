@@ -32,7 +32,7 @@ function [Jtraining Jtest Fscore theta] = profileWRTInputSize(X, Y, trainingSize
     Jtest(i) = J2;
     Jtraining(i) = J;
     theta(i, :) = theta1;
-    %% Method precision, recall and accuracy
+    %% Method precision, recall 
     Ypredicted = Xtest * theta1' > 0;
     [tp tn fp fn] = classifyPredictions(Ytest, Ypredicted);
     Fscore(i) = calculateF1score(tp, tn, fp, fn);
