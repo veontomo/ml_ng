@@ -23,7 +23,7 @@ for i=1:A
 endfor;
 
 %%% Create outputs
-Y = arrayfun(@(x) mod(x, 5) == 3, Data);
+Y = arrayfun(@(x) mod(x, 2), Data);
 
 
 [mu range DataNorm] = normalize(Data);
