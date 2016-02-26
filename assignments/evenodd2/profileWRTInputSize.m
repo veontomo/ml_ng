@@ -18,18 +18,20 @@
 function [Jtraining Jtest Fscore theta] = profileWRTInputSize(X, Y, trainingSize, testSize, lambda)
   Xtraining = X(1:trainingSize, :);
   Ytraining = Y(1:trainingSize);
+  theta = zeros(trainingSize, size(X, 2));
   Xtest = X((trainingSize+1):(trainingSize + testSize), :);
   Ytest = Y((trainingSize+1):(trainingSize + testSize));
   Jtraining = zeros(1, trainingSize);
   Jtest = zeros(1, trainingSize);
   Fscore = zeros(1, trainingSize);
-  options = optimset('GradObj', 'on', 'MaxIter', 400);
+  options = optimset('GradObj', 'on', 'MaxIter', 1000);
   theta_init = unifrnd(0, 1, 1, size(Xtraining, 2));
   for i = 1:trainingSize
-    [theta, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta, lambda)), theta_init, options);
-    J2 = cost(Xtest, Ytest, theta, 0);
+    [theta1, J, exit_flag] = fminunc(@(Theta)(cost(Xtraining(1:i, :), Ytraining(1:i, :), Theta, lambda)), theta_init, options);
+    J2 = cost(Xtest, Ytest, theta1, 0);
     Jtest(i) = J2;
     Jtraining(i) = J;
+    theta(i, :) = theta1;
     %% Method precision, recall and accuracy
     Ypredicted = Xtest * theta' > 0;
     [tp tn fp fn] = classifyPredictions(Ytest, Ypredicted);
