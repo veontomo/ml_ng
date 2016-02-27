@@ -72,5 +72,7 @@ plot(lambdaPool, Jlambda, 'color', 'k')
 xlabel("lambda");
 ylabel("cost function");
 
+[J theta] = neural([10 5 4 2], X, Y)
+
 
 
