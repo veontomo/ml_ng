@@ -8,12 +8,12 @@
 %% layers - list of units in each layer.
 function [J grad] = neuralCost(X, Y, theta, layers)
   %% # units in the previous layer
-  prevLayerSize = 0;
+  prevLayerSize = layers(1)
   %% # weights that have already been taken into consideration
   counter = 0;
-  for layerSize = layers
+  for layerSize = layers(2:end)
     length = (prevLayerSize + 1) * layerSize
-    thetaTmp = reshape(theta((counter+1):(counter + length)), prevLayerSize + 1, layerSize)
+    thetaTmp = reshape(theta((counter+1):(counter + length)), prevLayerSize + 1, layerSize)'
     fprintf("layer size: %2u", layerSize);
     counter = counter + length;
     prevLayerSize = layerSize;
