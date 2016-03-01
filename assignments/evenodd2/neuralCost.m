@@ -36,7 +36,7 @@ function [J grad] = neuralCost(X, Y, weights, layers)
       counter = counter + length;
       prevLayerSize = layerSize;
     endfor
-    %% insert activations for each unit of the output layer
+    %% append what the output units produce
     Yproduced = [Yproduced; A(2:end)'];
   endfor;
   J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced))/size(Y, 1);
