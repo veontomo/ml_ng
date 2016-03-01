@@ -17,7 +17,9 @@ function [J grad] = neuralCost(X, Y, weights, layers)
   if (requiredWeightNum != weightsSize) 
     printf("Warning: the network should have %u weights, while %u are given.\n", requiredWeightNum, weightsSize);
   endif;
-  J = [];
+  %% output produced by the network
+  Yproduced = [];
+  J = 0;
   %% for-loop iterates over the columns, while training examples 
   %% are arranged in rows. This is the reason for the transposition operation.
   for x = X'
@@ -35,6 +37,7 @@ function [J grad] = neuralCost(X, Y, weights, layers)
       prevLayerSize = layerSize;
     endfor
     %% insert activations for each unit of the output layer
-    J = [J; A(2:end)'];
+    Yproduced = [Yproduced; A(2:end)'];
   endfor;
+  J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced))/size(Y, 1);
 end
