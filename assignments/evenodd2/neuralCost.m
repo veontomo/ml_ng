@@ -25,6 +25,6 @@ function [J grad] = neuralCost(X, Y, weights, layers)
       prevLayerSize = layerSize;
     endfor
     %% insert activations for each unit of the output layer
-    J = [J; A(2:end)]
+    J = [J; A(2:end)'];
   endfor;
 end
