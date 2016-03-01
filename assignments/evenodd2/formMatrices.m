@@ -26,7 +26,7 @@ function c = formMatrices(weights, architecture)
   %% # weights that have already been taken into consideration
   counter = 0;
   for layer = 2:layersNum
-    layerSize = architecture(layer)
+    layerSize = architecture(layer);
     length = (prevLayerSize + 1) * layerSize;
     c(1, layer - 1) = reshape(weights((counter+1):(counter + length)), prevLayerSize + 1, layerSize)';
     counter = counter + length;

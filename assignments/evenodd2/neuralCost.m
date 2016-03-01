@@ -10,34 +10,20 @@
 %% layers - row vector that defines the network architecture. Its elements are 
 %%         the number of units in corresponding layers.
 function [J grad] = neuralCost(X, Y, weights, layers)
-  %% calculates the number of all weights that a neural network with a given
-  %% architecture should have
-  requiredWeightNum = layers(2:end) * (1 + layers(1:end-1))';
-  weightsSize = size(weights, 2);
-  if (requiredWeightNum != weightsSize) 
-    printf("Warning: the network should have %u weights, while %u are given.\n", requiredWeightNum, weightsSize);
-  endif;
-  %% output produced by the network
+  %% restore the weight matrices from the row vector
+  weightsMatrices = formMatrices(weights, layers);
   Yproduced = [];
   J = 0;
-  %% for-loop iterates over the columns, while training examples 
-  %% are arranged in rows. This is the reason for the transposition operation.
-  for x = X'
-    %% # units in the previous layer
+  inputNum = size(X, 1);
+  layerNum = size(layers, 2);
+  for i = 1:inputNum
     prevLayerSize = layers(1);
-    A = [1; x];
-    %% # weights that have already been taken into consideration
-    counter = 0;
-    for layerSize = layers(2:end)
-      length = (prevLayerSize + 1) * layerSize;
-      layerWeights = reshape(weights((counter+1):(counter + length)), prevLayerSize + 1, layerSize)';
-      Z = layerWeights * A;
+    A = [1; X(i, :)']; %% a column
+    for j = 2:layerNum
+      Z = weightsMatrices{1, j-1} * A; 
       A = [1; sigmoid(Z)];
-      counter = counter + length;
-      prevLayerSize = layerSize;
     endfor
-    %% append what the output units produce
     Yproduced = [Yproduced; A(2:end)'];
-  endfor;
-  J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced))/size(Y, 1);
+  endfor
+  J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced))/inputNum;
 end
