@@ -26,5 +26,5 @@ function [J grad] = neuralCost(X, Y, weights, layers)
     Yproduced = [Yproduced; A(2:end)'];
   endfor
   J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced))/inputNum;
-  grad = zeros(size(weights));
+  gradTmp = (Yproduced - Y)
 end
