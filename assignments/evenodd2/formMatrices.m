@@ -11,7 +11,9 @@
 %%     c{1, 2} is a a3x(a2+1) matrix
 %%     ...
 %%     c{1, L-1} is a aLx(a(L-1) + 1) matrix
-function c = formMatrices(weights, architecture)
+%% s - column vector containing the total number of elements in the above cell
+%%     array
+function [c s] = formMatrices(weights, architecture)
   %% calculates the number of all weights that a neural network with a given
   %% architecture should have
   requiredWeightNum = architecture(2:end) * (1 + architecture(1:end-1))';
@@ -21,6 +23,7 @@ function c = formMatrices(weights, architecture)
   endif;
   layersNum = size(architecture, 2);
   c = cell(1, layersNum - 1);
+  s = zeros(1, layersNum - 1);
   %% # units in the previous layer
   prevLayerSize = architecture(1);
   %% # weights that have already been taken into consideration
@@ -28,6 +31,7 @@ function c = formMatrices(weights, architecture)
   for layer = 2:layersNum
     layerSize = architecture(layer);
     length = (prevLayerSize + 1) * layerSize;
+    s(layer - 1) = length;
     c(1, layer - 1) = reshape(weights((counter+1):(counter + length)), prevLayerSize + 1, layerSize)';
     counter = counter + length;
     prevLayerSize = layerSize;

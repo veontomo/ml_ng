@@ -11,7 +11,7 @@
 %%         the number of units in corresponding layers.
 function [J grad] = neuralCost(X, Y, weights, layers)
   %% restore the weight matrices from the row vector
-  weightsMatrices = formMatrices(weights, layers);
+  [weightsMatrices lengths] = formMatrices(weights, layers);
   Yproduced = [];
   J = 0;
   inputNum = size(X, 1);
@@ -26,4 +26,5 @@ function [J grad] = neuralCost(X, Y, weights, layers)
     Yproduced = [Yproduced; A(2:end)'];
   endfor
   J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced))/inputNum;
+  grad = zeros(size(weights));
 end
