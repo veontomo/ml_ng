@@ -12,11 +12,17 @@
 function [J grad] = neuralCost(X, Y, weights, layers)
   %% restore the weight matrices from the row vector
   [weightsMatrices lengths] = formMatrices(weights, layers);
+  %% initialize the set of gradient matrices
+  gradientMatrices = cell(size(weightsMatrices));
+  for i = 1:size(weightsMatrices, 2)
+    gradientMatrices(1, i) = zeros(size(weightsMatrices{1, i}));
+  endfor;
   Yproduced = [];
   J = 0;
   inputNum = size(X, 1);
   layerNum = size(layers, 2);
   for i = 1:inputNum
+    %% feedforward 
     prevLayerSize = layers(1);
     A = [1; X(i, :)']; %% it is a column
     for j = 2:layerNum
@@ -24,6 +30,7 @@ function [J grad] = neuralCost(X, Y, weights, layers)
       A = [1; sigmoid(Z)];
     endfor
     Yproduced = [Yproduced; A(2:end)'];
+    %% backpropagation
   endfor
   J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced))/inputNum;
   gradTmp = (Yproduced - Y)
