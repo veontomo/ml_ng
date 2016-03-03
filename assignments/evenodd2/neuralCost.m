@@ -24,7 +24,7 @@ function [J grad] = neuralCost(X, Y, weights, layers)
   inputNum = size(X, 1);
   layerNum = size(layers, 2);
   for i = 1:inputNum
-    %% feedforward 
+    %% feedforward: calculate the activations
     prevLayerSize = layers(1);
     A(1, 1) = [1; X(i, :)']; %% it is a column
     for j = 2:layerNum
@@ -32,7 +32,10 @@ function [J grad] = neuralCost(X, Y, weights, layers)
       A(1,j) = [1; sigmoid(Z)];
     endfor
     Yproduced = [Yproduced; A{1, layerNum}(2:end)'];
-    %% backpropagation
+    %% backpropagation: calculate the derivatives of the cost function w.r.t. weights
+    for j = (layerNum-1):-1:1
+    endfor;
+    
   endfor
   J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced))/inputNum;
   gradTmp = (Yproduced - Y)
