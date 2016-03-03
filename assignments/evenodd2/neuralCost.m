@@ -33,9 +33,9 @@ function [J grad] = neuralCost(X, Y, weights, layers)
     endfor
     Yproduced = [Yproduced; A{1, layerNum}(2:end)'];
     %% backpropagation: calculate the derivatives of the cost function w.r.t. weights
-    delta = A{1, layerNum}(2:end)' - Y(a, :);
+    delta = A{1, layerNum}(2:end)' - Y(a, :); %% it is a row vector
     for j = (layerNum-1):-1:1
-      j
+      tmp = delta * A{1, j};
     endfor;
     
   endfor
