@@ -10,23 +10,28 @@
 %% layers - row vector that defines the network architecture. Its elements are 
 %%         the number of units in corresponding layers.
 function [J grad] = neuralCost(X, Y, weights, layers)
+  inputNum = size(X, 1);
+  layerNum = size(layers, 2);
   %% restore the weight matrices from the row vector
   [weightsMatrices lengths] = formMatrices(weights, layers);
   %% set of activations for every layer
-  A = cell(size(layers));
+  A = cell(1, layerNum);
   %% initialize the set of gradient matrices
   gradientMatrices = cell(size(weightsMatrices));
-  %% recursive object
-  Q = cell(size(weightsMatrices));
   for i = 1:size(weightsMatrices, 2)
     gradientMatrices(1, i) = zeros(size(weightsMatrices{1, i}));
-    Q(1, i) = zeros(1, layers(i+1));
+  endfor;
+
+  %% Set of Q-vectors. 
+  %% The number of Q-vectors is equal to the total number of the network 
+  %% layers minus 2.
+  Q = cell(1, layerNum - 2);
+  for k = 1:(layerNum - 2)
+    Q(1, k) = zeros(1, layers(k+1));
   endfor;
   Q
   Yproduced = [];
   J = 0;
-  inputNum = size(X, 1);
-  layerNum = size(layers, 2);
   for a = 1:inputNum
     %% feedforward: calculate the activations
     prevLayerSize = layers(1);
@@ -38,8 +43,13 @@ function [J grad] = neuralCost(X, Y, weights, layers)
     Yproduced = [Yproduced; A{1, layerNum}(2:end)'];
     %% backpropagation: calculate the derivatives of the cost function w.r.t. weights
     delta = A{1, layerNum}(2:end)' - Y(a, :); %% it is a row vector
-    gradientMatrices(1, layerNum-1) = gradientMatrices{1, layerNum-1} + delta * A{1, j};
-    
+    Q(1, layerNum - 2) = delta * weightsMatrices{1, layerNum - 1}
+    gradientMatrices(1, layerNum - 1) = gradientMatrices{1, layerNum - 1} + delta * A{1, j};
+    weightsMatrices{1, layerNum - 2} 
+    A{1, layerNum - 2}
+    z = [1; weightsMatrices{1, layerNum - 2} * A{1, layerNum - 2}]
+    tmp = Q{1, layerNum - 2} .* activationFnDeriv(z')
+    gradientMatrices(1, layerNum - 2) = gradientMatrices{1, layerNum - 2} + A{1, layerNum - 2} * tmp;
     for j = (layerNum-2):-1:1
       %% tmp = delta * A{1, j};
       %%gradientMatrices(1, j) = gradientMatrices{1, j} + tmp;
