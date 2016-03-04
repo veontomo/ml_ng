@@ -16,9 +16,13 @@ function [J grad] = neuralCost(X, Y, weights, layers)
   A = cell(size(layers));
   %% initialize the set of gradient matrices
   gradientMatrices = cell(size(weightsMatrices));
+  %% recursive object
+  Q = cell(size(weightsMatrices));
   for i = 1:size(weightsMatrices, 2)
     gradientMatrices(1, i) = zeros(size(weightsMatrices{1, i}));
+    Q(1, i) = zeros(1, layers(i) + 1);
   endfor;
+  Q
   Yproduced = [];
   J = 0;
   inputNum = size(X, 1);
@@ -34,8 +38,11 @@ function [J grad] = neuralCost(X, Y, weights, layers)
     Yproduced = [Yproduced; A{1, layerNum}(2:end)'];
     %% backpropagation: calculate the derivatives of the cost function w.r.t. weights
     delta = A{1, layerNum}(2:end)' - Y(a, :); %% it is a row vector
-    for j = (layerNum-1):-1:1
-      tmp = delta * A{1, j};
+    gradientMatrices(1, layerNum-1) = gradientMatrices{1, layerNum-1} + delta * A{1, j};
+    
+    for j = (layerNum-2):-1:1
+      %% tmp = delta * A{1, j};
+      %%gradientMatrices(1, j) = gradientMatrices{1, j} + tmp;
     endfor;
     
   endfor
