@@ -20,7 +20,7 @@ function [J grad] = neuralCost(X, Y, weights, layers)
   Q = cell(size(weightsMatrices));
   for i = 1:size(weightsMatrices, 2)
     gradientMatrices(1, i) = zeros(size(weightsMatrices{1, i}));
-    Q(1, i) = zeros(1, layers(i) + 1);
+    Q(1, i) = zeros(1, layers(i+1));
   endfor;
   Q
   Yproduced = [];
