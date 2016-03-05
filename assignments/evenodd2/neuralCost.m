@@ -67,5 +67,6 @@ function [J grad] = neuralCost(X, Y, weights, layers)
   for j = 1: (layerNum-1)
     grad = [grad, gradientMatrices{1, j}(:)'];
   endfor;
+  %% normalize the gradient
   grad = grad/inputNum;
 end
