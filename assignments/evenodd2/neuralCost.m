@@ -46,7 +46,7 @@ function [J grad] = neuralCost(X, Y, weights, layers)
     %% NB: zero component (that is the lowest value of the second index) 
     %% of the weight matrix does not contribute to the Q-vector
     Q(1, layerNum - 2) = delta * weightsMatrices{1, layerNum - 1}(:, 2:end);
-    tmp = (delta * A{1, layerNum - 1});
+    tmp = (delta .* A{1, layerNum - 1});
     gradientMatrices(1, layerNum - 1) = gradientMatrices{1, layerNum - 1} + tmp';
 
     z = weightsMatrices{1, layerNum - 2} * A{1, layerNum - 2};
@@ -57,7 +57,7 @@ function [J grad] = neuralCost(X, Y, weights, layers)
       zL1 = weightsMatrices{1, j} * A{1, j}; %% = z^{l+1}
       Q(1, j) = (Q{1, j+1} .* activationFnDeriv(zL2')) * weightsMatrices{1, j+1}(:, 2:end);
       tmp = (Q{1, j} .* activationFnDeriv(zL1')) .* A{1, j};
-      gradientMatrices(1, j) = gradientMatrices{1, j} + tmp;
+      gradientMatrices(1, j) = gradientMatrices{1, j} + tmp';
     endfor;
   endfor
   J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced))/inputNum;
