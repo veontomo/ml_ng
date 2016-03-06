@@ -20,3 +20,4 @@ endfor;
 diff
 
 
+formMatrices(diff, archit)
