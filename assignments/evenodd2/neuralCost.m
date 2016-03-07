@@ -16,6 +16,7 @@ function [J grad] = neuralCost(X, Y, weights, layers)
   [weightsMatrices lengths] = formMatrices(weights, layers);
   %% set of activations for every layer
   A = cell(1, layerNum);
+  Z = cell(1, layerNum);
   %% initialize the set of gradient matrices
   gradientMatrices = cell(size(weightsMatrices));
   for i = 1:size(weightsMatrices, 2)
@@ -35,8 +36,8 @@ function [J grad] = neuralCost(X, Y, weights, layers)
     prevLayerSize = layers(1);
     A(1, 1) = [1; X(a, :)']; %% it is a column
     for j = 2:layerNum
-      Z = weightsMatrices{1, j-1} * A{1, j-1}; 
-      A(1,j) = [1; activationFn(Z)];
+      Z(1, j) = weightsMatrices{1, j-1} * A{1, j-1}; 
+      A(1, j) = [1; activationFn(Z{1, j})];
     endfor
     Yproduced = [Yproduced; A{1, layerNum}(2:end)'];
     %% backpropagation: calculate the derivatives of the cost function w.r.t. weights
@@ -49,14 +50,16 @@ function [J grad] = neuralCost(X, Y, weights, layers)
     tmp = (delta .* A{1, layerNum - 1});
     gradientMatrices(1, layerNum - 1) = gradientMatrices{1, layerNum - 1} + tmp';
 
-    z = weightsMatrices{1, layerNum - 2} * A{1, layerNum - 2};
-    tmp = Q{1, layerNum - 2} .* activationFnDeriv(z');
+%    z = weightsMatrices{1, layerNum - 2} * A{1, layerNum - 2};
+%    tmp = Q{1, layerNum - 2} .* activationFnDeriv(z');
+    tmp = Q{1, layerNum - 2} .* activationFnDeriv(Z{1, layerNum-1}');
     gradientMatrices(1, layerNum - 2) = gradientMatrices{1, layerNum - 2} + (A{1, layerNum - 2} * tmp)';
     for j = (layerNum-3):-1:1
-      zL2 = weightsMatrices{1, j+1} * A{1, j+1}; %% = z^{l+2}
-      zL1 = weightsMatrices{1, j} * A{1, j}; %% = z^{l+1}
-      Q(1, j) = (Q{1, j+1} .* activationFnDeriv(zL2')) * weightsMatrices{1, j+1}(:, 2:end);
-      tmp = (Q{1, j} .* activationFnDeriv(zL1')) .* A{1, j};
+%      zL2 = weightsMatrices{1, j+1} * A{1, j+1}; %% = z^{l+2}
+%      zL1 = weightsMatrices{1, j} * A{1, j}; %% = z^{l+1}
+%      Q(1, j) = (Q{1, j+1} .* activationFnDeriv(zL2')) * weightsMatrices{1, j+1}(:, 2:end);
+      Q(1, j) = (Q{1, j+1} .* activationFnDeriv(Z{1, j+2}')) * weightsMatrices{1, j+1}(:, 2:end);
+      tmp = (Q{1, j} .* activationFnDeriv(Z{1, j+1}')) .* A{1, j};
       gradientMatrices(1, j) = gradientMatrices{1, j} + tmp';
     endfor;
   endfor

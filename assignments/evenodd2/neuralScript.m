@@ -1,7 +1,7 @@
 X = [3 4 1; 1 3 0; -2 5 3];
 Y = [1; 0; 1];
 params = -1:0.02:1;
-archit = [3 2 1];
+archit = [3 3 3 2 1];
 [J grad] = neuralCost(X, Y, params, archit)
 
 weightTotal = 20;
