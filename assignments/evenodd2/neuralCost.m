@@ -40,6 +40,8 @@ function [J grad] = neuralCost(X, Y, weights, layers)
       A(1, j) = [1; activationFn(Z{1, j})];
     endfor
     Yproduced = [Yproduced; A{1, layerNum}(2:end)'];
+    
+    
     %% backpropagation: calculate the derivatives of the cost function w.r.t. weights
     delta = A{1, layerNum}(2:end)' - Y(a, :); %% it is a row vector
 
@@ -47,17 +49,11 @@ function [J grad] = neuralCost(X, Y, weights, layers)
     %% NB: zero component (that is the lowest value of the second index) 
     %% of the weight matrix does not contribute to the Q-vector
     Q(1, layerNum - 2) = delta * weightsMatrices{1, layerNum - 1}(:, 2:end);
-    tmp = (delta .* A{1, layerNum - 1});
-    gradientMatrices(1, layerNum - 1) = gradientMatrices{1, layerNum - 1} + tmp';
+    gradientMatrices(1, layerNum - 1) = gradientMatrices{1, layerNum - 1} + (delta .* A{1, layerNum - 1})';
 
-%    z = weightsMatrices{1, layerNum - 2} * A{1, layerNum - 2};
-%    tmp = Q{1, layerNum - 2} .* activationFnDeriv(z');
     tmp = Q{1, layerNum - 2} .* activationFnDeriv(Z{1, layerNum-1}');
     gradientMatrices(1, layerNum - 2) = gradientMatrices{1, layerNum - 2} + (A{1, layerNum - 2} * tmp)';
     for j = (layerNum-3):-1:1
-%      zL2 = weightsMatrices{1, j+1} * A{1, j+1}; %% = z^{l+2}
-%      zL1 = weightsMatrices{1, j} * A{1, j}; %% = z^{l+1}
-%      Q(1, j) = (Q{1, j+1} .* activationFnDeriv(zL2')) * weightsMatrices{1, j+1}(:, 2:end);
       Q(1, j) = (Q{1, j+1} .* activationFnDeriv(Z{1, j+2}')) * weightsMatrices{1, j+1}(:, 2:end);
       tmp = (Q{1, j} .* activationFnDeriv(Z{1, j+1}')) .* A{1, j};
       gradientMatrices(1, j) = gradientMatrices{1, j} + tmp';
@@ -65,7 +61,10 @@ function [J grad] = neuralCost(X, Y, weights, layers)
   endfor
   J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced))/inputNum;
   
-  %% unroll the gradient matrices
+  %% unroll the gradient matrices.
+  %% NB: there are two transpositions of the gradient matrix:
+  %% 1. the unrolling (:) goes over columns, while we need it over rows. 
+  %% 2. the result of the unrolling is a row vector, while we need a column one.
   grad = [];
   for j = 1: (layerNum-1)
     grad = [grad, gradientMatrices{1, j}'(:)'];
