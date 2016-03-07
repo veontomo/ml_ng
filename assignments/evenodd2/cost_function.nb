@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     55581,       1479]
-NotebookOptionsPosition[     52999,       1391]
-NotebookOutlinePosition[     53343,       1406]
-CellTagsIndexPosition[     53300,       1403]
+NotebookDataLength[     57199,       1518]
+NotebookOptionsPosition[     54461,       1425]
+NotebookOutlinePosition[     54805,       1440]
+CellTagsIndexPosition[     54762,       1437]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1293,7 +1293,7 @@ meet these tolerances.\\\\\\\"\\\", \\\"MT\\\"]\\) \\!\\(\\*ButtonBox[\\\"\
 \[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
 ButtonData:>\\\"paclet:ref/message/FindMinimum/lstol\\\", ButtonNote -> \
 \\\"FindMinimum::lstol\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.666354505027978*^9}],
+ CellChangeTimes->{3.666354505027978*^9, 3.6663547061100135`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -1317,12 +1317,12 @@ Cell[BoxData[
      RowBox[{"\[Theta]211", "\[Rule]", "46.640904743036415`"}], ",", 
      RowBox[{"\[Theta]212", "\[Rule]", "46.64090474303778`"}]}], "}"}]}], 
   "}"}]], "Output",
- CellChangeTimes->{3.6663545050289783`*^9}]
+ CellChangeTimes->{3.6663545050289783`*^9, 3.666354706121019*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell[BoxData[
+Cell[BoxData[{
  RowBox[{"rule\[Theta]", " ", "=", " ", 
   RowBox[{"Flatten", "[", 
    RowBox[{"Table", "[", 
@@ -1341,7 +1341,7 @@ Cell[BoxData[
           RowBox[{"RandomReal", "[", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"-", "1"}], ",", " ", "1"}], "}"}], "]"}]}], ",", " ", 
+             RowBox[{"-", "10"}], ",", " ", "10"}], "}"}], "]"}]}], ",", " ", 
          RowBox[{"{", 
           RowBox[{"k", ",", " ", "1", ",", " ", 
            RowBox[{"Length", "[", 
@@ -1358,32 +1358,66 @@ Cell[BoxData[
      RowBox[{"{", 
       RowBox[{"i", ",", "1", ",", " ", 
        RowBox[{"Length", "[", "\[Theta]", "]"}]}], "}"}]}], "]"}], 
-   "]"}]}]], "Input",
- CellChangeTimes->{{3.6663545480153017`*^9, 3.666354583271509*^9}}],
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"costF", "/.", "rule\[Theta]"}]}], "Input",
+ CellChangeTimes->{{3.6663545480153017`*^9, 3.666354583271509*^9}, {
+  3.6663546319451246`*^9, 3.666354656465006*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
    RowBox[{"\[Theta]110", "\[Rule]", 
-    RowBox[{"-", "0.11607373065924476`"}]}], ",", 
+    RowBox[{"-", "1.4874861454911148`"}]}], ",", 
    RowBox[{"\[Theta]111", "\[Rule]", 
-    RowBox[{"-", "0.8503160323690717`"}]}], ",", 
-   RowBox[{"\[Theta]112", "\[Rule]", 
-    RowBox[{"-", "0.8599254272248578`"}]}], ",", 
-   RowBox[{"\[Theta]113", "\[Rule]", 
-    RowBox[{"-", "0.07527105414544444`"}]}], ",", 
+    RowBox[{"-", "9.43311968798458`"}]}], ",", 
+   RowBox[{"\[Theta]112", "\[Rule]", "7.061356051940038`"}], ",", 
+   RowBox[{"\[Theta]113", "\[Rule]", "8.145828647303887`"}], ",", 
    RowBox[{"\[Theta]120", "\[Rule]", 
-    RowBox[{"-", "0.08383897480494662`"}]}], ",", 
-   RowBox[{"\[Theta]121", "\[Rule]", 
-    RowBox[{"-", "0.047210764350633205`"}]}], ",", 
-   RowBox[{"\[Theta]122", "\[Rule]", "0.35013377769574117`"}], ",", 
-   RowBox[{"\[Theta]123", "\[Rule]", "0.5518817182843452`"}], ",", 
-   RowBox[{"\[Theta]210", "\[Rule]", 
-    RowBox[{"-", "0.4570916514032226`"}]}], ",", 
-   RowBox[{"\[Theta]211", "\[Rule]", "0.6944550559444687`"}], ",", 
+    RowBox[{"-", "6.702971738269458`"}]}], ",", 
+   RowBox[{"\[Theta]121", "\[Rule]", "8.663430841375003`"}], ",", 
+   RowBox[{"\[Theta]122", "\[Rule]", 
+    RowBox[{"-", "2.6534210743783326`"}]}], ",", 
+   RowBox[{"\[Theta]123", "\[Rule]", "9.566092780424292`"}], ",", 
+   RowBox[{"\[Theta]210", "\[Rule]", "9.006874469934026`"}], ",", 
+   RowBox[{"\[Theta]211", "\[Rule]", "7.855361353987604`"}], ",", 
    RowBox[{"\[Theta]212", "\[Rule]", 
-    RowBox[{"-", "0.7448304931465226`"}]}]}], "}"}]], "Output",
- CellChangeTimes->{3.6663545515497255`*^9, 3.6663545837436996`*^9}]
+    RowBox[{"-", "8.046862563530187`"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6663546572403193`*^9, 3.66635467203228*^9}}],
+
+Cell[BoxData["5.614070386270072`"], "Output",
+ CellChangeTimes->{{3.6663546572403193`*^9, 3.6663546720332804`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NMinimize", "[", 
+  RowBox[{"costF", ",", "\[Theta]flat"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6663547638932996`*^9, 3.666354772864915*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.46209812037329706`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\[Theta]110", "\[Rule]", 
+      RowBox[{"-", "61.40339255657729`"}]}], ",", 
+     RowBox[{"\[Theta]111", "\[Rule]", 
+      RowBox[{"-", "6.647007732687269`"}]}], ",", 
+     RowBox[{"\[Theta]112", "\[Rule]", "7.4337699855654185`"}], ",", 
+     RowBox[{"\[Theta]113", "\[Rule]", "7.602795057892985`"}], ",", 
+     RowBox[{"\[Theta]120", "\[Rule]", 
+      RowBox[{"-", "28.857540988348084`"}]}], ",", 
+     RowBox[{"\[Theta]121", "\[Rule]", 
+      RowBox[{"-", "25.842889316296766`"}]}], ",", 
+     RowBox[{"\[Theta]122", "\[Rule]", 
+      RowBox[{"-", "3.4082074068465515`"}]}], ",", 
+     RowBox[{"\[Theta]123", "\[Rule]", "4.081883004051816`"}], ",", 
+     RowBox[{"\[Theta]210", "\[Rule]", "1.2786665920683288`*^-15"}], ",", 
+     RowBox[{"\[Theta]211", "\[Rule]", "8.165062220688384`"}], ",", 
+     RowBox[{"\[Theta]212", "\[Rule]", "26.812238112053716`"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.666354775036791*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -1406,14 +1440,14 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 215, 4, 81, "Title"],
+Cell[579, 22, 215, 4, 83, "Title"],
 Cell[CellGroupData[{
 Cell[819, 30, 154, 2, 71, "Section"],
 Cell[CellGroupData[{
 Cell[998, 36, 4103, 111, 112, "Input"],
 Cell[5104, 149, 402, 7, 30, "Output"],
 Cell[CellGroupData[{
-Cell[5531, 160, 1296, 31, 34, "Print"],
+Cell[5531, 160, 1296, 31, 36, "Print"],
 Cell[6830, 193, 1074, 28, 23, "Print"]
 }, Open  ]],
 Cell[7919, 224, 960, 27, 30, "Output"],
@@ -1471,12 +1505,17 @@ Cell[48310, 1270, 115, 1, 30, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[48462, 1276, 174, 3, 31, "Input"],
-Cell[48639, 1281, 828, 14, 39, "Message"],
-Cell[49470, 1297, 1044, 22, 33, "Output"]
+Cell[48639, 1281, 852, 14, 39, "Message"],
+Cell[49494, 1297, 1066, 22, 33, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[50551, 1324, 1358, 37, 31, "Input"],
-Cell[51912, 1363, 1035, 22, 30, "Output"]
+Cell[50597, 1324, 1479, 39, 52, "Input"],
+Cell[52079, 1365, 958, 19, 30, "Output"],
+Cell[53040, 1386, 115, 1, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53192, 1392, 168, 3, 31, "Input"],
+Cell[53363, 1397, 1046, 22, 33, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
