@@ -1,6 +1,6 @@
-X = [3; 1; -2];
+X = [3 2; 1 0; -2 1];
 Y = [1; 0; 1];
-archit = [1 1];
+archit = [2 5 6 1];
 totParam = archit(2:end) * (1 + archit(1:end-1))' %% the number of weight parameters
                                                   %% that the network must have
 params = 2*randn(1, totParam) - 1;
@@ -9,7 +9,7 @@ params = 2*randn(1, totParam) - 1;
 [J grad] = neuralCost(X, Y, params, archit, 5)
 
 options = optimset('GradObj', 'on', 'MaxIter', 5000);
-[theta1, J, exit_flag] = fminunc(@(Theta)(neuralCost(X, Y, Theta, archit), 0), params, options);
+[theta1, J, exit_flag] = fminunc(@(Theta)(neuralCost(X, Y, Theta, archit, 5)), params, options);
 
 [J1 grad1] = neuralCost(X, Y, params, archit);
 eps = 0.000001;
@@ -26,3 +26,5 @@ diff
 
 
 formMatrices(diff, archit)
+
+readData("train-images.idx3-ubyte");
