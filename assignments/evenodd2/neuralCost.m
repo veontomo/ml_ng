@@ -44,20 +44,21 @@ function [J grad] = neuralCost(X, Y, weights, layers)
     
     %% backpropagation: calculate the derivatives of the cost function w.r.t. weights
     delta = A{1, layerNum}(2:end)' - Y(a, :); %% it is a row vector
-
+   
     %% highest component of the Q-vector
     %% NB: zero component (that is the lowest value of the second index) 
     %% of the weight matrix does not contribute to the Q-vector
-    Q(1, layerNum - 2) = delta * weightsMatrices{1, layerNum - 1}(:, 2:end);
     gradientMatrices(1, layerNum - 1) = gradientMatrices{1, layerNum - 1} + (delta .* A{1, layerNum - 1})';
-
-    tmp = Q{1, layerNum - 2} .* activationFnDeriv(Z{1, layerNum-1}');
-    gradientMatrices(1, layerNum - 2) = gradientMatrices{1, layerNum - 2} + (A{1, layerNum - 2} * tmp)';
-    for j = (layerNum-3):-1:1
-      Q(1, j) = (Q{1, j+1} .* activationFnDeriv(Z{1, j+2}')) * weightsMatrices{1, j+1}(:, 2:end);
-      tmp = (Q{1, j} .* activationFnDeriv(Z{1, j+1}')) .* A{1, j};
-      gradientMatrices(1, j) = gradientMatrices{1, j} + tmp';
-    endfor;
+    if layerNum > 2 
+      Q(1, layerNum - 2) = delta * weightsMatrices{1, layerNum - 1}(:, 2:end);
+      tmp = Q{1, layerNum - 2} .* activationFnDeriv(Z{1, layerNum-1}');
+      gradientMatrices(1, layerNum - 2) = gradientMatrices{1, layerNum - 2} + (A{1, layerNum - 2} * tmp)';
+      for j = (layerNum-3):-1:1
+        Q(1, j) = (Q{1, j+1} .* activationFnDeriv(Z{1, j+2}')) * weightsMatrices{1, j+1}(:, 2:end);
+        tmp = (Q{1, j} .* activationFnDeriv(Z{1, j+1}')) .* A{1, j};
+        gradientMatrices(1, j) = gradientMatrices{1, j} + tmp';
+      endfor;
+    endif;
   endfor
   J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced))/inputNum;
   
