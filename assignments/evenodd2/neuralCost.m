@@ -9,7 +9,12 @@
 %%         It includes weights for the bias units as well.
 %% layers - row vector that defines the network architecture. Its elements are 
 %%         the number of units in corresponding layers.
-function [J grad] = neuralCost(X, Y, weights, layers)
+%% lambda - regularization parameter
+%% Returns:
+%% J - value of the cost function for given input
+%% grad - derivatives of the cost function w.r.t the weight parameters at given
+%%        point.
+function [J grad] = neuralCost(X, Y, weights, layers, lambda)
   inputNum = size(X, 1);
   layerNum = size(layers, 2);
   %% restore the weight matrices from the row vector
@@ -60,7 +65,7 @@ function [J grad] = neuralCost(X, Y, weights, layers)
       endfor;
     endif;
   endfor
-  J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced))/inputNum;
+  J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced) + 1/2 * lambda * (weights * weights'))/inputNum;
   
   %% unroll the gradient matrices.
   %% NB: there are two transpositions of the gradient matrix:
@@ -71,5 +76,5 @@ function [J grad] = neuralCost(X, Y, weights, layers)
     grad = [grad, gradientMatrices{1, j}'(:)'];
   endfor;
   %% normalize the gradient
-  grad = grad/inputNum;
+  grad = (grad + lambda * weights) /inputNum;
 end

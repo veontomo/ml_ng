@@ -6,10 +6,10 @@ totParam = archit(2:end) * (1 + archit(1:end-1))' %% the number of weight parame
 params = 2*randn(1, totParam) - 1;
 
 
-[J grad] = neuralCost(X, Y, params, archit)
+[J grad] = neuralCost(X, Y, params, archit, 5)
 
 options = optimset('GradObj', 'on', 'MaxIter', 5000);
-[theta1, J, exit_flag] = fminunc(@(Theta)(neuralCost(X, Y, Theta, archit)), params, options);
+[theta1, J, exit_flag] = fminunc(@(Theta)(neuralCost(X, Y, Theta, archit), 0), params, options);
 
 [J1 grad1] = neuralCost(X, Y, params, archit);
 eps = 0.000001;
