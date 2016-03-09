@@ -27,10 +27,10 @@ diff
 
 formMatrices(diff, archit)
 
-X = loadData("train-images.idx3-ubyte");
-Y = loadLabels("train-labels.idx1-ubyte");
+X = loadData("train-images.idx3-ubyte", 20);
+Y = loadLabels("train-labels.idx1-ubyte", 20);
 
-archit = [784 10 1];
+archit = [784 5 1];
 totParam = archit(2:end) * (1 + archit(1:end-1))' %% the number of weight parameters
                                                   %% that the network must have
 params = 2*randn(1, totParam) - 1;
