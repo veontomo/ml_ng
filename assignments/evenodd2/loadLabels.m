@@ -5,9 +5,13 @@ function d = loadLabels(fileName, n)
   numOfImages = bit32mask * fread(fid, 4);
   blockSize = 1;
   imagesToRead = min(n, numOfImages);
-  d = zeros(imagesToRead, blockSize);
+  d = zeros(imagesToRead, 10);
   for i = 1:imagesToRead
-    d(i, :) = fread(fid, blockSize);
+    pos = fread(fid, 1);
+    if pos == 0 
+      pos = 10 
+    endif;
+    d(i, pos) = 1;
   endfor;
   fclose(fid);
 end
