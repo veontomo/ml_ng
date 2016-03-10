@@ -45,7 +45,7 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
       A(1, j) = [1; activationFn(Z{1, j})];
     endfor
     Yproduced = [Yproduced; A{1, layerNum}(2:end)'];
-    J = J + (- Y(a, :) * log(Yproduced(a, :)') - (1-Y(a, :)) * log(1 - Yproduced(a, :)'));
+%    J = J + (- Y(a, :) * log(Yproduced(a, :)') - (1-Y(a, :)) * log(1 - Yproduced(a, :)'));
     
     
     %% backpropagation: calculate the derivatives of the cost function w.r.t. weights
@@ -67,8 +67,8 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
     endif;
     
   endfor
-  %J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced) + 1/2 * lambda * (weights * weights'))/inputNum;
-  J = (J + 1/2 * lambda * (weights * weights'))/inputNum;
+  J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced) + 1/2 * lambda * (weights * weights'))/inputNum;
+  %J = (J + 1/2 * lambda * (weights * weights'))/inputNum;
   
   %% unroll the gradient matrices.
   %% NB: there are two transpositions of the gradient matrix:
