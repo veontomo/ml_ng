@@ -5,13 +5,13 @@
 %% Returns:
 %% weights - unfolded version of the weight parameters
 %% 
-function weights = generateWeights(archit)
+function weights = initializeWeights(archit)
   requiredWeightNum = archit(2:end) * (1 + archit(1:end-1))';
   %% inner parts btw the layers
   inner = size(archit, 2) - 1;
   weights = [];
   for i = 1:inner
-    epsilon = sqrt(6/(archit(i) + archit(i+1)));
+    epsilon = sqrt(6/(archit(i) + archit(i+1)))
     matr = epsilon*(2*rand(archit(i+1), archit(i)+1)-1)(:)';
     weights = [weights, matr];
   end

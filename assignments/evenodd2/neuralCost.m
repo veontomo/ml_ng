@@ -35,7 +35,6 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
   for k = 1:(layerNum - 2)
     Q(1, k) = zeros(1, layers(k+1));
   endfor;
-  Yproduced = [];
   J = 0;
   for a = 1:inputNum
     %% feedforward: calculate the activations
@@ -45,19 +44,17 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
       Z(1, j) = weightsMatrices{1, j-1} * A{1, j-1}; 
       A(1, j) = [1; activationFn(Z{1, j})];
     endfor
-    Yproduced = [Yproduced; A{1, layerNum}(2:end)'];
-    deltaJ = - Y(a, :) * log(Yproduced(a, :)') - (1-Y(a, :)) * log(1 - Yproduced(a, :)');
+    Ya = A{1, layerNum}(2:end)';
+    deltaJ = - Y(a, :) * log(Ya') - (1-Y(a, :)) * log(1 - Ya');
     if isnan(deltaJ) || isinf(deltaJ)
       printf("\niteration %u\n", a);
       printf("J = %2.2f + %2.2f\n", J, deltaJ);
       printf("\n actual label =\n");
       printf("%2.2f, ", Y(a, :));
       printf("\n predicted label =\n");
-      printf("%2.2f, ", Yproduced(a, :));
+      printf("%2.2f, ", Ya);
       printf("\n weights =\n");
       weightsMatrices(1, :)
-      printf("\nZ =\n");
-      Z(1, :)
       printf("\nExiting...\n");
       return;
     endif;
@@ -83,7 +80,6 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
     endif;
     
   endfor
-  %J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced) + 1/2 * lambda * (weights * weights'))/inputNum;
   J = (J + 1/2 * lambda * (weights * weights'))/inputNum;
   
   

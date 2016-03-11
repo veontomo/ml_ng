@@ -34,17 +34,14 @@ diff
 
 formMatrices(diff, archit)
 
-X = loadData("train-images.idx3-ubyte", 20);
-Y = loadLabels("train-labels.idx1-ubyte", 20);
-X = X(:, 1:100);
+X = loadData("train-images.idx3-ubyte", 10);
+Y = loadLabels("train-labels.idx1-ubyte", 10);
 
-archit = [100 10];
-totParam = archit(2:end) * (1 + archit(1:end-1))' %% the number of weight parameters
-                                                  %% that the network must have
-params = 2*randn(1, totParam) - 1;
+archit = [784 10];
+params = initializeWeights(archit);
 
 
-[J grad] = neuralCost(X, Y, params, archit, 5)
+[J grad] = neuralCost(X, Y, params, archit, 5);
 
 options = optimset('GradObj', 'on', 'MaxIter', 100);
 [theta1, J, exit_flag] = fminunc(@(Theta)(neuralCost(X, Y, Theta, archit, 5)), params, options);
