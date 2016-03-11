@@ -15,6 +15,7 @@
 %% grad - derivatives of the cost function w.r.t the weight parameters at given
 %%        point.
 function [J grad] = neuralCost(X, Y, weights, layers, lambda)
+  grad = [];
   inputNum = size(X, 1);
   layerNum = size(layers, 2);
   %% restore the weight matrices from the row vector
@@ -45,7 +46,23 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
       A(1, j) = [1; activationFn(Z{1, j})];
     endfor
     Yproduced = [Yproduced; A{1, layerNum}(2:end)'];
-    J = J + (- Y(a, :) * log(Yproduced(a, :)') - (1-Y(a, :)) * log(1 - Yproduced(a, :)'));
+    deltaJ = - Y(a, :) * log(Yproduced(a, :)') - (1-Y(a, :)) * log(1 - Yproduced(a, :)');
+    if isnan(deltaJ) || isinf(deltaJ)
+      printf("\niteration %u\n", a);
+      printf("J = %2.2f + %2.2f\n", J, deltaJ);
+      printf("\n actual label =\n");
+      printf("%2.2f, ", Y(a, :));
+      printf("\n predicted label =\n");
+      printf("%2.2f, ", Yproduced(a, :));
+      printf("\n weights =\n");
+      weightsMatrices(1, :)
+      printf("\nZ =\n");
+      Z(1, :)
+      printf("\nExiting...\n");
+      return;
+    endif;
+    J = J + deltaJ;
+
     
     %% backpropagation: calculate the derivatives of the cost function w.r.t. weights
     delta = A{1, layerNum}(2:end)' - Y(a, :); %% it is a row vector
@@ -69,6 +86,7 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
   %J = (- Y' * log(Yproduced) - (1 - Y') * log(1 - Yproduced) + 1/2 * lambda * (weights * weights'))/inputNum;
   J = (J + 1/2 * lambda * (weights * weights'))/inputNum;
   
+  
   %% unroll the gradient matrices.
   %% NB: there are two transpositions of the gradient matrix:
   %% 1. the unrolling (:) goes over columns, while we need it over rows. 
@@ -79,4 +97,5 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
   endfor;
   %% normalize the gradient
   grad = (grad + lambda * weights) /inputNum;
+  printf("final J = %4.2f\n", J);
 end
