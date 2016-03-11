@@ -44,8 +44,8 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
       Z(1, j) = weightsMatrices{1, j-1} * A{1, j-1}; 
       A(1, j) = [1; activationFn(Z{1, j})];
     endfor
-    Ya = A{1, layerNum}(2:end)';
-    deltaJ = - Y(a, :) * log(Ya') - (1-Y(a, :)) * log(1 - Ya');
+    Ya = A{1, layerNum}(2:end); %% it is a column
+    deltaJ = - Y(a, :) * log(Ya) - (1-Y(a, :)) * log(1 - Ya);
     if isnan(deltaJ) || isinf(deltaJ)
       printf("\niteration %u\n", a);
       printf("J = %2.2f + %2.2f\n", J, deltaJ);
@@ -93,5 +93,5 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
   endfor;
   %% normalize the gradient
   grad = (grad + lambda * weights) /inputNum;
-  printf("final J = %4.2f\n", J);
+  % printf("final J = %4.2f\n", J);
 end
