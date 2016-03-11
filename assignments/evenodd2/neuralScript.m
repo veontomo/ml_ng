@@ -37,7 +37,7 @@ formMatrices(diff, archit)
 X = loadData("train-images.idx3-ubyte", 10);
 Y = loadLabels("train-labels.idx1-ubyte", 10);
 
-archit = [784 50 5 10];
+archit = [784 25 10];
 params = initializeWeights(archit);
 
 
