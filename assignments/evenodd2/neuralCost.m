@@ -45,14 +45,7 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
       A(1, j) = [1; activationFn(Z{1, j})];
     endfor
     Yproduced = [Yproduced; A{1, layerNum}(2:end)'];
-    fprintf("\nY(%u) = \n", a);
-    Y(a, :)
-    fprintf("\nYproduced(%u) = \n", a);
-    Yproduced(a, :)
     J = J + (- Y(a, :) * log(Yproduced(a, :)') - (1-Y(a, :)) * log(1 - Yproduced(a, :)'));
-    fprintf("\nJ = \n");
-    J
-    
     
     %% backpropagation: calculate the derivatives of the cost function w.r.t. weights
     delta = A{1, layerNum}(2:end)' - Y(a, :); %% it is a row vector

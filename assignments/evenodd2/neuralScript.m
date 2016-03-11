@@ -1,6 +1,6 @@
 archit = [2 5 6 3];
 X = [3 2; 1 0; -2 1];
-Y = [1 0 0; 0 0 1; 0 0 1];
+Y = [1 0 0; 0 1 0; 0 0 1];
 
 totParam = archit(2:end) * (1 + archit(1:end-1))' %% the number of weight parameters
                                                   %% that the network must have
@@ -37,7 +37,7 @@ formMatrices(diff, archit)
 X = loadData("train-images.idx3-ubyte", 20);
 Y = loadLabels("train-labels.idx1-ubyte", 20);
 
-archit = [784 15 10];
+archit = [784 10];
 totParam = archit(2:end) * (1 + archit(1:end-1))' %% the number of weight parameters
                                                   %% that the network must have
 params = 2*randn(1, totParam) - 1;
