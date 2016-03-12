@@ -15,7 +15,7 @@
 %% grad - derivatives of the cost function w.r.t the weight parameters at given
 %%        point.
 function [J grad] = neuralCost(X, Y, weights, layers, lambda)
-  grad = [];
+  printf("\nstart\n");
   inputNum = size(X, 1);
   layerNum = size(layers, 2);
   %% restore the weight matrices from the row vector
@@ -65,7 +65,8 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
     %% highest component of the Q-vector
     %% NB: zero component (that is the lowest value of the second index) 
     %% of the weight matrix does not contribute to the Q-vector
-    gradientMatrices(1, layerNum - 1) = gradientMatrices{1, layerNum - 1} + (delta .* A{1, layerNum - 1})';
+    gradientMatrices(1, layerNum - 1) = gradientMatrices{1, layerNum - 1} + ...
+                                       (delta .* A{1, layerNum - 1})';
     if layerNum > 2 
       Q(1, layerNum - 2) = delta * weightsMatrices{1, layerNum - 1}(:, 2:end);
       tmp = Q{1, layerNum - 2} .* activationFnDeriv(Z{1, layerNum-1}');
