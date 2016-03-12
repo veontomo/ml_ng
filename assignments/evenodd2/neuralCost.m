@@ -53,10 +53,8 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
       printf("%2.2f, ", Y(a, :));
       printf("\n predicted label =\n");
       printf("%2.2f, ", Ya);
-      printf("\n weights =\n");
-      weightsMatrices(1, :)
       printf("\nExiting...\n");
-      return;
+      error("Contribution to the cost function is invalid.");
     endif;
     J = J + deltaJ;
 
