@@ -1,25 +1,28 @@
 clear ; close all; clc
 
-input_layer_size  = 20*20; 
-hidden_layer_size = 25;   % 25 hidden units
-num_labels = 10;          % 10 labels, from 1 to 10   
-                          % (note that we have mapped "0" to label 10)
+input_layer_size  = 2; 
+hidden_layer_size = 2;
+num_labels = 1;
+               
 archit = [input_layer_size hidden_layer_size num_labels];
 
 %% =========== Loading and Visualizing Data =============
 trainingSetSize = 100;
-X = loadData("train-images.idx3-ubyte", trainingSetSize);
-X = X(:, 1:input_layer_size);
-Y = loadLabels("train-labels.idx1-ubyte", trainingSetSize);
+%X = loadData("train-images.idx3-ubyte", trainingSetSize);
+%Y = loadLabels("train-labels.idx1-ubyte", trainingSetSize);
+X = [3 2; 1 0; -2 1];
+Y = [1; 0; 0];
 m = size(X, 1);
+%X = X(:, 1:input_layer_size);
+%Y = X(:, 1:num_labels);
 
 %% ================ Initializing Parameters ================
 
 initial_nn_params = initializeWeights(archit, false);
 
 %% ================ short hand definitions ================
-specificNNCost = @(p) nnCostFunction(p, input_layer_size, hidden_layer_size, num_labels, X, Y, 1);
-generalNNCost = @(p) neuralCost(X, Y, p, archit, 1);
+specificNNCost = @(p) nnCostFunction(p, input_layer_size, hidden_layer_size, num_labels, X, Y, 0);
+generalNNCost = @(p) neuralCost(X, Y, p, archit, 0);
 
 %% ===================  Testing cost function ===================
 

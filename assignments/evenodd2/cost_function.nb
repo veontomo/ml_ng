@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    192851,       4361]
-NotebookOptionsPosition[    190902,       4293]
-NotebookOutlinePosition[    191248,       4308]
-CellTagsIndexPosition[    191205,       4305]
+NotebookDataLength[     61629,       1439]
+NotebookOptionsPosition[     59899,       1377]
+NotebookOutlinePosition[     60246,       1392]
+CellTagsIndexPosition[     60203,       1389]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -37,7 +37,7 @@ Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{"archit", " ", "=", " ", 
   RowBox[{"{", 
-   RowBox[{"2", ",", " ", "5", ",", " ", "6", ",", " ", "3"}], 
+   RowBox[{"2", ",", " ", "2", ",", " ", "1"}], 
    "}"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"\[Theta]", " ", "=", " ", 
@@ -64,166 +64,220 @@ Cell[BoxData[{
       RowBox[{"i", ",", "2", ",", " ", 
        RowBox[{"Length", "[", "archit", "]"}]}], "}"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
- RowBox[{"For", "[", 
-  RowBox[{
-   RowBox[{"i", "=", "1"}], ",", " ", 
-   RowBox[{"i", "<", 
-    RowBox[{"Length", "[", "archit", "]"}]}], ",", 
-   RowBox[{"i", "++"}], ",", 
-   RowBox[{"Print", "[", 
-    RowBox[{
-     RowBox[{"Superscript", "[", 
-      RowBox[{"\"\<\[Theta]\>\"", ",", " ", "i"}], "]"}], ",", "\"\< = \>\"", 
-     ",", 
-     RowBox[{"MatrixForm", "[", 
-      RowBox[{"\[Theta]", "[", 
-       RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "]"}]}], 
-  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"\[Theta]AllTmp", " ", "=", " ", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"Flatten", "[", 
+     RowBox[{"\[Theta]", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", " ", "1", ",", 
+      RowBox[{"Length", "[", "\[Theta]", "]"}]}], "}"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"\[Theta]fix", " ", "=", 
-   RowBox[{"{", 
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", " ", 
+    RowBox[{"i", "<", 
+     RowBox[{"Length", "[", "archit", "]"}]}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{"Print", "[", 
+     RowBox[{
+      RowBox[{"Superscript", "[", 
+       RowBox[{"\"\<\[Theta]\>\"", ",", " ", "i"}], "]"}], ",", "\"\< = \>\"",
+       ",", 
+      RowBox[{"MatrixForm", "[", 
+       RowBox[{"\[Theta]", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "]"}]}], "]"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
     RowBox[{
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{"0.034225", ",", 
-         RowBox[{"-", "0.454284"}], ",", 
-         RowBox[{"-", "2.652881"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"0.203030", ",", 
-         RowBox[{"-", "0.686212"}], ",", 
-         RowBox[{"-", "2.401099"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"0.965855", ",", "0.239303", ",", 
-         RowBox[{"-", "0.456707"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"-", "1.967651"}], ",", 
-         RowBox[{"-", "2.484711"}], ",", 
-         RowBox[{"-", "0.578450"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"0.837095", ",", "0.756525", ",", 
-         RowBox[{"-", "2.058914"}]}], "}"}]}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"[", 
+       RowBox[{"2", " ", "5", " ", "6", " ", "3"}], "]"}], " ", 
+      "\[Theta]fix"}], " ", "=", 
      RowBox[{"{", 
       RowBox[{
        RowBox[{"{", 
         RowBox[{
-         RowBox[{"-", "1.1434968"}], ",", 
-         RowBox[{"-", "2.7254714"}], ",", 
-         RowBox[{"-", "0.6940123"}], ",", 
-         RowBox[{"-", "2.0796824"}], ",", 
-         RowBox[{"-", "1.0235599"}], ",", 
-         RowBox[{"-", "0.9798576"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.034225", ",", 
+           RowBox[{"-", "0.454284"}], ",", 
+           RowBox[{"-", "2.652881"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.203030", ",", 
+           RowBox[{"-", "0.686212"}], ",", 
+           RowBox[{"-", "2.401099"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.965855", ",", "0.239303", ",", 
+           RowBox[{"-", "0.456707"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1.967651"}], ",", 
+           RowBox[{"-", "2.484711"}], ",", 
+           RowBox[{"-", "0.578450"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.837095", ",", "0.756525", ",", 
+           RowBox[{"-", "2.058914"}]}], "}"}]}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{
-         RowBox[{"-", "1.6744904"}], ",", 
-         RowBox[{"-", "0.4115589"}], ",", 
-         RowBox[{"-", "1.7588500"}], ",", 
-         RowBox[{"-", "2.9772614"}], ",", 
-         RowBox[{"-", "0.6937645"}], ",", 
-         RowBox[{"-", "2.0625809"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1.1434968"}], ",", 
+           RowBox[{"-", "2.7254714"}], ",", 
+           RowBox[{"-", "0.6940123"}], ",", 
+           RowBox[{"-", "2.0796824"}], ",", 
+           RowBox[{"-", "1.0235599"}], ",", 
+           RowBox[{"-", "0.9798576"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1.6744904"}], ",", 
+           RowBox[{"-", "0.4115589"}], ",", 
+           RowBox[{"-", "1.7588500"}], ",", 
+           RowBox[{"-", "2.9772614"}], ",", 
+           RowBox[{"-", "0.6937645"}], ",", 
+           RowBox[{"-", "2.0625809"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2.8347321"}], ",", 
+           RowBox[{"-", "0.0015962"}], ",", "0.0044307", ",", 
+           RowBox[{"-", "2.8260281"}], ",", 
+           RowBox[{"-", "1.6520862"}], ",", 
+           RowBox[{"-", "0.2487677"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "0.8337728"}], ",", 
+           RowBox[{"-", "0.6374790"}], ",", 
+           RowBox[{"-", "1.8227457"}], ",", 
+           RowBox[{"-", "1.1440733"}], ",", 
+           RowBox[{"-", "1.6668174"}], ",", 
+           RowBox[{"-", "2.0439432"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2.1060973"}], ",", "0.2822872", ",", 
+           RowBox[{"-", "2.2101957"}], ",", 
+           RowBox[{"-", "1.3606613"}], ",", 
+           RowBox[{"-", "0.8578750"}], ",", "0.3521685"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "0.5935213"}], ",", 
+           RowBox[{"-", "0.8815364"}], ",", 
+           RowBox[{"-", "2.1519084"}], ",", "0.6735250", ",", "0.0852290", 
+           ",", "0.7672503"}], "}"}]}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{
-         RowBox[{"-", "2.8347321"}], ",", 
-         RowBox[{"-", "0.0015962"}], ",", "0.0044307", ",", 
-         RowBox[{"-", "2.8260281"}], ",", 
-         RowBox[{"-", "1.6520862"}], ",", 
-         RowBox[{"-", "0.2487677"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"-", "0.8337728"}], ",", 
-         RowBox[{"-", "0.6374790"}], ",", 
-         RowBox[{"-", "1.8227457"}], ",", 
-         RowBox[{"-", "1.1440733"}], ",", 
-         RowBox[{"-", "1.6668174"}], ",", 
-         RowBox[{"-", "2.0439432"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"-", "2.1060973"}], ",", "0.2822872", ",", 
-         RowBox[{"-", "2.2101957"}], ",", 
-         RowBox[{"-", "1.3606613"}], ",", 
-         RowBox[{"-", "0.8578750"}], ",", "0.3521685"}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"-", "0.5935213"}], ",", 
-         RowBox[{"-", "0.8815364"}], ",", 
-         RowBox[{"-", "2.1519084"}], ",", "0.6735250", ",", "0.0852290", ",", 
-         "0.7672503"}], "}"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{"0.28990", ",", "0.82255", ",", 
-         RowBox[{"-", "0.88405"}], ",", "0.30355", ",", 
-         RowBox[{"-", "0.80178"}], ",", 
-         RowBox[{"-", "0.41216"}], ",", 
-         RowBox[{"-", "2.65119"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"0.54181", ",", "0.33694", ",", 
-         RowBox[{"-", "1.60065"}], ",", 
-         RowBox[{"-", "2.56335"}], ",", "0.79371", ",", 
-         RowBox[{"-", "2.51547"}], ",", 
-         RowBox[{"-", "0.53684"}]}], "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"-", "1.85514"}], ",", 
-         RowBox[{"-", "2.82926"}], ",", 
-         RowBox[{"-", "0.35671"}], ",", 
-         RowBox[{"-", "1.03435"}], ",", 
-         RowBox[{"-", "0.26898"}], ",", 
-         RowBox[{"-", "1.71319"}], ",", 
-         RowBox[{"-", "1.31152"}]}], "}"}]}], "}"}]}], "}"}]}], ";"}], "\n", 
- RowBox[{"rule\[Theta]", " ", "=", " ", 
-  RowBox[{"Flatten", "[", 
-   RowBox[{"Table", "[", 
-    RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0.28990", ",", "0.82255", ",", 
+           RowBox[{"-", "0.88405"}], ",", "0.30355", ",", 
+           RowBox[{"-", "0.80178"}], ",", 
+           RowBox[{"-", "0.41216"}], ",", 
+           RowBox[{"-", "2.65119"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.54181", ",", "0.33694", ",", 
+           RowBox[{"-", "1.60065"}], ",", 
+           RowBox[{"-", "2.56335"}], ",", "0.79371", ",", 
+           RowBox[{"-", "2.51547"}], ",", 
+           RowBox[{"-", "0.53684"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1.85514"}], ",", 
+           RowBox[{"-", "2.82926"}], ",", 
+           RowBox[{"-", "0.35671"}], ",", 
+           RowBox[{"-", "1.03435"}], ",", 
+           RowBox[{"-", "0.26898"}], ",", 
+           RowBox[{"-", "1.71319"}], ",", 
+           RowBox[{"-", "1.31152"}]}], "}"}]}], "}"}]}], "}"}]}], ";"}], 
+   "*)"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{"rule\[Theta]", " ", "=", " ", 
+    RowBox[{"Flatten", "[", 
      RowBox[{"Table", "[", 
       RowBox[{
        RowBox[{"Table", "[", 
         RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"\[Theta]", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "[", 
+              RowBox[{"[", "j", "]"}], "]"}], "[", 
+             RowBox[{"[", "k", "]"}], "]"}], "\[Rule]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"\[Theta]fix", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "[", 
+              RowBox[{"[", "j", "]"}], "]"}], "[", 
+             RowBox[{"[", "k", "]"}], "]"}]}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", " ", "1", ",", " ", 
+             RowBox[{"Length", "[", 
+              RowBox[{
+               RowBox[{"\[Theta]", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "[", 
+               RowBox[{"[", "j", "]"}], "]"}], "]"}]}], "}"}]}], "]"}], ",", 
+         " ", 
+         RowBox[{"{", 
+          RowBox[{"j", ",", " ", "1", ",", " ", 
+           RowBox[{"Length", "[", 
+            RowBox[{"\[Theta]", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", " ", 
+         RowBox[{"Length", "[", "\[Theta]", "]"}]}], "}"}]}], "]"}], "]"}]}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"rule\[Theta]", " ", "=", 
+  RowBox[{"Flatten", "[", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"\[Theta]AllTmp", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], "[", 
+         RowBox[{"[", "j", "]"}], "]"}], "\[Rule]", 
+        RowBox[{"N", "[", 
          RowBox[{
           RowBox[{
-           RowBox[{
-            RowBox[{"\[Theta]", "[", 
-             RowBox[{"[", "i", "]"}], "]"}], "[", 
-            RowBox[{"[", "j", "]"}], "]"}], "[", 
-           RowBox[{"[", "k", "]"}], "]"}], "\[Rule]", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"\[Theta]fix", "[", 
-             RowBox[{"[", "i", "]"}], "]"}], "[", 
-            RowBox[{"[", "j", "]"}], "]"}], "[", 
-           RowBox[{"[", "k", "]"}], "]"}]}], ",", " ", 
-         RowBox[{"{", 
-          RowBox[{"k", ",", " ", "1", ",", " ", 
-           RowBox[{"Length", "[", 
-            RowBox[{
-             RowBox[{"\[Theta]", "[", 
-              RowBox[{"[", "i", "]"}], "]"}], "[", 
-             RowBox[{"[", "j", "]"}], "]"}], "]"}]}], "}"}]}], "]"}], ",", 
-       " ", 
+           SqrtBox[
+            FractionBox["6", 
+             RowBox[{
+              RowBox[{"archit", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "+", 
+              RowBox[{"archit", "[", 
+               RowBox[{"[", 
+                RowBox[{"i", "+", "1"}], "]"}], "]"}]}]]], 
+           RowBox[{"Sin", "[", "j", "]"}]}], ",", " ", 
+          RowBox[{"{", 
+           RowBox[{"6", ",", " ", "6"}], "}"}]}], "]"}]}], ",", 
        RowBox[{"{", 
-        RowBox[{"j", ",", " ", "1", ",", " ", 
+        RowBox[{"j", ",", "1", ",", 
          RowBox[{"Length", "[", 
-          RowBox[{"\[Theta]", "[", 
+          RowBox[{"\[Theta]AllTmp", "[", 
            RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "}"}]}], "]"}], ",", 
      RowBox[{"{", 
-      RowBox[{"i", ",", "1", ",", " ", 
-       RowBox[{"Length", "[", "\[Theta]", "]"}]}], "}"}]}], "]"}], 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "\[Theta]AllTmp", "]"}]}], "}"}]}], "]"}], 
    "]"}]}]}], "Input",
  CellChangeTimes->CompressedData["
-1:eJwdzUEoQ3EcwPHX0rJQag6jRbS0yaLVYmqxtQuNNhfLwiym5kAzLGRoCVOk
-XVZzUaK2wzsg0hzGwuxgk5Qt25qdXhav55W84v/7H759jt9661T/OI8gCDEK
-LNKhSM5AaXSa5B1oYzO/IN+k5sD7aKOOQdZ4AtgdOugH9X8vWMXJwuY3cqRv
-BdtiV3exyEguj2VayRhhpDRu//wDKN1VZMDCmQ5rEQY/eUhznZIGvVTnbTOy
-Jx2PgcIv+weoNZBY6c16WI4stl1gAxWLcdBT68M+it4ZsEFS+QOWTzalnUi7
-8Qlbuk1lQVevOAdmU8vtq0iu41UF6q/338DEqSADhg4FxBp89wZLQFdKLgLD
-ZaPYozmzDGQ5G5asGjKCabcXK8sPDIOz1VasZMIxBpq4JJZWOY7BZ/4M9mB6
-6RI818qvwG6fMgI6lZYouMWSCZDZKCTBfxPm5m0=
+1:eJwdzVtIk3Ech/EXEXGYqai0NM8ztmgk05GnoRu7KDFxu0lmBxu1YF0kHsq0
+0kTE8wlvBnojicK8WJCihF3MiTYl2iQKHc5lrwgvio7XgTTI//d38fC5fLLM
+L43PIjiOy2XB4+CcM1AtaPVa7zq0hPz/YFSNJgy/rV7Xi8yUrglyOGi3wcr/
+v0jV59beM+bjqg7yllVTHmI6A/ukmOdwcwZB2257vQHlIyo/5Bf0ZF2i/SSC
+WZuhDsJ+oWztJrPCt+mGiafWI6irdpByV/eyknl8e4mciG3bhF3p4+QP6V8R
+Zsviz+GlFzd8TUyrYYuMHhD2YMu9awG4t/O+8AMzXLxdBCtXJnehZ17ih3PT
+Eq4T3zFTJGzZUUrhcswTcuZVrQKGwhbSkfTQAH3t/aRi//4j2HzVTMqeNzyF
+NWEvGSxqmIU/oxrJqfq3X+CiTvkV3h1XO2GTum4V9oUcHij28F64rnPzKqOg
+vdyjOYBDk1PnMG3DRW6XHiXnMz9ViVdgYcdoCVxrjiuF8rMHesh7A3dg5vSi
+Cf4u+fgGGg8bJQXMFI2d/DNklkLZd1sq5GN3c+DguwQFvAA1Iigv
   "]],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"2", ",", "5", ",", "6", ",", "3"}], "}"}]], "Output",
+  RowBox[{"2", ",", "2", ",", "1"}], "}"}]], "Output",
  CellChangeTimes->{
   3.6662841046755877`*^9, 3.666284514432024*^9, 3.6663207036810846`*^9, 
    3.6663219573873262`*^9, 3.6663220525366716`*^9, 3.6663226394531975`*^9, 
@@ -236,7 +290,39 @@ Cell[BoxData[
    3.666612556044712*^9}, 3.666612878383171*^9, 3.666612980344124*^9, 
    3.666613036004476*^9, {3.6666137808076096`*^9, 3.6666138037748337`*^9}, 
    3.6666139119262705`*^9, 3.6666143081253953`*^9, 3.666668087352634*^9, 
-   3.6666716212011366`*^9, 3.6666717465855374`*^9}],
+   3.6666716212011366`*^9, 3.6666717465855374`*^9, 3.6669745149959197`*^9, 
+   3.6669746707208266`*^9, 3.666975275972445*^9, 3.6669754816412086`*^9, {
+   3.6669756514379206`*^9, 3.6669756936813364`*^9}, 3.666976845933242*^9, {
+   3.6669769655580835`*^9, 3.6669769894304495`*^9}, {3.6669770617105837`*^9, 
+   3.666977097096607*^9}, 3.6669776008964233`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "\[Theta]110", ",", "\[Theta]111", ",", "\[Theta]112", ",", "\[Theta]120",
+      ",", "\[Theta]121", ",", "\[Theta]122"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Theta]210", ",", "\[Theta]211", ",", "\[Theta]212"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.6662841046755877`*^9, 3.666284514432024*^9, 3.6663207036810846`*^9, 
+   3.6663219573873262`*^9, 3.6663220525366716`*^9, 3.6663226394531975`*^9, 
+   3.666324557249067*^9, 3.6663257503743916`*^9, 3.666326023728554*^9, 
+   3.6663477710436883`*^9, {3.6663520185414333`*^9, 3.6663520451431537`*^9}, {
+   3.6664377054046803`*^9, 3.6664377214150996`*^9}, 3.6664379982140827`*^9, 
+   3.666439662419331*^9, 3.6664397810779076`*^9, 3.666439923129861*^9, 
+   3.6664401375518312`*^9, 3.6665853567540097`*^9, 3.6666119612768354`*^9, {
+   3.666612246843527*^9, 3.6666122596416683`*^9}, {3.666612539270975*^9, 
+   3.666612556044712*^9}, 3.666612878383171*^9, 3.666612980344124*^9, 
+   3.666613036004476*^9, {3.6666137808076096`*^9, 3.6666138037748337`*^9}, 
+   3.6666139119262705`*^9, 3.6666143081253953`*^9, 3.666668087352634*^9, 
+   3.6666716212011366`*^9, 3.6666717465855374`*^9, 3.6669745149959197`*^9, 
+   3.6669746707208266`*^9, 3.666975275972445*^9, 3.6669754816412086`*^9, {
+   3.6669756514379206`*^9, 3.6669756936813364`*^9}, 3.666976845933242*^9, {
+   3.6669769655580835`*^9, 3.6669769894304495`*^9}, {3.6669770617105837`*^9, 
+   3.666977097096607*^9}, 3.666977600927425*^9}],
 
 Cell[CellGroupData[{
 
@@ -248,10 +334,7 @@ Cell[BoxData[
    TagBox[
     RowBox[{"(", "\[NoBreak]", GridBox[{
        {"\[Theta]110", "\[Theta]111", "\[Theta]112"},
-       {"\[Theta]120", "\[Theta]121", "\[Theta]122"},
-       {"\[Theta]130", "\[Theta]131", "\[Theta]132"},
-       {"\[Theta]140", "\[Theta]141", "\[Theta]142"},
-       {"\[Theta]150", "\[Theta]151", "\[Theta]152"}
+       {"\[Theta]120", "\[Theta]121", "\[Theta]122"}
       },
       GridBoxAlignment->{
        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
@@ -269,12 +352,7 @@ Cell[BoxData[
    Superscript["\[Theta]", 1], " = ", 
    MatrixForm[{{$CellContext`\[Theta]110, $CellContext`\[Theta]111, \
 $CellContext`\[Theta]112}, {$CellContext`\[Theta]120, \
-$CellContext`\[Theta]121, $CellContext`\[Theta]122}, \
-{$CellContext`\[Theta]130, $CellContext`\[Theta]131, \
-$CellContext`\[Theta]132}, {$CellContext`\[Theta]140, \
-$CellContext`\[Theta]141, $CellContext`\[Theta]142}, \
-{$CellContext`\[Theta]150, $CellContext`\[Theta]151, \
-$CellContext`\[Theta]152}}]],
+$CellContext`\[Theta]121, $CellContext`\[Theta]122}}]],
   Editable->False]], "Print",
  CellChangeTimes->{
   3.666326023730554*^9, 3.666347771046689*^9, {3.666352018562442*^9, 
@@ -285,7 +363,11 @@ $CellContext`\[Theta]152}}]],
    3.6666125392739763`*^9, 3.6666125560477133`*^9}, 3.666612878386338*^9, 
    3.6666129803471227`*^9, 3.6666130360064774`*^9, {3.666613780810611*^9, 
    3.6666138037798357`*^9}, 3.6666139119292784`*^9, 3.6666143081273975`*^9, 
-   3.6666680874866877`*^9, 3.6666716212031374`*^9, 3.666671746608547*^9}],
+   3.6666680874866877`*^9, 3.6666716212031374`*^9, 3.666671746608547*^9, 
+   3.666974515108926*^9, 3.6669746707258267`*^9, 3.666975275987446*^9, 
+   3.666975481654209*^9, {3.666975651445921*^9, 3.6669756936983376`*^9}, 
+   3.6669768459472427`*^9, {3.6669769655720844`*^9, 3.66697698944545*^9}, {
+   3.6669770617355847`*^9, 3.6669770971096077`*^9}, 3.6669776009534264`*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -294,18 +376,7 @@ Cell[BoxData[
     "Superscript"], "\[InvisibleSpace]", "\<\" = \"\>", "\[InvisibleSpace]", 
    TagBox[
     RowBox[{"(", "\[NoBreak]", GridBox[{
-       {"\[Theta]210", "\[Theta]211", "\[Theta]212", "\[Theta]213", 
-        "\[Theta]214", "\[Theta]215"},
-       {"\[Theta]220", "\[Theta]221", "\[Theta]222", "\[Theta]223", 
-        "\[Theta]224", "\[Theta]225"},
-       {"\[Theta]230", "\[Theta]231", "\[Theta]232", "\[Theta]233", 
-        "\[Theta]234", "\[Theta]235"},
-       {"\[Theta]240", "\[Theta]241", "\[Theta]242", "\[Theta]243", 
-        "\[Theta]244", "\[Theta]245"},
-       {"\[Theta]250", "\[Theta]251", "\[Theta]252", "\[Theta]253", 
-        "\[Theta]254", "\[Theta]255"},
-       {"\[Theta]260", "\[Theta]261", "\[Theta]262", "\[Theta]263", 
-        "\[Theta]264", "\[Theta]265"}
+       {"\[Theta]210", "\[Theta]211", "\[Theta]212"}
       },
       GridBoxAlignment->{
        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
@@ -322,20 +393,7 @@ Cell[BoxData[
   SequenceForm[
    Superscript["\[Theta]", 2], " = ", 
    MatrixForm[{{$CellContext`\[Theta]210, $CellContext`\[Theta]211, \
-$CellContext`\[Theta]212, $CellContext`\[Theta]213, $CellContext`\[Theta]214, \
-$CellContext`\[Theta]215}, {$CellContext`\[Theta]220, \
-$CellContext`\[Theta]221, $CellContext`\[Theta]222, $CellContext`\[Theta]223, \
-$CellContext`\[Theta]224, $CellContext`\[Theta]225}, \
-{$CellContext`\[Theta]230, $CellContext`\[Theta]231, \
-$CellContext`\[Theta]232, $CellContext`\[Theta]233, $CellContext`\[Theta]234, \
-$CellContext`\[Theta]235}, {$CellContext`\[Theta]240, \
-$CellContext`\[Theta]241, $CellContext`\[Theta]242, $CellContext`\[Theta]243, \
-$CellContext`\[Theta]244, $CellContext`\[Theta]245}, \
-{$CellContext`\[Theta]250, $CellContext`\[Theta]251, \
-$CellContext`\[Theta]252, $CellContext`\[Theta]253, $CellContext`\[Theta]254, \
-$CellContext`\[Theta]255}, {$CellContext`\[Theta]260, \
-$CellContext`\[Theta]261, $CellContext`\[Theta]262, $CellContext`\[Theta]263, \
-$CellContext`\[Theta]264, $CellContext`\[Theta]265}}]],
+$CellContext`\[Theta]212}}]],
   Editable->False]], "Print",
  CellChangeTimes->{
   3.666326023730554*^9, 3.666347771046689*^9, {3.666352018562442*^9, 
@@ -346,187 +404,45 @@ $CellContext`\[Theta]264, $CellContext`\[Theta]265}}]],
    3.6666125392739763`*^9, 3.6666125560477133`*^9}, 3.666612878386338*^9, 
    3.6666129803471227`*^9, 3.6666130360064774`*^9, {3.666613780810611*^9, 
    3.6666138037798357`*^9}, 3.6666139119292784`*^9, 3.6666143081273975`*^9, 
-   3.6666680874866877`*^9, 3.6666716212031374`*^9, 3.666671746610547*^9}],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   TemplateBox[{"\"\[Theta]\"","3"},
-    "Superscript"], "\[InvisibleSpace]", "\<\" = \"\>", "\[InvisibleSpace]", 
-   TagBox[
-    RowBox[{"(", "\[NoBreak]", GridBox[{
-       {"\[Theta]310", "\[Theta]311", "\[Theta]312", "\[Theta]313", 
-        "\[Theta]314", "\[Theta]315", "\[Theta]316"},
-       {"\[Theta]320", "\[Theta]321", "\[Theta]322", "\[Theta]323", 
-        "\[Theta]324", "\[Theta]325", "\[Theta]326"},
-       {"\[Theta]330", "\[Theta]331", "\[Theta]332", "\[Theta]333", 
-        "\[Theta]334", "\[Theta]335", "\[Theta]336"}
-      },
-      GridBoxAlignment->{
-       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
-        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.7]}, 
-          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
-    Function[BoxForm`e$, 
-     MatrixForm[BoxForm`e$]]]}],
-  SequenceForm[
-   Superscript["\[Theta]", 3], " = ", 
-   MatrixForm[{{$CellContext`\[Theta]310, $CellContext`\[Theta]311, \
-$CellContext`\[Theta]312, $CellContext`\[Theta]313, $CellContext`\[Theta]314, \
-$CellContext`\[Theta]315, $CellContext`\[Theta]316}, \
-{$CellContext`\[Theta]320, $CellContext`\[Theta]321, \
-$CellContext`\[Theta]322, $CellContext`\[Theta]323, $CellContext`\[Theta]324, \
-$CellContext`\[Theta]325, $CellContext`\[Theta]326}, \
-{$CellContext`\[Theta]330, $CellContext`\[Theta]331, \
-$CellContext`\[Theta]332, $CellContext`\[Theta]333, $CellContext`\[Theta]334, \
-$CellContext`\[Theta]335, $CellContext`\[Theta]336}}]],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.666326023730554*^9, 3.666347771046689*^9, {3.666352018562442*^9, 
-   3.6663520451641626`*^9}, {3.6664377054416957`*^9, 3.6664377214171004`*^9}, 
-   3.666437998218089*^9, 3.666439662422332*^9, 3.666439781080907*^9, 
-   3.66643992314987*^9, 3.666440137555833*^9, 3.666585356861053*^9, 
-   3.6666119612808375`*^9, {3.666612246846529*^9, 3.6666122596446695`*^9}, {
-   3.6666125392739763`*^9, 3.6666125560477133`*^9}, 3.666612878386338*^9, 
-   3.6666129803471227`*^9, 3.6666130360064774`*^9, {3.666613780810611*^9, 
-   3.6666138037798357`*^9}, 3.6666139119292784`*^9, 3.6666143081273975`*^9, 
-   3.6666680874866877`*^9, 3.6666716212031374`*^9, 3.6666717466135483`*^9}]
+   3.6666680874866877`*^9, 3.6666716212031374`*^9, 3.666671746608547*^9, 
+   3.666974515108926*^9, 3.6669746707258267`*^9, 3.666975275987446*^9, 
+   3.666975481654209*^9, {3.666975651445921*^9, 3.6669756936983376`*^9}, 
+   3.6669768459472427`*^9, {3.6669769655720844`*^9, 3.66697698944545*^9}, {
+   3.6669770617355847`*^9, 3.6669770971096077`*^9}, 3.6669776009584265`*^9}]
 }, Open  ]],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
-   RowBox[{"\[Theta]110", "\[Rule]", "0.034225`"}], ",", 
-   RowBox[{"\[Theta]111", "\[Rule]", 
-    RowBox[{"-", "0.454284`"}]}], ",", 
-   RowBox[{"\[Theta]112", "\[Rule]", 
-    RowBox[{"-", "2.652881`"}]}], ",", 
-   RowBox[{"\[Theta]120", "\[Rule]", "0.20303`"}], ",", 
+   RowBox[{
+   "\[Theta]110", "\[Rule]", "1.03058727306830098960649165077761714322`6."}], 
+   ",", 
+   RowBox[{
+   "\[Theta]111", "\[Rule]", "1.11365736007432238223337037920822863191`6."}], 
+   ",", 
+   RowBox[{
+   "\[Theta]112", "\[Rule]", 
+    "0.17283600612206209097386114819413132209`5.237634222119691"}], ",", 
+   RowBox[{"\[Theta]120", "\[Rule]", 
+    RowBox[{
+    "-", "0.92688997478474226099774956686365878825`5.9670281848675035"}]}], 
+   ",", 
    RowBox[{"\[Theta]121", "\[Rule]", 
-    RowBox[{"-", "0.686212`"}]}], ",", 
+    RowBox[{"-", "1.17443758744657833741262733845975852423`6."}]}], ",", 
    RowBox[{"\[Theta]122", "\[Rule]", 
-    RowBox[{"-", "2.401099`"}]}], ",", 
-   RowBox[{"\[Theta]130", "\[Rule]", "0.965855`"}], ",", 
-   RowBox[{"\[Theta]131", "\[Rule]", "0.239303`"}], ",", 
-   RowBox[{"\[Theta]132", "\[Rule]", 
-    RowBox[{"-", "0.456707`"}]}], ",", 
-   RowBox[{"\[Theta]140", "\[Rule]", 
-    RowBox[{"-", "1.967651`"}]}], ",", 
-   RowBox[{"\[Theta]141", "\[Rule]", 
-    RowBox[{"-", "2.484711`"}]}], ",", 
-   RowBox[{"\[Theta]142", "\[Rule]", 
-    RowBox[{"-", "0.57845`"}]}], ",", 
-   RowBox[{"\[Theta]150", "\[Rule]", "0.837095`"}], ",", 
-   RowBox[{"\[Theta]151", "\[Rule]", "0.756525`"}], ",", 
-   RowBox[{"\[Theta]152", "\[Rule]", 
-    RowBox[{"-", "2.058914`"}]}], ",", 
-   RowBox[{"\[Theta]210", "\[Rule]", 
-    RowBox[{"-", "1.1434968`"}]}], ",", 
-   RowBox[{"\[Theta]211", "\[Rule]", 
-    RowBox[{"-", "2.7254714`"}]}], ",", 
-   RowBox[{"\[Theta]212", "\[Rule]", 
-    RowBox[{"-", "0.6940123`"}]}], ",", 
-   RowBox[{"\[Theta]213", "\[Rule]", 
-    RowBox[{"-", "2.0796824`"}]}], ",", 
-   RowBox[{"\[Theta]214", "\[Rule]", 
-    RowBox[{"-", "1.0235599`"}]}], ",", 
-   RowBox[{"\[Theta]215", "\[Rule]", 
-    RowBox[{"-", "0.9798576`"}]}], ",", 
-   RowBox[{"\[Theta]220", "\[Rule]", 
-    RowBox[{"-", "1.6744904`"}]}], ",", 
-   RowBox[{"\[Theta]221", "\[Rule]", 
-    RowBox[{"-", "0.4115589`"}]}], ",", 
-   RowBox[{"\[Theta]222", "\[Rule]", 
-    RowBox[{"-", "1.75885`"}]}], ",", 
-   RowBox[{"\[Theta]223", "\[Rule]", 
-    RowBox[{"-", "2.9772614`"}]}], ",", 
-   RowBox[{"\[Theta]224", "\[Rule]", 
-    RowBox[{"-", "0.6937645`"}]}], ",", 
-   RowBox[{"\[Theta]225", "\[Rule]", 
-    RowBox[{"-", "2.0625809`"}]}], ",", 
-   RowBox[{"\[Theta]230", "\[Rule]", 
-    RowBox[{"-", "2.8347321`"}]}], ",", 
-   RowBox[{"\[Theta]231", "\[Rule]", 
-    RowBox[{"-", "0.0015962`"}]}], ",", 
-   RowBox[{"\[Theta]232", "\[Rule]", "0.0044307`"}], ",", 
-   RowBox[{"\[Theta]233", "\[Rule]", 
-    RowBox[{"-", "2.8260281`"}]}], ",", 
-   RowBox[{"\[Theta]234", "\[Rule]", 
-    RowBox[{"-", "1.6520862`"}]}], ",", 
-   RowBox[{"\[Theta]235", "\[Rule]", 
-    RowBox[{"-", "0.2487677`"}]}], ",", 
-   RowBox[{"\[Theta]240", "\[Rule]", 
-    RowBox[{"-", "0.8337728`"}]}], ",", 
-   RowBox[{"\[Theta]241", "\[Rule]", 
-    RowBox[{"-", "0.637479`"}]}], ",", 
-   RowBox[{"\[Theta]242", "\[Rule]", 
-    RowBox[{"-", "1.8227457`"}]}], ",", 
-   RowBox[{"\[Theta]243", "\[Rule]", 
-    RowBox[{"-", "1.1440733`"}]}], ",", 
-   RowBox[{"\[Theta]244", "\[Rule]", 
-    RowBox[{"-", "1.6668174`"}]}], ",", 
-   RowBox[{"\[Theta]245", "\[Rule]", 
-    RowBox[{"-", "2.0439432`"}]}], ",", 
-   RowBox[{"\[Theta]250", "\[Rule]", 
-    RowBox[{"-", "2.1060973`"}]}], ",", 
-   RowBox[{"\[Theta]251", "\[Rule]", "0.2822872`"}], ",", 
-   RowBox[{"\[Theta]252", "\[Rule]", 
-    RowBox[{"-", "2.2101957`"}]}], ",", 
-   RowBox[{"\[Theta]253", "\[Rule]", 
-    RowBox[{"-", "1.3606613`"}]}], ",", 
-   RowBox[{"\[Theta]254", "\[Rule]", 
-    RowBox[{"-", "0.857875`"}]}], ",", 
-   RowBox[{"\[Theta]255", "\[Rule]", "0.3521685`"}], ",", 
-   RowBox[{"\[Theta]260", "\[Rule]", 
-    RowBox[{"-", "0.5935213`"}]}], ",", 
-   RowBox[{"\[Theta]261", "\[Rule]", 
-    RowBox[{"-", "0.8815364`"}]}], ",", 
-   RowBox[{"\[Theta]262", "\[Rule]", 
-    RowBox[{"-", "2.1519084`"}]}], ",", 
-   RowBox[{"\[Theta]263", "\[Rule]", "0.673525`"}], ",", 
-   RowBox[{"\[Theta]264", "\[Rule]", "0.085229`"}], ",", 
-   RowBox[{"\[Theta]265", "\[Rule]", "0.7672503`"}], ",", 
-   RowBox[{"\[Theta]310", "\[Rule]", "0.2899`"}], ",", 
-   RowBox[{"\[Theta]311", "\[Rule]", "0.82255`"}], ",", 
-   RowBox[{"\[Theta]312", "\[Rule]", 
-    RowBox[{"-", "0.88405`"}]}], ",", 
-   RowBox[{"\[Theta]313", "\[Rule]", "0.30355`"}], ",", 
-   RowBox[{"\[Theta]314", "\[Rule]", 
-    RowBox[{"-", "0.80178`"}]}], ",", 
-   RowBox[{"\[Theta]315", "\[Rule]", 
-    RowBox[{"-", "0.41216`"}]}], ",", 
-   RowBox[{"\[Theta]316", "\[Rule]", 
-    RowBox[{"-", "2.65119`"}]}], ",", 
-   RowBox[{"\[Theta]320", "\[Rule]", "0.54181`"}], ",", 
-   RowBox[{"\[Theta]321", "\[Rule]", "0.33694`"}], ",", 
-   RowBox[{"\[Theta]322", "\[Rule]", 
-    RowBox[{"-", "1.60065`"}]}], ",", 
-   RowBox[{"\[Theta]323", "\[Rule]", 
-    RowBox[{"-", "2.56335`"}]}], ",", 
-   RowBox[{"\[Theta]324", "\[Rule]", "0.79371`"}], ",", 
-   RowBox[{"\[Theta]325", "\[Rule]", 
-    RowBox[{"-", "2.51547`"}]}], ",", 
-   RowBox[{"\[Theta]326", "\[Rule]", 
-    RowBox[{"-", "0.53684`"}]}], ",", 
-   RowBox[{"\[Theta]330", "\[Rule]", 
-    RowBox[{"-", "1.85514`"}]}], ",", 
-   RowBox[{"\[Theta]331", "\[Rule]", 
-    RowBox[{"-", "2.82926`"}]}], ",", 
-   RowBox[{"\[Theta]332", "\[Rule]", 
-    RowBox[{"-", "0.35671`"}]}], ",", 
-   RowBox[{"\[Theta]333", "\[Rule]", 
-    RowBox[{"-", "1.03435`"}]}], ",", 
-   RowBox[{"\[Theta]334", "\[Rule]", 
-    RowBox[{"-", "0.26898`"}]}], ",", 
-   RowBox[{"\[Theta]335", "\[Rule]", 
-    RowBox[{"-", "1.71319`"}]}], ",", 
-   RowBox[{"\[Theta]336", "\[Rule]", 
-    RowBox[{"-", "1.31152`"}]}]}], "}"}]], "Output",
+    RowBox[{
+    "-", "0.34221269840646024967829159213613476464`5.534296120767717"}]}], 
+   ",", 
+   RowBox[{
+   "\[Theta]210", "\[Rule]", "1.19001967905877186254249922268472325279`6."}], 
+   ",", 
+   RowBox[{
+   "\[Theta]211", "\[Rule]", "1.28594075324783603136098194900935251454`6."}], 
+   ",", 
+   RowBox[{
+   "\[Theta]212", "\[Rule]", 
+    "0.19957382932046470970813029775752654774`5.3001035904238405"}]}], 
+  "}"}]], "Output",
  CellChangeTimes->{
   3.6662841046755877`*^9, 3.666284514432024*^9, 3.6663207036810846`*^9, 
    3.6663219573873262`*^9, 3.6663220525366716`*^9, 3.6663226394531975`*^9, 
@@ -539,7 +455,11 @@ Cell[BoxData[
    3.666612556044712*^9}, 3.666612878383171*^9, 3.666612980344124*^9, 
    3.666613036004476*^9, {3.6666137808076096`*^9, 3.6666138037748337`*^9}, 
    3.6666139119262705`*^9, 3.6666143081253953`*^9, 3.666668087352634*^9, 
-   3.6666716212011366`*^9, 3.6666717466365585`*^9}]
+   3.6666716212011366`*^9, 3.6666717465855374`*^9, 3.6669745149959197`*^9, 
+   3.6669746707208266`*^9, 3.666975275972445*^9, 3.6669754816412086`*^9, {
+   3.6669756514379206`*^9, 3.6669756936813364`*^9}, 3.666976845933242*^9, {
+   3.6669769655580835`*^9, 3.6669769894304495`*^9}, {3.6669770617105837`*^9, 
+   3.666977097096607*^9}, 3.6669776009634266`*^9}]
 }, Open  ]],
 
 Cell[BoxData[{
@@ -548,24 +468,20 @@ Cell[BoxData[{
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
-      RowBox[{"3", ",", " ", "2"}], "}"}], ",", 
+      RowBox[{"1", ",", " ", "5"}], "}"}], ",", 
      RowBox[{"{", 
-      RowBox[{"1", ",", " ", "0"}], "}"}], ",", " ", 
+      RowBox[{"4", ",", " ", 
+       RowBox[{"-", "3"}]}], "}"}], ",", " ", 
      RowBox[{"{", 
-      RowBox[{
-       RowBox[{"-", "2"}], ",", " ", "1"}], "}"}]}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+      RowBox[{"2", ",", " ", 
+       RowBox[{"-", "2"}]}], "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Y", " ", "=", " ", 
    RowBox[{"{", 
     RowBox[{
-     RowBox[{"{", 
-      RowBox[{"1", ",", " ", "0", ",", " ", "0"}], "}"}], ",", " ", 
-     RowBox[{"{", 
-      RowBox[{"0", ",", " ", "1", ",", " ", "0"}], "}"}], ",", " ", 
-     RowBox[{"{", 
-      RowBox[{"0", ",", " ", "0", ",", " ", "1"}], "}"}]}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+     RowBox[{"{", "1", "}"}], ",", " ", 
+     RowBox[{"{", "0", "}"}], ",", " ", 
+     RowBox[{"{", "1", "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"inputSize", " ", "=", " ", 
    RowBox[{"Length", "[", "X", "]"}]}], ";"}]}], "Input",
@@ -579,7 +495,9 @@ Cell[BoxData[{
   3.666347775794602*^9, 3.666347784050929*^9}, {3.666438028154084*^9, 
   3.666438035521038*^9}, {3.6665853750713673`*^9, 3.666585403831918*^9}, {
   3.6666119950624046`*^9, 3.6666120009177575`*^9}, {3.666614252067881*^9, 
-  3.6666142643248034`*^9}}],
+  3.6666142643248034`*^9}, {3.666976325911498*^9, 3.6669763332019153`*^9}, {
+  3.666977516906619*^9, 3.6669775313574457`*^9}, {3.6669777738353148`*^9, 
+  3.6669777934164343`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -643,41 +561,22 @@ Cell[BoxData[
      RowBox[{"{", 
       RowBox[{"a111", ",", "a112"}], "}"}], ",", 
      RowBox[{"{", 
-      RowBox[{"a121", ",", "a122", ",", "a123", ",", "a124", ",", "a125"}], 
-      "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{
-      "a131", ",", "a132", ",", "a133", ",", "a134", ",", "a135", ",", 
-       "a136"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"a141", ",", "a142", ",", "a143"}], "}"}]}], "}"}], ",", 
+      RowBox[{"a121", ",", "a122"}], "}"}], ",", 
+     RowBox[{"{", "a131", "}"}]}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
       RowBox[{"a211", ",", "a212"}], "}"}], ",", 
      RowBox[{"{", 
-      RowBox[{"a221", ",", "a222", ",", "a223", ",", "a224", ",", "a225"}], 
-      "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{
-      "a231", ",", "a232", ",", "a233", ",", "a234", ",", "a235", ",", 
-       "a236"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"a241", ",", "a242", ",", "a243"}], "}"}]}], "}"}], ",", 
+      RowBox[{"a221", ",", "a222"}], "}"}], ",", 
+     RowBox[{"{", "a231", "}"}]}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
       RowBox[{"a311", ",", "a312"}], "}"}], ",", 
      RowBox[{"{", 
-      RowBox[{"a321", ",", "a322", ",", "a323", ",", "a324", ",", "a325"}], 
-      "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{
-      "a331", ",", "a332", ",", "a333", ",", "a334", ",", "a335", ",", 
-       "a336"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"a341", ",", "a342", ",", "a343"}], "}"}]}], "}"}]}], 
-  "}"}]], "Output",
+      RowBox[{"a321", ",", "a322"}], "}"}], ",", 
+     RowBox[{"{", "a331", "}"}]}], "}"}]}], "}"}]], "Output",
  CellChangeTimes->{{3.666291007485406*^9, 3.666291020185132*^9}, 
    3.666291056074185*^9, 3.666291151783659*^9, 3.6662918670105677`*^9, 
    3.666320720018668*^9, 3.666321959684252*^9, 3.6663220540132666`*^9, 
@@ -693,7 +592,7 @@ Cell[BoxData[
    3.6666120029965916`*^9, 3.666612262638872*^9, {3.6666125409396443`*^9, 
    3.6666125577704043`*^9}, 3.6666130398970394`*^9, 3.6666139138361816`*^9, 
    3.666614310696428*^9, 3.6666680932390003`*^9, 3.6666716244884577`*^9, 
-   3.666671749185582*^9}],
+   3.666671749185582*^9, 3.666977606752758*^9}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -703,41 +602,22 @@ Cell[BoxData[
      RowBox[{"{", 
       RowBox[{"z111", ",", "z112"}], "}"}], ",", 
      RowBox[{"{", 
-      RowBox[{"z121", ",", "z122", ",", "z123", ",", "z124", ",", "z125"}], 
-      "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{
-      "z131", ",", "z132", ",", "z133", ",", "z134", ",", "z135", ",", 
-       "z136"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"z141", ",", "z142", ",", "z143"}], "}"}]}], "}"}], ",", 
+      RowBox[{"z121", ",", "z122"}], "}"}], ",", 
+     RowBox[{"{", "z131", "}"}]}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
       RowBox[{"z211", ",", "z212"}], "}"}], ",", 
      RowBox[{"{", 
-      RowBox[{"z221", ",", "z222", ",", "z223", ",", "z224", ",", "z225"}], 
-      "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{
-      "z231", ",", "z232", ",", "z233", ",", "z234", ",", "z235", ",", 
-       "z236"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"z241", ",", "z242", ",", "z243"}], "}"}]}], "}"}], ",", 
+      RowBox[{"z221", ",", "z222"}], "}"}], ",", 
+     RowBox[{"{", "z231", "}"}]}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
       RowBox[{"z311", ",", "z312"}], "}"}], ",", 
      RowBox[{"{", 
-      RowBox[{"z321", ",", "z322", ",", "z323", ",", "z324", ",", "z325"}], 
-      "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{
-      "z331", ",", "z332", ",", "z333", ",", "z334", ",", "z335", ",", 
-       "z336"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"z341", ",", "z342", ",", "z343"}], "}"}]}], "}"}]}], 
-  "}"}]], "Output",
+      RowBox[{"z321", ",", "z322"}], "}"}], ",", 
+     RowBox[{"{", "z331", "}"}]}], "}"}]}], "}"}]], "Output",
  CellChangeTimes->{{3.666291007485406*^9, 3.666291020185132*^9}, 
    3.666291056074185*^9, 3.666291151783659*^9, 3.6662918670105677`*^9, 
    3.666320720018668*^9, 3.666321959684252*^9, 3.6663220540132666`*^9, 
@@ -753,7 +633,7 @@ Cell[BoxData[
    3.6666120029965916`*^9, 3.666612262638872*^9, {3.6666125409396443`*^9, 
    3.6666125577704043`*^9}, 3.6666130398970394`*^9, 3.6666139138361816`*^9, 
    3.666614310696428*^9, 3.6666680932390003`*^9, 3.6666716244884577`*^9, 
-   3.6666717491975884`*^9}]
+   3.666671749185582*^9, 3.666977606757758*^9}]
 }, Open  ]],
 
 Cell[BoxData[
@@ -887,66 +767,11 @@ Cell[BoxData[
      RowBox[{"1", "+", 
       SuperscriptBox["\[ExponentialE]", 
        RowBox[{"-", "z122"}]]}]]}], ",", 
-   RowBox[{"a123", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z123"}]]}]]}], ",", 
-   RowBox[{"a124", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z124"}]]}]]}], ",", 
-   RowBox[{"a125", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z125"}]]}]]}], ",", 
    RowBox[{"a131", "\[Rule]", 
     FractionBox["1", 
      RowBox[{"1", "+", 
       SuperscriptBox["\[ExponentialE]", 
        RowBox[{"-", "z131"}]]}]]}], ",", 
-   RowBox[{"a132", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z132"}]]}]]}], ",", 
-   RowBox[{"a133", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z133"}]]}]]}], ",", 
-   RowBox[{"a134", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z134"}]]}]]}], ",", 
-   RowBox[{"a135", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z135"}]]}]]}], ",", 
-   RowBox[{"a136", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z136"}]]}]]}], ",", 
-   RowBox[{"a141", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z141"}]]}]]}], ",", 
-   RowBox[{"a142", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z142"}]]}]]}], ",", 
-   RowBox[{"a143", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z143"}]]}]]}], ",", 
    RowBox[{"a211", "\[Rule]", "1"}], ",", 
    RowBox[{"a212", "\[Rule]", "0"}], ",", 
    RowBox[{"a221", "\[Rule]", 
@@ -959,66 +784,11 @@ Cell[BoxData[
      RowBox[{"1", "+", 
       SuperscriptBox["\[ExponentialE]", 
        RowBox[{"-", "z222"}]]}]]}], ",", 
-   RowBox[{"a223", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z223"}]]}]]}], ",", 
-   RowBox[{"a224", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z224"}]]}]]}], ",", 
-   RowBox[{"a225", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z225"}]]}]]}], ",", 
    RowBox[{"a231", "\[Rule]", 
     FractionBox["1", 
      RowBox[{"1", "+", 
       SuperscriptBox["\[ExponentialE]", 
        RowBox[{"-", "z231"}]]}]]}], ",", 
-   RowBox[{"a232", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z232"}]]}]]}], ",", 
-   RowBox[{"a233", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z233"}]]}]]}], ",", 
-   RowBox[{"a234", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z234"}]]}]]}], ",", 
-   RowBox[{"a235", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z235"}]]}]]}], ",", 
-   RowBox[{"a236", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z236"}]]}]]}], ",", 
-   RowBox[{"a241", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z241"}]]}]]}], ",", 
-   RowBox[{"a242", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z242"}]]}]]}], ",", 
-   RowBox[{"a243", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z243"}]]}]]}], ",", 
    RowBox[{"a311", "\[Rule]", 
     RowBox[{"-", "2"}]}], ",", 
    RowBox[{"a312", "\[Rule]", "1"}], ",", 
@@ -1032,66 +802,11 @@ Cell[BoxData[
      RowBox[{"1", "+", 
       SuperscriptBox["\[ExponentialE]", 
        RowBox[{"-", "z322"}]]}]]}], ",", 
-   RowBox[{"a323", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z323"}]]}]]}], ",", 
-   RowBox[{"a324", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z324"}]]}]]}], ",", 
-   RowBox[{"a325", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z325"}]]}]]}], ",", 
    RowBox[{"a331", "\[Rule]", 
     FractionBox["1", 
      RowBox[{"1", "+", 
       SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z331"}]]}]]}], ",", 
-   RowBox[{"a332", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z332"}]]}]]}], ",", 
-   RowBox[{"a333", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z333"}]]}]]}], ",", 
-   RowBox[{"a334", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z334"}]]}]]}], ",", 
-   RowBox[{"a335", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z335"}]]}]]}], ",", 
-   RowBox[{"a336", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z336"}]]}]]}], ",", 
-   RowBox[{"a341", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z341"}]]}]]}], ",", 
-   RowBox[{"a342", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z342"}]]}]]}], ",", 
-   RowBox[{"a343", "\[Rule]", 
-    FractionBox["1", 
-     RowBox[{"1", "+", 
-      SuperscriptBox["\[ExponentialE]", 
-       RowBox[{"-", "z343"}]]}]]}]}], "}"}]], "Output",
+       RowBox[{"-", "z331"}]]}]]}]}], "}"}]], "Output",
  CellChangeTimes->{
   3.666291673985527*^9, 3.666291870054742*^9, 3.66629203611524*^9, 
    3.666320760104823*^9, 3.666321966592036*^9, {3.666322044238327*^9, 
@@ -1110,7 +825,7 @@ Cell[BoxData[
    3.6665854137388973`*^9, 3.6666120049243655`*^9, 3.6666122644666047`*^9, {
    3.6666125423014936`*^9, 3.6666125589958997`*^9}, 3.6666130416687517`*^9, 
    3.66661391511255*^9, 3.666614311894909*^9, 3.666668094840644*^9, 
-   3.6666716303348074`*^9, 3.6666717510953493`*^9}],
+   3.6666716303348074`*^9, 3.6666717510953493`*^9, 3.66697760853686*^9}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -1123,84 +838,10 @@ Cell[BoxData[
     RowBox[{"\[Theta]120", "+", 
      RowBox[{"a111", " ", "\[Theta]121"}], "+", 
      RowBox[{"a112", " ", "\[Theta]122"}]}]}], ",", 
-   RowBox[{"z123", "\[Rule]", 
-    RowBox[{"\[Theta]130", "+", 
-     RowBox[{"a111", " ", "\[Theta]131"}], "+", 
-     RowBox[{"a112", " ", "\[Theta]132"}]}]}], ",", 
-   RowBox[{"z124", "\[Rule]", 
-    RowBox[{"\[Theta]140", "+", 
-     RowBox[{"a111", " ", "\[Theta]141"}], "+", 
-     RowBox[{"a112", " ", "\[Theta]142"}]}]}], ",", 
-   RowBox[{"z125", "\[Rule]", 
-    RowBox[{"\[Theta]150", "+", 
-     RowBox[{"a111", " ", "\[Theta]151"}], "+", 
-     RowBox[{"a112", " ", "\[Theta]152"}]}]}], ",", 
    RowBox[{"z131", "\[Rule]", 
     RowBox[{"\[Theta]210", "+", 
      RowBox[{"a121", " ", "\[Theta]211"}], "+", 
-     RowBox[{"a122", " ", "\[Theta]212"}], "+", 
-     RowBox[{"a123", " ", "\[Theta]213"}], "+", 
-     RowBox[{"a124", " ", "\[Theta]214"}], "+", 
-     RowBox[{"a125", " ", "\[Theta]215"}]}]}], ",", 
-   RowBox[{"z132", "\[Rule]", 
-    RowBox[{"\[Theta]220", "+", 
-     RowBox[{"a121", " ", "\[Theta]221"}], "+", 
-     RowBox[{"a122", " ", "\[Theta]222"}], "+", 
-     RowBox[{"a123", " ", "\[Theta]223"}], "+", 
-     RowBox[{"a124", " ", "\[Theta]224"}], "+", 
-     RowBox[{"a125", " ", "\[Theta]225"}]}]}], ",", 
-   RowBox[{"z133", "\[Rule]", 
-    RowBox[{"\[Theta]230", "+", 
-     RowBox[{"a121", " ", "\[Theta]231"}], "+", 
-     RowBox[{"a122", " ", "\[Theta]232"}], "+", 
-     RowBox[{"a123", " ", "\[Theta]233"}], "+", 
-     RowBox[{"a124", " ", "\[Theta]234"}], "+", 
-     RowBox[{"a125", " ", "\[Theta]235"}]}]}], ",", 
-   RowBox[{"z134", "\[Rule]", 
-    RowBox[{"\[Theta]240", "+", 
-     RowBox[{"a121", " ", "\[Theta]241"}], "+", 
-     RowBox[{"a122", " ", "\[Theta]242"}], "+", 
-     RowBox[{"a123", " ", "\[Theta]243"}], "+", 
-     RowBox[{"a124", " ", "\[Theta]244"}], "+", 
-     RowBox[{"a125", " ", "\[Theta]245"}]}]}], ",", 
-   RowBox[{"z135", "\[Rule]", 
-    RowBox[{"\[Theta]250", "+", 
-     RowBox[{"a121", " ", "\[Theta]251"}], "+", 
-     RowBox[{"a122", " ", "\[Theta]252"}], "+", 
-     RowBox[{"a123", " ", "\[Theta]253"}], "+", 
-     RowBox[{"a124", " ", "\[Theta]254"}], "+", 
-     RowBox[{"a125", " ", "\[Theta]255"}]}]}], ",", 
-   RowBox[{"z136", "\[Rule]", 
-    RowBox[{"\[Theta]260", "+", 
-     RowBox[{"a121", " ", "\[Theta]261"}], "+", 
-     RowBox[{"a122", " ", "\[Theta]262"}], "+", 
-     RowBox[{"a123", " ", "\[Theta]263"}], "+", 
-     RowBox[{"a124", " ", "\[Theta]264"}], "+", 
-     RowBox[{"a125", " ", "\[Theta]265"}]}]}], ",", 
-   RowBox[{"z141", "\[Rule]", 
-    RowBox[{"\[Theta]310", "+", 
-     RowBox[{"a131", " ", "\[Theta]311"}], "+", 
-     RowBox[{"a132", " ", "\[Theta]312"}], "+", 
-     RowBox[{"a133", " ", "\[Theta]313"}], "+", 
-     RowBox[{"a134", " ", "\[Theta]314"}], "+", 
-     RowBox[{"a135", " ", "\[Theta]315"}], "+", 
-     RowBox[{"a136", " ", "\[Theta]316"}]}]}], ",", 
-   RowBox[{"z142", "\[Rule]", 
-    RowBox[{"\[Theta]320", "+", 
-     RowBox[{"a131", " ", "\[Theta]321"}], "+", 
-     RowBox[{"a132", " ", "\[Theta]322"}], "+", 
-     RowBox[{"a133", " ", "\[Theta]323"}], "+", 
-     RowBox[{"a134", " ", "\[Theta]324"}], "+", 
-     RowBox[{"a135", " ", "\[Theta]325"}], "+", 
-     RowBox[{"a136", " ", "\[Theta]326"}]}]}], ",", 
-   RowBox[{"z143", "\[Rule]", 
-    RowBox[{"\[Theta]330", "+", 
-     RowBox[{"a131", " ", "\[Theta]331"}], "+", 
-     RowBox[{"a132", " ", "\[Theta]332"}], "+", 
-     RowBox[{"a133", " ", "\[Theta]333"}], "+", 
-     RowBox[{"a134", " ", "\[Theta]334"}], "+", 
-     RowBox[{"a135", " ", "\[Theta]335"}], "+", 
-     RowBox[{"a136", " ", "\[Theta]336"}]}]}], ",", 
+     RowBox[{"a122", " ", "\[Theta]212"}]}]}], ",", 
    RowBox[{"z221", "\[Rule]", 
     RowBox[{"\[Theta]110", "+", 
      RowBox[{"a211", " ", "\[Theta]111"}], "+", 
@@ -1209,84 +850,10 @@ Cell[BoxData[
     RowBox[{"\[Theta]120", "+", 
      RowBox[{"a211", " ", "\[Theta]121"}], "+", 
      RowBox[{"a212", " ", "\[Theta]122"}]}]}], ",", 
-   RowBox[{"z223", "\[Rule]", 
-    RowBox[{"\[Theta]130", "+", 
-     RowBox[{"a211", " ", "\[Theta]131"}], "+", 
-     RowBox[{"a212", " ", "\[Theta]132"}]}]}], ",", 
-   RowBox[{"z224", "\[Rule]", 
-    RowBox[{"\[Theta]140", "+", 
-     RowBox[{"a211", " ", "\[Theta]141"}], "+", 
-     RowBox[{"a212", " ", "\[Theta]142"}]}]}], ",", 
-   RowBox[{"z225", "\[Rule]", 
-    RowBox[{"\[Theta]150", "+", 
-     RowBox[{"a211", " ", "\[Theta]151"}], "+", 
-     RowBox[{"a212", " ", "\[Theta]152"}]}]}], ",", 
    RowBox[{"z231", "\[Rule]", 
     RowBox[{"\[Theta]210", "+", 
      RowBox[{"a221", " ", "\[Theta]211"}], "+", 
-     RowBox[{"a222", " ", "\[Theta]212"}], "+", 
-     RowBox[{"a223", " ", "\[Theta]213"}], "+", 
-     RowBox[{"a224", " ", "\[Theta]214"}], "+", 
-     RowBox[{"a225", " ", "\[Theta]215"}]}]}], ",", 
-   RowBox[{"z232", "\[Rule]", 
-    RowBox[{"\[Theta]220", "+", 
-     RowBox[{"a221", " ", "\[Theta]221"}], "+", 
-     RowBox[{"a222", " ", "\[Theta]222"}], "+", 
-     RowBox[{"a223", " ", "\[Theta]223"}], "+", 
-     RowBox[{"a224", " ", "\[Theta]224"}], "+", 
-     RowBox[{"a225", " ", "\[Theta]225"}]}]}], ",", 
-   RowBox[{"z233", "\[Rule]", 
-    RowBox[{"\[Theta]230", "+", 
-     RowBox[{"a221", " ", "\[Theta]231"}], "+", 
-     RowBox[{"a222", " ", "\[Theta]232"}], "+", 
-     RowBox[{"a223", " ", "\[Theta]233"}], "+", 
-     RowBox[{"a224", " ", "\[Theta]234"}], "+", 
-     RowBox[{"a225", " ", "\[Theta]235"}]}]}], ",", 
-   RowBox[{"z234", "\[Rule]", 
-    RowBox[{"\[Theta]240", "+", 
-     RowBox[{"a221", " ", "\[Theta]241"}], "+", 
-     RowBox[{"a222", " ", "\[Theta]242"}], "+", 
-     RowBox[{"a223", " ", "\[Theta]243"}], "+", 
-     RowBox[{"a224", " ", "\[Theta]244"}], "+", 
-     RowBox[{"a225", " ", "\[Theta]245"}]}]}], ",", 
-   RowBox[{"z235", "\[Rule]", 
-    RowBox[{"\[Theta]250", "+", 
-     RowBox[{"a221", " ", "\[Theta]251"}], "+", 
-     RowBox[{"a222", " ", "\[Theta]252"}], "+", 
-     RowBox[{"a223", " ", "\[Theta]253"}], "+", 
-     RowBox[{"a224", " ", "\[Theta]254"}], "+", 
-     RowBox[{"a225", " ", "\[Theta]255"}]}]}], ",", 
-   RowBox[{"z236", "\[Rule]", 
-    RowBox[{"\[Theta]260", "+", 
-     RowBox[{"a221", " ", "\[Theta]261"}], "+", 
-     RowBox[{"a222", " ", "\[Theta]262"}], "+", 
-     RowBox[{"a223", " ", "\[Theta]263"}], "+", 
-     RowBox[{"a224", " ", "\[Theta]264"}], "+", 
-     RowBox[{"a225", " ", "\[Theta]265"}]}]}], ",", 
-   RowBox[{"z241", "\[Rule]", 
-    RowBox[{"\[Theta]310", "+", 
-     RowBox[{"a231", " ", "\[Theta]311"}], "+", 
-     RowBox[{"a232", " ", "\[Theta]312"}], "+", 
-     RowBox[{"a233", " ", "\[Theta]313"}], "+", 
-     RowBox[{"a234", " ", "\[Theta]314"}], "+", 
-     RowBox[{"a235", " ", "\[Theta]315"}], "+", 
-     RowBox[{"a236", " ", "\[Theta]316"}]}]}], ",", 
-   RowBox[{"z242", "\[Rule]", 
-    RowBox[{"\[Theta]320", "+", 
-     RowBox[{"a231", " ", "\[Theta]321"}], "+", 
-     RowBox[{"a232", " ", "\[Theta]322"}], "+", 
-     RowBox[{"a233", " ", "\[Theta]323"}], "+", 
-     RowBox[{"a234", " ", "\[Theta]324"}], "+", 
-     RowBox[{"a235", " ", "\[Theta]325"}], "+", 
-     RowBox[{"a236", " ", "\[Theta]326"}]}]}], ",", 
-   RowBox[{"z243", "\[Rule]", 
-    RowBox[{"\[Theta]330", "+", 
-     RowBox[{"a231", " ", "\[Theta]331"}], "+", 
-     RowBox[{"a232", " ", "\[Theta]332"}], "+", 
-     RowBox[{"a233", " ", "\[Theta]333"}], "+", 
-     RowBox[{"a234", " ", "\[Theta]334"}], "+", 
-     RowBox[{"a235", " ", "\[Theta]335"}], "+", 
-     RowBox[{"a236", " ", "\[Theta]336"}]}]}], ",", 
+     RowBox[{"a222", " ", "\[Theta]212"}]}]}], ",", 
    RowBox[{"z321", "\[Rule]", 
     RowBox[{"\[Theta]110", "+", 
      RowBox[{"a311", " ", "\[Theta]111"}], "+", 
@@ -1295,84 +862,10 @@ Cell[BoxData[
     RowBox[{"\[Theta]120", "+", 
      RowBox[{"a311", " ", "\[Theta]121"}], "+", 
      RowBox[{"a312", " ", "\[Theta]122"}]}]}], ",", 
-   RowBox[{"z323", "\[Rule]", 
-    RowBox[{"\[Theta]130", "+", 
-     RowBox[{"a311", " ", "\[Theta]131"}], "+", 
-     RowBox[{"a312", " ", "\[Theta]132"}]}]}], ",", 
-   RowBox[{"z324", "\[Rule]", 
-    RowBox[{"\[Theta]140", "+", 
-     RowBox[{"a311", " ", "\[Theta]141"}], "+", 
-     RowBox[{"a312", " ", "\[Theta]142"}]}]}], ",", 
-   RowBox[{"z325", "\[Rule]", 
-    RowBox[{"\[Theta]150", "+", 
-     RowBox[{"a311", " ", "\[Theta]151"}], "+", 
-     RowBox[{"a312", " ", "\[Theta]152"}]}]}], ",", 
    RowBox[{"z331", "\[Rule]", 
     RowBox[{"\[Theta]210", "+", 
      RowBox[{"a321", " ", "\[Theta]211"}], "+", 
-     RowBox[{"a322", " ", "\[Theta]212"}], "+", 
-     RowBox[{"a323", " ", "\[Theta]213"}], "+", 
-     RowBox[{"a324", " ", "\[Theta]214"}], "+", 
-     RowBox[{"a325", " ", "\[Theta]215"}]}]}], ",", 
-   RowBox[{"z332", "\[Rule]", 
-    RowBox[{"\[Theta]220", "+", 
-     RowBox[{"a321", " ", "\[Theta]221"}], "+", 
-     RowBox[{"a322", " ", "\[Theta]222"}], "+", 
-     RowBox[{"a323", " ", "\[Theta]223"}], "+", 
-     RowBox[{"a324", " ", "\[Theta]224"}], "+", 
-     RowBox[{"a325", " ", "\[Theta]225"}]}]}], ",", 
-   RowBox[{"z333", "\[Rule]", 
-    RowBox[{"\[Theta]230", "+", 
-     RowBox[{"a321", " ", "\[Theta]231"}], "+", 
-     RowBox[{"a322", " ", "\[Theta]232"}], "+", 
-     RowBox[{"a323", " ", "\[Theta]233"}], "+", 
-     RowBox[{"a324", " ", "\[Theta]234"}], "+", 
-     RowBox[{"a325", " ", "\[Theta]235"}]}]}], ",", 
-   RowBox[{"z334", "\[Rule]", 
-    RowBox[{"\[Theta]240", "+", 
-     RowBox[{"a321", " ", "\[Theta]241"}], "+", 
-     RowBox[{"a322", " ", "\[Theta]242"}], "+", 
-     RowBox[{"a323", " ", "\[Theta]243"}], "+", 
-     RowBox[{"a324", " ", "\[Theta]244"}], "+", 
-     RowBox[{"a325", " ", "\[Theta]245"}]}]}], ",", 
-   RowBox[{"z335", "\[Rule]", 
-    RowBox[{"\[Theta]250", "+", 
-     RowBox[{"a321", " ", "\[Theta]251"}], "+", 
-     RowBox[{"a322", " ", "\[Theta]252"}], "+", 
-     RowBox[{"a323", " ", "\[Theta]253"}], "+", 
-     RowBox[{"a324", " ", "\[Theta]254"}], "+", 
-     RowBox[{"a325", " ", "\[Theta]255"}]}]}], ",", 
-   RowBox[{"z336", "\[Rule]", 
-    RowBox[{"\[Theta]260", "+", 
-     RowBox[{"a321", " ", "\[Theta]261"}], "+", 
-     RowBox[{"a322", " ", "\[Theta]262"}], "+", 
-     RowBox[{"a323", " ", "\[Theta]263"}], "+", 
-     RowBox[{"a324", " ", "\[Theta]264"}], "+", 
-     RowBox[{"a325", " ", "\[Theta]265"}]}]}], ",", 
-   RowBox[{"z341", "\[Rule]", 
-    RowBox[{"\[Theta]310", "+", 
-     RowBox[{"a331", " ", "\[Theta]311"}], "+", 
-     RowBox[{"a332", " ", "\[Theta]312"}], "+", 
-     RowBox[{"a333", " ", "\[Theta]313"}], "+", 
-     RowBox[{"a334", " ", "\[Theta]314"}], "+", 
-     RowBox[{"a335", " ", "\[Theta]315"}], "+", 
-     RowBox[{"a336", " ", "\[Theta]316"}]}]}], ",", 
-   RowBox[{"z342", "\[Rule]", 
-    RowBox[{"\[Theta]320", "+", 
-     RowBox[{"a331", " ", "\[Theta]321"}], "+", 
-     RowBox[{"a332", " ", "\[Theta]322"}], "+", 
-     RowBox[{"a333", " ", "\[Theta]323"}], "+", 
-     RowBox[{"a334", " ", "\[Theta]324"}], "+", 
-     RowBox[{"a335", " ", "\[Theta]325"}], "+", 
-     RowBox[{"a336", " ", "\[Theta]326"}]}]}], ",", 
-   RowBox[{"z343", "\[Rule]", 
-    RowBox[{"\[Theta]330", "+", 
-     RowBox[{"a331", " ", "\[Theta]331"}], "+", 
-     RowBox[{"a332", " ", "\[Theta]332"}], "+", 
-     RowBox[{"a333", " ", "\[Theta]333"}], "+", 
-     RowBox[{"a334", " ", "\[Theta]334"}], "+", 
-     RowBox[{"a335", " ", "\[Theta]335"}], "+", 
-     RowBox[{"a336", " ", "\[Theta]336"}]}]}]}], "}"}]], "Output",
+     RowBox[{"a322", " ", "\[Theta]212"}]}]}]}], "}"}]], "Output",
  CellChangeTimes->{
   3.666291673985527*^9, 3.666291870054742*^9, 3.66629203611524*^9, 
    3.666320760104823*^9, 3.666321966592036*^9, {3.666322044238327*^9, 
@@ -1391,7 +884,7 @@ Cell[BoxData[
    3.6665854137388973`*^9, 3.6666120049243655`*^9, 3.6666122644666047`*^9, {
    3.6666125423014936`*^9, 3.6666125589958997`*^9}, 3.6666130416687517`*^9, 
    3.66661391511255*^9, 3.666614311894909*^9, 3.666668094840644*^9, 
-   3.6666716303348074`*^9, 3.6666717511283627`*^9}]
+   3.6666716303348074`*^9, 3.6666717510953493`*^9, 3.666977608571862*^9}]
 }, Open  ]],
 
 Cell[BoxData[
@@ -1497,2219 +990,73 @@ Cell[BoxData[
      SuperscriptBox["\[Theta]120", "2"], "+", 
      SuperscriptBox["\[Theta]121", "2"], "+", 
      SuperscriptBox["\[Theta]122", "2"], "+", 
-     SuperscriptBox["\[Theta]130", "2"], "+", 
-     SuperscriptBox["\[Theta]131", "2"], "+", 
-     SuperscriptBox["\[Theta]132", "2"], "+", 
-     SuperscriptBox["\[Theta]140", "2"], "+", 
-     SuperscriptBox["\[Theta]141", "2"], "+", 
-     SuperscriptBox["\[Theta]142", "2"], "+", 
-     SuperscriptBox["\[Theta]150", "2"], "+", 
-     SuperscriptBox["\[Theta]151", "2"], "+", 
-     SuperscriptBox["\[Theta]152", "2"], "+", 
      SuperscriptBox["\[Theta]210", "2"], "+", 
      SuperscriptBox["\[Theta]211", "2"], "+", 
-     SuperscriptBox["\[Theta]212", "2"], "+", 
-     SuperscriptBox["\[Theta]213", "2"], "+", 
-     SuperscriptBox["\[Theta]214", "2"], "+", 
-     SuperscriptBox["\[Theta]215", "2"], "+", 
-     SuperscriptBox["\[Theta]220", "2"], "+", 
-     SuperscriptBox["\[Theta]221", "2"], "+", 
-     SuperscriptBox["\[Theta]222", "2"], "+", 
-     SuperscriptBox["\[Theta]223", "2"], "+", 
-     SuperscriptBox["\[Theta]224", "2"], "+", 
-     SuperscriptBox["\[Theta]225", "2"], "+", 
-     SuperscriptBox["\[Theta]230", "2"], "+", 
-     SuperscriptBox["\[Theta]231", "2"], "+", 
-     SuperscriptBox["\[Theta]232", "2"], "+", 
-     SuperscriptBox["\[Theta]233", "2"], "+", 
-     SuperscriptBox["\[Theta]234", "2"], "+", 
-     SuperscriptBox["\[Theta]235", "2"], "+", 
-     SuperscriptBox["\[Theta]240", "2"], "+", 
-     SuperscriptBox["\[Theta]241", "2"], "+", 
-     SuperscriptBox["\[Theta]242", "2"], "+", 
-     SuperscriptBox["\[Theta]243", "2"], "+", 
-     SuperscriptBox["\[Theta]244", "2"], "+", 
-     SuperscriptBox["\[Theta]245", "2"], "+", 
-     SuperscriptBox["\[Theta]250", "2"], "+", 
-     SuperscriptBox["\[Theta]251", "2"], "+", 
-     SuperscriptBox["\[Theta]252", "2"], "+", 
-     SuperscriptBox["\[Theta]253", "2"], "+", 
-     SuperscriptBox["\[Theta]254", "2"], "+", 
-     SuperscriptBox["\[Theta]255", "2"], "+", 
-     SuperscriptBox["\[Theta]260", "2"], "+", 
-     SuperscriptBox["\[Theta]261", "2"], "+", 
-     SuperscriptBox["\[Theta]262", "2"], "+", 
-     SuperscriptBox["\[Theta]263", "2"], "+", 
-     SuperscriptBox["\[Theta]264", "2"], "+", 
-     SuperscriptBox["\[Theta]265", "2"], "+", 
-     SuperscriptBox["\[Theta]310", "2"], "+", 
-     SuperscriptBox["\[Theta]311", "2"], "+", 
-     SuperscriptBox["\[Theta]312", "2"], "+", 
-     SuperscriptBox["\[Theta]313", "2"], "+", 
-     SuperscriptBox["\[Theta]314", "2"], "+", 
-     SuperscriptBox["\[Theta]315", "2"], "+", 
-     SuperscriptBox["\[Theta]316", "2"], "+", 
-     SuperscriptBox["\[Theta]320", "2"], "+", 
-     SuperscriptBox["\[Theta]321", "2"], "+", 
-     SuperscriptBox["\[Theta]322", "2"], "+", 
-     SuperscriptBox["\[Theta]323", "2"], "+", 
-     SuperscriptBox["\[Theta]324", "2"], "+", 
-     SuperscriptBox["\[Theta]325", "2"], "+", 
-     SuperscriptBox["\[Theta]326", "2"], "+", 
-     SuperscriptBox["\[Theta]330", "2"], "+", 
-     SuperscriptBox["\[Theta]331", "2"], "+", 
-     SuperscriptBox["\[Theta]332", "2"], "+", 
-     SuperscriptBox["\[Theta]333", "2"], "+", 
-     SuperscriptBox["\[Theta]334", "2"], "+", 
-     SuperscriptBox["\[Theta]335", "2"], "+", 
-     SuperscriptBox["\[Theta]336", "2"]}], ")"}], " ", "\[Lambda]"}], "+", 
+     SuperscriptBox["\[Theta]212", "2"]}], ")"}], " ", "\[Lambda]"}], "+", 
   RowBox[{
    FractionBox["1", "3"], " ", 
    RowBox[{"(", 
     RowBox[{
      RowBox[{"-", 
       RowBox[{"Log", "[", 
-       RowBox[{"1", "/", 
-        RowBox[{"(", 
-         RowBox[{"1", "+", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{
-            RowBox[{"-", "\[Theta]310"}], "-", 
-            FractionBox["\[Theta]311", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]210"}], "-", 
-                FractionBox["\[Theta]211", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]212", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]213", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]214", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]215", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]312", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]220"}], "-", 
-                FractionBox["\[Theta]221", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]222", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]223", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]224", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]225", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]313", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]230"}], "-", 
-                FractionBox["\[Theta]231", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]232", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]233", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]234", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]235", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]314", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]240"}], "-", 
-                FractionBox["\[Theta]241", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]242", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]243", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]244", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]245", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]315", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]250"}], "-", 
-                FractionBox["\[Theta]251", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]252", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]253", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]254", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]255", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]316", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]260"}], "-", 
-                FractionBox["\[Theta]261", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]262", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]263", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]264", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]265", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]]}]]}], 
-         ")"}]}], "]"}]}], "-", 
-     RowBox[{"Log", "[", 
-      RowBox[{"1", "/", 
-       RowBox[{"(", 
+       FractionBox["1", 
         RowBox[{"1", "+", 
          SuperscriptBox["\[ExponentialE]", 
           RowBox[{
-           RowBox[{"-", "\[Theta]320"}], "-", 
-           FractionBox["\[Theta]321", 
+           RowBox[{"-", "\[Theta]210"}], "-", 
+           FractionBox["\[Theta]211", 
             RowBox[{"1", "+", 
              SuperscriptBox["\[ExponentialE]", 
               RowBox[{
-               RowBox[{"-", "\[Theta]210"}], "-", 
-               FractionBox["\[Theta]211", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]212", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]213", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]214", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]215", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]150"}], "-", 
-                   "\[Theta]151"}]]}]]}]]}]], "-", 
-           FractionBox["\[Theta]322", 
+               RowBox[{"-", "\[Theta]110"}], "-", 
+               RowBox[{"3", " ", "\[Theta]111"}], "-", 
+               RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
+           FractionBox["\[Theta]212", 
             RowBox[{"1", "+", 
              SuperscriptBox["\[ExponentialE]", 
               RowBox[{
-               RowBox[{"-", "\[Theta]220"}], "-", 
-               FractionBox["\[Theta]221", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]222", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]223", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]224", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]225", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]150"}], "-", 
-                   "\[Theta]151"}]]}]]}]]}]], "-", 
-           FractionBox["\[Theta]323", 
-            RowBox[{"1", "+", 
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{
-               RowBox[{"-", "\[Theta]230"}], "-", 
-               FractionBox["\[Theta]231", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]232", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]233", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]234", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]235", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]150"}], "-", 
-                   "\[Theta]151"}]]}]]}]]}]], "-", 
-           FractionBox["\[Theta]324", 
-            RowBox[{"1", "+", 
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{
-               RowBox[{"-", "\[Theta]240"}], "-", 
-               FractionBox["\[Theta]241", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]242", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]243", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]244", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]245", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]150"}], "-", 
-                   "\[Theta]151"}]]}]]}]]}]], "-", 
-           FractionBox["\[Theta]325", 
-            RowBox[{"1", "+", 
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{
-               RowBox[{"-", "\[Theta]250"}], "-", 
-               FractionBox["\[Theta]251", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]252", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]253", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]254", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]255", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]150"}], "-", 
-                   "\[Theta]151"}]]}]]}]]}]], "-", 
-           FractionBox["\[Theta]326", 
-            RowBox[{"1", "+", 
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{
-               RowBox[{"-", "\[Theta]260"}], "-", 
-               FractionBox["\[Theta]261", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]262", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]263", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]264", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-               "-", 
-               FractionBox["\[Theta]265", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]150"}], "-", 
-                   "\[Theta]151"}]]}]]}]]}]]}]]}], ")"}]}], "]"}], "-", 
+               RowBox[{"-", "\[Theta]120"}], "-", 
+               RowBox[{"3", " ", "\[Theta]121"}], "-", 
+               RowBox[{"2", " ", "\[Theta]122"}]}]]}]]}]]}]], "]"}]}], "-", 
      RowBox[{"Log", "[", 
-      RowBox[{"1", "/", 
-       RowBox[{"(", 
+      RowBox[{"1", "-", 
+       FractionBox["1", 
         RowBox[{"1", "+", 
          SuperscriptBox["\[ExponentialE]", 
           RowBox[{
-           RowBox[{"-", "\[Theta]330"}], "-", 
-           FractionBox["\[Theta]331", 
+           RowBox[{"-", "\[Theta]210"}], "-", 
+           FractionBox["\[Theta]211", 
             RowBox[{"1", "+", 
              SuperscriptBox["\[ExponentialE]", 
               RowBox[{
-               RowBox[{"-", "\[Theta]210"}], "-", 
-               FractionBox["\[Theta]211", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]110"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                   "\[Theta]112"}]]}]], "-", 
-               FractionBox["\[Theta]212", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]120"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                   "\[Theta]122"}]]}]], "-", 
-               FractionBox["\[Theta]213", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]130"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                   "\[Theta]132"}]]}]], "-", 
-               FractionBox["\[Theta]214", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]140"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                   "\[Theta]142"}]]}]], "-", 
-               FractionBox["\[Theta]215", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]150"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                   "\[Theta]152"}]]}]]}]]}]], "-", 
-           FractionBox["\[Theta]332", 
+               RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], "-", 
+           FractionBox["\[Theta]212", 
             RowBox[{"1", "+", 
              SuperscriptBox["\[ExponentialE]", 
               RowBox[{
-               RowBox[{"-", "\[Theta]220"}], "-", 
-               FractionBox["\[Theta]221", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]110"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                   "\[Theta]112"}]]}]], "-", 
-               FractionBox["\[Theta]222", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]120"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                   "\[Theta]122"}]]}]], "-", 
-               FractionBox["\[Theta]223", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]130"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                   "\[Theta]132"}]]}]], "-", 
-               FractionBox["\[Theta]224", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]140"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                   "\[Theta]142"}]]}]], "-", 
-               FractionBox["\[Theta]225", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]150"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                   "\[Theta]152"}]]}]]}]]}]], "-", 
-           FractionBox["\[Theta]333", 
+               RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]]}]]}]]}],
+       "]"}], "-", 
+     RowBox[{"Log", "[", 
+      RowBox[{"1", "-", 
+       FractionBox["1", 
+        RowBox[{"1", "+", 
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{
+           RowBox[{"-", "\[Theta]210"}], "-", 
+           FractionBox["\[Theta]211", 
             RowBox[{"1", "+", 
              SuperscriptBox["\[ExponentialE]", 
               RowBox[{
-               RowBox[{"-", "\[Theta]230"}], "-", 
-               FractionBox["\[Theta]231", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]110"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                   "\[Theta]112"}]]}]], "-", 
-               FractionBox["\[Theta]232", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]120"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                   "\[Theta]122"}]]}]], "-", 
-               FractionBox["\[Theta]233", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]130"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                   "\[Theta]132"}]]}]], "-", 
-               FractionBox["\[Theta]234", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]140"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                   "\[Theta]142"}]]}]], "-", 
-               FractionBox["\[Theta]235", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]150"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                   "\[Theta]152"}]]}]]}]]}]], "-", 
-           FractionBox["\[Theta]334", 
+               RowBox[{"-", "\[Theta]110"}], "+", 
+               RowBox[{"2", " ", "\[Theta]111"}], "-", "\[Theta]112"}]]}]], 
+           "-", 
+           FractionBox["\[Theta]212", 
             RowBox[{"1", "+", 
              SuperscriptBox["\[ExponentialE]", 
               RowBox[{
-               RowBox[{"-", "\[Theta]240"}], "-", 
-               FractionBox["\[Theta]241", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]110"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                   "\[Theta]112"}]]}]], "-", 
-               FractionBox["\[Theta]242", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]120"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                   "\[Theta]122"}]]}]], "-", 
-               FractionBox["\[Theta]243", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]130"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                   "\[Theta]132"}]]}]], "-", 
-               FractionBox["\[Theta]244", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]140"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                   "\[Theta]142"}]]}]], "-", 
-               FractionBox["\[Theta]245", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]150"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                   "\[Theta]152"}]]}]]}]]}]], "-", 
-           FractionBox["\[Theta]335", 
-            RowBox[{"1", "+", 
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{
-               RowBox[{"-", "\[Theta]250"}], "-", 
-               FractionBox["\[Theta]251", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]110"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                   "\[Theta]112"}]]}]], "-", 
-               FractionBox["\[Theta]252", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]120"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                   "\[Theta]122"}]]}]], "-", 
-               FractionBox["\[Theta]253", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]130"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                   "\[Theta]132"}]]}]], "-", 
-               FractionBox["\[Theta]254", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]140"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                   "\[Theta]142"}]]}]], "-", 
-               FractionBox["\[Theta]255", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]150"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                   "\[Theta]152"}]]}]]}]]}]], "-", 
-           FractionBox["\[Theta]336", 
-            RowBox[{"1", "+", 
-             SuperscriptBox["\[ExponentialE]", 
-              RowBox[{
-               RowBox[{"-", "\[Theta]260"}], "-", 
-               FractionBox["\[Theta]261", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]110"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                   "\[Theta]112"}]]}]], "-", 
-               FractionBox["\[Theta]262", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]120"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                   "\[Theta]122"}]]}]], "-", 
-               FractionBox["\[Theta]263", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]130"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                   "\[Theta]132"}]]}]], "-", 
-               FractionBox["\[Theta]264", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]140"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                   "\[Theta]142"}]]}]], "-", 
-               FractionBox["\[Theta]265", 
-                RowBox[{"1", "+", 
-                 SuperscriptBox["\[ExponentialE]", 
-                  RowBox[{
-                   RowBox[{"-", "\[Theta]150"}], "+", 
-                   RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                   "\[Theta]152"}]]}]]}]]}]]}]]}], ")"}]}], "]"}], "-", 
-     RowBox[{"Log", "[", 
-      RowBox[{"1", "-", 
-       RowBox[{"1", "/", 
-        RowBox[{"(", 
-         RowBox[{"1", "+", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{
-            RowBox[{"-", "\[Theta]310"}], "-", 
-            FractionBox["\[Theta]311", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]210"}], "-", 
-                FractionBox["\[Theta]211", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]212", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]213", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]214", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]215", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    "\[Theta]151"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]312", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]220"}], "-", 
-                FractionBox["\[Theta]221", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]222", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]223", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]224", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]225", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    "\[Theta]151"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]313", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]230"}], "-", 
-                FractionBox["\[Theta]231", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]232", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]233", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]234", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]235", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    "\[Theta]151"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]314", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]240"}], "-", 
-                FractionBox["\[Theta]241", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]242", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]243", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]244", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]245", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    "\[Theta]151"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]315", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]250"}], "-", 
-                FractionBox["\[Theta]251", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]252", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]253", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]254", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]255", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    "\[Theta]151"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]316", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]260"}], "-", 
-                FractionBox["\[Theta]261", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]262", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]263", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]264", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]265", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    "\[Theta]151"}]]}]]}]]}]]}]]}], ")"}]}]}], "]"}], "-", 
-     RowBox[{"Log", "[", 
-      RowBox[{"1", "-", 
-       RowBox[{"1", "/", 
-        RowBox[{"(", 
-         RowBox[{"1", "+", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{
-            RowBox[{"-", "\[Theta]310"}], "-", 
-            FractionBox["\[Theta]311", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]210"}], "-", 
-                FractionBox["\[Theta]211", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                    "\[Theta]112"}]]}]], "-", 
-                FractionBox["\[Theta]212", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                    "\[Theta]122"}]]}]], "-", 
-                FractionBox["\[Theta]213", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                    "\[Theta]132"}]]}]], "-", 
-                FractionBox["\[Theta]214", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                    "\[Theta]142"}]]}]], "-", 
-                FractionBox["\[Theta]215", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                    "\[Theta]152"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]312", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]220"}], "-", 
-                FractionBox["\[Theta]221", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                    "\[Theta]112"}]]}]], "-", 
-                FractionBox["\[Theta]222", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                    "\[Theta]122"}]]}]], "-", 
-                FractionBox["\[Theta]223", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                    "\[Theta]132"}]]}]], "-", 
-                FractionBox["\[Theta]224", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                    "\[Theta]142"}]]}]], "-", 
-                FractionBox["\[Theta]225", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                    "\[Theta]152"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]313", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]230"}], "-", 
-                FractionBox["\[Theta]231", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                    "\[Theta]112"}]]}]], "-", 
-                FractionBox["\[Theta]232", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                    "\[Theta]122"}]]}]], "-", 
-                FractionBox["\[Theta]233", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                    "\[Theta]132"}]]}]], "-", 
-                FractionBox["\[Theta]234", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                    "\[Theta]142"}]]}]], "-", 
-                FractionBox["\[Theta]235", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                    "\[Theta]152"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]314", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]240"}], "-", 
-                FractionBox["\[Theta]241", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                    "\[Theta]112"}]]}]], "-", 
-                FractionBox["\[Theta]242", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                    "\[Theta]122"}]]}]], "-", 
-                FractionBox["\[Theta]243", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                    "\[Theta]132"}]]}]], "-", 
-                FractionBox["\[Theta]244", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                    "\[Theta]142"}]]}]], "-", 
-                FractionBox["\[Theta]245", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                    "\[Theta]152"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]315", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]250"}], "-", 
-                FractionBox["\[Theta]251", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                    "\[Theta]112"}]]}]], "-", 
-                FractionBox["\[Theta]252", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                    "\[Theta]122"}]]}]], "-", 
-                FractionBox["\[Theta]253", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                    "\[Theta]132"}]]}]], "-", 
-                FractionBox["\[Theta]254", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                    "\[Theta]142"}]]}]], "-", 
-                FractionBox["\[Theta]255", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                    "\[Theta]152"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]316", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]260"}], "-", 
-                FractionBox["\[Theta]261", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                    "\[Theta]112"}]]}]], "-", 
-                FractionBox["\[Theta]262", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                    "\[Theta]122"}]]}]], "-", 
-                FractionBox["\[Theta]263", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                    "\[Theta]132"}]]}]], "-", 
-                FractionBox["\[Theta]264", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                    "\[Theta]142"}]]}]], "-", 
-                FractionBox["\[Theta]265", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                    "\[Theta]152"}]]}]]}]]}]]}]]}], ")"}]}]}], "]"}], "-", 
-     RowBox[{"Log", "[", 
-      RowBox[{"1", "-", 
-       RowBox[{"1", "/", 
-        RowBox[{"(", 
-         RowBox[{"1", "+", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{
-            RowBox[{"-", "\[Theta]320"}], "-", 
-            FractionBox["\[Theta]321", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]210"}], "-", 
-                FractionBox["\[Theta]211", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]212", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]213", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]214", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]215", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]322", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]220"}], "-", 
-                FractionBox["\[Theta]221", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]222", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]223", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]224", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]225", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]323", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]230"}], "-", 
-                FractionBox["\[Theta]231", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]232", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]233", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]234", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]235", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]324", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]240"}], "-", 
-                FractionBox["\[Theta]241", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]242", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]243", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]244", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]245", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]325", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]250"}], "-", 
-                FractionBox["\[Theta]251", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]252", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]253", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]254", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]255", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]326", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]260"}], "-", 
-                FractionBox["\[Theta]261", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]262", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]263", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]264", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]265", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]]}]]}], 
-         ")"}]}]}], "]"}], "-", 
-     RowBox[{"Log", "[", 
-      RowBox[{"1", "-", 
-       RowBox[{"1", "/", 
-        RowBox[{"(", 
-         RowBox[{"1", "+", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{
-            RowBox[{"-", "\[Theta]320"}], "-", 
-            FractionBox["\[Theta]321", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]210"}], "-", 
-                FractionBox["\[Theta]211", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                    "\[Theta]112"}]]}]], "-", 
-                FractionBox["\[Theta]212", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                    "\[Theta]122"}]]}]], "-", 
-                FractionBox["\[Theta]213", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                    "\[Theta]132"}]]}]], "-", 
-                FractionBox["\[Theta]214", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                    "\[Theta]142"}]]}]], "-", 
-                FractionBox["\[Theta]215", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                    "\[Theta]152"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]322", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]220"}], "-", 
-                FractionBox["\[Theta]221", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                    "\[Theta]112"}]]}]], "-", 
-                FractionBox["\[Theta]222", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                    "\[Theta]122"}]]}]], "-", 
-                FractionBox["\[Theta]223", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                    "\[Theta]132"}]]}]], "-", 
-                FractionBox["\[Theta]224", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                    "\[Theta]142"}]]}]], "-", 
-                FractionBox["\[Theta]225", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                    "\[Theta]152"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]323", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]230"}], "-", 
-                FractionBox["\[Theta]231", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                    "\[Theta]112"}]]}]], "-", 
-                FractionBox["\[Theta]232", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                    "\[Theta]122"}]]}]], "-", 
-                FractionBox["\[Theta]233", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                    "\[Theta]132"}]]}]], "-", 
-                FractionBox["\[Theta]234", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                    "\[Theta]142"}]]}]], "-", 
-                FractionBox["\[Theta]235", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                    "\[Theta]152"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]324", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]240"}], "-", 
-                FractionBox["\[Theta]241", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                    "\[Theta]112"}]]}]], "-", 
-                FractionBox["\[Theta]242", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                    "\[Theta]122"}]]}]], "-", 
-                FractionBox["\[Theta]243", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                    "\[Theta]132"}]]}]], "-", 
-                FractionBox["\[Theta]244", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                    "\[Theta]142"}]]}]], "-", 
-                FractionBox["\[Theta]245", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                    "\[Theta]152"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]325", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]250"}], "-", 
-                FractionBox["\[Theta]251", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                    "\[Theta]112"}]]}]], "-", 
-                FractionBox["\[Theta]252", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                    "\[Theta]122"}]]}]], "-", 
-                FractionBox["\[Theta]253", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                    "\[Theta]132"}]]}]], "-", 
-                FractionBox["\[Theta]254", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                    "\[Theta]142"}]]}]], "-", 
-                FractionBox["\[Theta]255", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                    "\[Theta]152"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]326", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]260"}], "-", 
-                FractionBox["\[Theta]261", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]111"}], "-", 
-                    "\[Theta]112"}]]}]], "-", 
-                FractionBox["\[Theta]262", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]121"}], "-", 
-                    "\[Theta]122"}]]}]], "-", 
-                FractionBox["\[Theta]263", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]131"}], "-", 
-                    "\[Theta]132"}]]}]], "-", 
-                FractionBox["\[Theta]264", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]141"}], "-", 
-                    "\[Theta]142"}]]}]], "-", 
-                FractionBox["\[Theta]265", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "+", 
-                    RowBox[{"2", " ", "\[Theta]151"}], "-", 
-                    "\[Theta]152"}]]}]]}]]}]]}]]}], ")"}]}]}], "]"}], "-", 
-     RowBox[{"Log", "[", 
-      RowBox[{"1", "-", 
-       RowBox[{"1", "/", 
-        RowBox[{"(", 
-         RowBox[{"1", "+", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{
-            RowBox[{"-", "\[Theta]330"}], "-", 
-            FractionBox["\[Theta]331", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]210"}], "-", 
-                FractionBox["\[Theta]211", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]212", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]213", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]214", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]215", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    "\[Theta]151"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]332", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]220"}], "-", 
-                FractionBox["\[Theta]221", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]222", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]223", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]224", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]225", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    "\[Theta]151"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]333", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]230"}], "-", 
-                FractionBox["\[Theta]231", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]232", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]233", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]234", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]235", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    "\[Theta]151"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]334", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]240"}], "-", 
-                FractionBox["\[Theta]241", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]242", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]243", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]244", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]245", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    "\[Theta]151"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]335", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]250"}], "-", 
-                FractionBox["\[Theta]251", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]252", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]253", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]254", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]255", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    "\[Theta]151"}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]336", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]260"}], "-", 
-                FractionBox["\[Theta]261", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", "\[Theta]111"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]262", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", "\[Theta]121"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]263", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", "\[Theta]131"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]264", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", "\[Theta]141"}]]}]], 
-                "-", 
-                FractionBox["\[Theta]265", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    "\[Theta]151"}]]}]]}]]}]]}]]}], ")"}]}]}], "]"}], "-", 
-     RowBox[{"Log", "[", 
-      RowBox[{"1", "-", 
-       RowBox[{"1", "/", 
-        RowBox[{"(", 
-         RowBox[{"1", "+", 
-          SuperscriptBox["\[ExponentialE]", 
-           RowBox[{
-            RowBox[{"-", "\[Theta]330"}], "-", 
-            FractionBox["\[Theta]331", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]210"}], "-", 
-                FractionBox["\[Theta]211", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]212", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]213", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]214", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]215", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]332", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]220"}], "-", 
-                FractionBox["\[Theta]221", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]222", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]223", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]224", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]225", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]333", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]230"}], "-", 
-                FractionBox["\[Theta]231", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]232", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]233", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]234", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]235", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]334", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]240"}], "-", 
-                FractionBox["\[Theta]241", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]242", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]243", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]244", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]245", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]335", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]250"}], "-", 
-                FractionBox["\[Theta]251", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]252", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]253", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]254", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]255", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]], "-", 
-            FractionBox["\[Theta]336", 
-             RowBox[{"1", "+", 
-              SuperscriptBox["\[ExponentialE]", 
-               RowBox[{
-                RowBox[{"-", "\[Theta]260"}], "-", 
-                FractionBox["\[Theta]261", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]110"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]111"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]112"}]}]]}]], "-", 
-                FractionBox["\[Theta]262", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]120"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]121"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]122"}]}]]}]], "-", 
-                FractionBox["\[Theta]263", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]130"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]131"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]132"}]}]]}]], "-", 
-                FractionBox["\[Theta]264", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]140"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]141"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]142"}]}]]}]], "-", 
-                FractionBox["\[Theta]265", 
-                 RowBox[{"1", "+", 
-                  SuperscriptBox["\[ExponentialE]", 
-                   RowBox[{
-                    RowBox[{"-", "\[Theta]150"}], "-", 
-                    RowBox[{"3", " ", "\[Theta]151"}], "-", 
-                    RowBox[{"2", " ", "\[Theta]152"}]}]]}]]}]]}]]}]]}], 
-         ")"}]}]}], "]"}]}], ")"}]}]}]], "Output",
+               RowBox[{"-", "\[Theta]120"}], "+", 
+               RowBox[{"2", " ", "\[Theta]121"}], "-", 
+               "\[Theta]122"}]]}]]}]]}]]}], "]"}]}], ")"}]}]}]], "Output",
  CellChangeTimes->{{3.6662885845418215`*^9, 3.666288594395385*^9}, {
    3.6662901083659787`*^9, 3.66629013041224*^9}, 3.6662903744481983`*^9, {
    3.6662904080061173`*^9, 3.6662904397919354`*^9}, {3.666290479312196*^9, 
@@ -3729,193 +1076,8 @@ Cell[BoxData[
    3.6664401447016983`*^9, 3.6665854177315006`*^9, 3.666612006718088*^9, 
    3.666612267577854*^9, {3.6666125440679035`*^9, 3.666612560433474*^9}, 
    3.66661304490305*^9, 3.666613916563134*^9, 3.666614313585588*^9, 
-   3.6666680979378896`*^9, 3.6666716339862757`*^9, 3.6666717535103207`*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Plot3D", "[", 
-  RowBox[{
-   RowBox[{"costF", "/.", 
-    RowBox[{"\[Lambda]", "\[Rule]", "5"}]}], ",", " ", 
-   RowBox[{"{", 
-    RowBox[{"\[Theta]110", ",", " ", 
-     RowBox[{"-", "4"}], ",", "4"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"\[Theta]111", ",", " ", 
-     RowBox[{"-", "4"}], ",", "4"}], "}"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.6664380481551037`*^9, 3.6664380901619453`*^9}, {
-  3.6664381677390504`*^9, 3.6664381751630263`*^9}, {3.666439765366606*^9, 
-  3.6664398118872585`*^9}}],
-
-Cell[BoxData[
- Graphics3DBox[{},
-  Axes->True,
-  BoxRatios->{1, 1, 0.4},
-  ImageSize->{948.5394265423911, 630.},
-  Method->{"RotationControl" -> "Globe"},
-  PlotRange->{{-4, 4}, {-4, 4}, {0., 0.}},
-  PlotRangePadding->{
-    Scaled[0.02], 
-    Scaled[0.02], 
-    Scaled[0.02]},
-  ViewPoint->{0.8060500786315196, -3.0503920538405844`, 1.2228620480677055`},
-  ViewVertical->{0., 0., 1.}]], "Output",
- CellChangeTimes->{{3.666438075350007*^9, 3.6664380905350947`*^9}, 
-   3.666438175696241*^9, {3.666439772924637*^9, 3.666439812479496*^9}, 
-   3.6664398600665755`*^9, {3.6664399056628575`*^9, 3.666439929878566*^9}, 
-   3.666439969470441*^9, 3.6666122793905993`*^9, 3.666612545238371*^9},
- ImageCache->GraphicsData["CompressedBitmap", "\<\
-eJzdnQu4HkV5xw85uWE0ISZcEgJJMIRwTwWRS0gCYrgYbgoSbk1CyEmiYEKI
-RJDIRYmiYEUBRYWAFqTlUmiRUquGUptaBEurpbVapC1Nq1VqKSAFy2l2dud9
-Z/f7zft9s7uhj/2e5+z5vp3d/29mdnd2Lu+8c/ziNcuXnr94zYoli6ccvXrx
-quUrllw4Zd7K1Vt29W/T19f/1b6+IRdN6cu+D/b1+U3l81C26didsncvt7d/
-MBDv+0TDI2dkm6HZgdfEwwOlLGXX4pF7Zpshg7XDe49z85z8/7H3wGwzMsuw
-SzF8HwkfkX0bMjgwMPBBPHKaHDmmy5GTypqV6/WGLmePL3N6P3sg27jb9EvZ
-txHZtx1jElv2bdHIzxsY6LukKrascmJ2T39eYrZrXdnlcOJ1IjsdQkdLgjvE
-VsDhHxOx/WJilThe3Ivs5SI7DELn9CLrgvqGhidm3y8RZZ+BycrL8izact6F
-IrZ9VGyoiBWCH6jqfV9Udmmg8pioLOvxjG/JGStd0LDSGT75a6unfV1OGwrR
-XZUi9YBIvb6p1D3Zxj2D45tK3S6x2jkq1R9K9Q2BfWuqsjeL7I11JW4QiVvq
-SlwrEv2QuFtBoh/2XViVvUpkR7Upu05kx7Up+36RpStMskNh3+qq7Pkiu6mu
-xFKR+G5dibNFgq7wX/WYZ6Hs3dnGFXhfyb6NiF1m0qYoXxBo31UcVSmmb5FE
-vHHrgm4U0MStC/qkgHbrETQM9q3qDlovIKq+tgj6kIDoRnPbbWrQ9G5bKwC6
-26KA4bBvZQBwn11Fm0qWZto7iDYVL820R4u2+7lHXZ3hZZ394ZwRsO99gc6r
-2WZErCLgtjNryL4oMYte9Tqyz4ps9IKT7EjYd34gu1lko9e6juxTIut+vruG
-xJNlid+Ew7eFfecFEt8VCaqG15bdJLJUB68t+02Rpdq42y7sUfa9geyDIkvV
-89qy94qs+/nRGhL6NnY/fytN4pXsnyvUN0hUfNHRkcJrQed1sO89ufavKjpZ
-c/azQhldCa1LeUFSQAWQvnB3aIn3KuhoxZca6VHKKNi3Ik7RejC12etQ3NXv
-fKfrKzd/qfvwvr1b4ro7w73dVwnK36Qd2l8DndfDvrybIz9nmciObVN2ochO
-aFP2NJF1P5+qIXFSttFSYDMcXu0ryn4tCySOkVhEa3L/WkN2rshG3+R1ZA8W
-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
-MlCe4A==\
-\>"]]
+   3.6666680979378896`*^9, 3.6666716339862757`*^9, 3.6666717535103207`*^9, 
+   3.6669776107469864`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3931,12 +1093,13 @@ Cell[BoxData[{
   RowBox[{"costF", "=", 
    RowBox[{
     RowBox[{"J", "[", 
-     RowBox[{"Y", ",", "\[Theta]", ",", " ", "5"}], "]"}], "//.", 
+     RowBox[{"Y", ",", "\[Theta]", ",", " ", "0"}], "]"}], "//.", 
     RowBox[{"Join", "[", 
      RowBox[{"ruleA", ",", "ruleZ"}], "]"}]}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.666348312113738*^9, 3.666348322858068*^9}, {
    3.666348596286259*^9, 3.6663485995985937`*^9}, {3.6664398460639615`*^9, 
-   3.6664398514241104`*^9}, 3.6665858036554985`*^9}],
+   3.6664398514241104`*^9}, 3.6665858036554985`*^9, {3.6669776588277364`*^9, 
+   3.6669776590527496`*^9}}],
 
 Cell[CellGroupData[{
 
@@ -3997,8 +1160,8 @@ Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"Architecture: \"\>", "\[InvisibleSpace]", 
    RowBox[{"{", 
-    RowBox[{"2", ",", "5", ",", "6", ",", "3"}], "}"}]}],
-  SequenceForm["Architecture: ", {2, 5, 6, 3}],
+    RowBox[{"2", ",", "2", ",", "1"}], "}"}]}],
+  SequenceForm["Architecture: ", {2, 2, 1}],
   Editable->False]], "Print",
  CellChangeTimes->{{3.666348502948645*^9, 3.6663485252006116`*^9}, {
    3.6663486683192883`*^9, 3.6663486942187266`*^9}, 3.6663490603372717`*^9, 
@@ -4009,12 +1172,15 @@ Cell[BoxData[
    3.666613050271207*^9, 3.666613921653177*^9, 3.6666143184735518`*^9, 
    3.6666681027058053`*^9, {3.6666683398611345`*^9, 3.666668368296565*^9}, {
    3.666668437406345*^9, 3.6666684469491816`*^9}, 3.666668482877623*^9, 
-   3.6666716388962493`*^9, 3.666671697150666*^9, 3.666671778373315*^9}],
+   3.6666716388962493`*^9, 3.666671697150666*^9, 3.666671778373315*^9, 
+   3.66697766552812*^9}],
 
 Cell[BoxData[
  InterpretationBox[
-  RowBox[{"\<\"J=\"\>", "\[InvisibleSpace]", "135.61564306739936`"}],
-  SequenceForm["J=", 135.61564306739936`],
+  RowBox[{"\<\"J=\"\>", "\[InvisibleSpace]", 
+   "1.46142454991038145729121490305333106016`5.799884768312856"}],
+  SequenceForm[
+  "J=", 1.46142454991038145729121490305333106016`5.799884768312856],
   Editable->False]], "Print",
  CellChangeTimes->{{3.666348502948645*^9, 3.6663485252006116`*^9}, {
    3.6663486683192883`*^9, 3.6663486942187266`*^9}, 3.6663490603372717`*^9, 
@@ -4025,25 +1191,20 @@ Cell[BoxData[
    3.666613050271207*^9, 3.666613921653177*^9, 3.6666143184735518`*^9, 
    3.6666681027058053`*^9, {3.6666683398611345`*^9, 3.666668368296565*^9}, {
    3.666668437406345*^9, 3.6666684469491816`*^9}, 3.666668482877623*^9, 
-   3.6666716388962493`*^9, 3.666671697150666*^9, 3.666671778405328*^9}],
+   3.6666716388962493`*^9, 3.666671697150666*^9, 3.666671778373315*^9, 
+   3.66697766553312*^9}],
 
 Cell[BoxData[
  TagBox[
   RowBox[{"(", "\[NoBreak]", GridBox[{
-     {"0.06379309257486063`", 
-      RowBox[{"-", "0.7307239598372992`"}], 
-      RowBox[{"-", "4.428432167197561`"}]},
-     {"0.3668489063517459`", 
-      RowBox[{"-", "1.1193499421407052`"}], 
-      RowBox[{"-", "4.0014880429135635`"}]},
-     {"1.6154721293576588`", "0.4877760274149434`", 
-      RowBox[{"-", "0.7206130326363784`"}]},
-     {
-      RowBox[{"-", "3.2813683591361626`"}], 
-      RowBox[{"-", "4.137619517104721`"}], 
-      RowBox[{"-", "0.9659222821202575`"}]},
-     {"1.397410324522456`", "1.286323800604708`", 
-      RowBox[{"-", "3.4146181964757907`"}]}
+     {"0.10671769394487125761027627137840224281`4.786757461990992", 
+      RowBox[{
+      "-", "0.10458206889520891893386955680061476134`4.529020433352084"}], 
+      "0.06964728226459891011779937534426367395`4.712674594089916"},
+     {"0.01648370671802465044567536223524830042`4.708671508771041", 
+      RowBox[{
+      "-", "0.01540902143943175464711760352623584397`4.463936585513921"}], 
+      "0.01055006555863345179243885744019273336`4.707127190369334"}
     },
     GridBoxAlignment->{
      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
@@ -4066,48 +1227,15 @@ Cell[BoxData[
    3.666613050271207*^9, 3.666613921653177*^9, 3.6666143184735518`*^9, 
    3.6666681027058053`*^9, {3.6666683398611345`*^9, 3.666668368296565*^9}, {
    3.666668437406345*^9, 3.6666684469491816`*^9}, 3.666668482877623*^9, 
-   3.6666716388962493`*^9, 3.666671697150666*^9, 3.666671782672043*^9}],
+   3.6666716388962493`*^9, 3.666671697150666*^9, 3.666671778373315*^9, 
+   3.666977665633126*^9}],
 
 Cell[BoxData[
  TagBox[
   RowBox[{"(", "\[NoBreak]", GridBox[{
-     {
-      RowBox[{"-", "1.8951081758007131`"}], 
-      RowBox[{"-", "4.539276114600087`"}], 
-      RowBox[{"-", "1.1502574519206221`"}], 
-      RowBox[{"-", "3.4626065844163287`"}], 
-      RowBox[{"-", "1.6862223572285215`"}], 
-      RowBox[{"-", "1.6347910790981353`"}]},
-     {
-      RowBox[{"-", "2.7949745909724695`"}], 
-      RowBox[{"-", "0.6863678173387062`"}], 
-      RowBox[{"-", "2.932354030652669`"}], 
-      RowBox[{"-", "4.964349963285035`"}], 
-      RowBox[{"-", "1.1592961923749123`"}], 
-      RowBox[{"-", "3.437967740032077`"}]},
-     {
-      RowBox[{"-", "4.72746412021089`"}], 
-      RowBox[{"-", "0.001954394333040791`"}], "0.007993234212138689`", 
-      RowBox[{"-", "4.711788765681779`"}], 
-      RowBox[{"-", "2.7538658604590878`"}], 
-      RowBox[{"-", "0.41418634755000466`"}]},
-     {
-      RowBox[{"-", "1.357406169289033`"}], 
-      RowBox[{"-", "1.0629752494296816`"}], 
-      RowBox[{"-", "3.0379106215164375`"}], 
-      RowBox[{"-", "1.8855368851385048`"}], 
-      RowBox[{"-", "2.775199557653381`"}], 
-      RowBox[{"-", "3.4000827969960965`"}]},
-     {
-      RowBox[{"-", "3.522081635140523`"}], "0.4731254480552484`", 
-      RowBox[{"-", "3.6811694839505957`"}], 
-      RowBox[{"-", "2.275263814027834`"}], 
-      RowBox[{"-", "1.4300417455246761`"}], "0.5877214355802305`"},
-     {
-      RowBox[{"-", "0.9208712087415367`"}], 
-      RowBox[{"-", "1.4940287905193532`"}], 
-      RowBox[{"-", "3.611781947869958`"}], "1.1657162238672099`", 
-      "0.1331419054095306`", "1.265214890438597`"}
+     {"0.55946798678999961456527348170402611266`5.066848316689948", 
+      "0.32107190336864363466062652217105718529`4.9928398338398265", 
+      "0.24273457412231454934759009192708584258`5.045484233987945"}
     },
     GridBoxAlignment->{
      "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
@@ -4130,52 +1258,8 @@ Cell[BoxData[
    3.666613050271207*^9, 3.666613921653177*^9, 3.6666143184735518`*^9, 
    3.6666681027058053`*^9, {3.6666683398611345`*^9, 3.666668368296565*^9}, {
    3.666668437406345*^9, 3.6666684469491816`*^9}, 3.666668482877623*^9, 
-   3.6666716388962493`*^9, 3.666671697150666*^9, 3.666671782685049*^9}],
-
-Cell[BoxData[
- TagBox[
-  RowBox[{"(", "\[NoBreak]", GridBox[{
-     {"0.4709003909791177`", "1.3603648269037956`", 
-      RowBox[{"-", "1.4754309167484718`"}], "0.5049037866062068`", 
-      RowBox[{"-", "1.3579581116687864`"}], 
-      RowBox[{"-", "0.6946727595595074`"}], 
-      RowBox[{"-", "4.473060692660308`"}]},
-     {"1.138431561661084`", "0.5748782582912595`", 
-      RowBox[{"-", "2.6633673224241807`"}], 
-      RowBox[{"-", "4.2709743320020594`"}], "1.3445443128211272`", 
-      RowBox[{"-", "4.184198504056271`"}], 
-      RowBox[{"-", "0.7947948162163678`"}]},
-     {
-      RowBox[{"-", "3.3489375951157045`"}], 
-      RowBox[{"-", "4.720650346632336`"}], 
-      RowBox[{"-", "0.5973983279860989`"}], 
-      RowBox[{"-", "1.7245360723538379`"}], 
-      RowBox[{"-", "0.453183677696032`"}], 
-      RowBox[{"-", "2.8581530171198097`"}], 
-      RowBox[{"-", "2.25304713757604`"}]}
-    },
-    GridBoxAlignment->{
-     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
-      "RowsIndexed" -> {}},
-    GridBoxSpacings->{"Columns" -> {
-        Offset[0.27999999999999997`], {
-         Offset[0.7]}, 
-        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-        Offset[0.2], {
-         Offset[0.4]}, 
-        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
-  Function[BoxForm`e$, 
-   MatrixForm[BoxForm`e$]]]], "Print",
- CellChangeTimes->{{3.666348502948645*^9, 3.6663485252006116`*^9}, {
-   3.6663486683192883`*^9, 3.6663486942187266`*^9}, 3.6663490603372717`*^9, 
-   3.6663520558504686`*^9, 3.6664377637730837`*^9, 3.6664381036043386`*^9, 
-   3.6664398264561014`*^9, 3.6664399769484396`*^9, 3.6664401546286783`*^9, 
-   3.6665854275594473`*^9, 3.666585808225333*^9, 3.66661201763347*^9, 
-   3.666612285789169*^9, {3.6666125474473643`*^9, 3.666612565851651*^9}, 
-   3.666613050271207*^9, 3.666613921653177*^9, 3.6666143184735518`*^9, 
-   3.6666681027058053`*^9, {3.6666683398611345`*^9, 3.666668368296565*^9}, {
-   3.666668437406345*^9, 3.6666684469491816`*^9}, 3.666668482877623*^9, 
-   3.6666716388962493`*^9, 3.666671697150666*^9, 3.666671782699054*^9}]
+   3.6666716388962493`*^9, 3.666671697150666*^9, 3.666671778373315*^9, 
+   3.6669776656641273`*^9}]
 }, Open  ]]
 }, Open  ]],
 
@@ -4291,9 +1375,9 @@ Cell[BoxData[
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1613, 717},
-WindowMargins->{{Automatic, 40}, {29, Automatic}},
-FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (February 18, 2009)",
+WindowSize->{1108, 431},
+WindowMargins->{{-10, Automatic}, {Automatic, 15}},
+FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (February 23, 2011)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -4308,57 +1392,51 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 215, 4, 83, "Title"],
+Cell[579, 22, 215, 4, 137, "Title"],
 Cell[CellGroupData[{
 Cell[819, 30, 154, 2, 71, "Section"],
 Cell[CellGroupData[{
-Cell[998, 36, 6941, 185, 192, "Input"],
-Cell[7942, 223, 986, 15, 30, "Output"],
+Cell[998, 36, 9057, 239, 399, "Input"],
+Cell[10058, 277, 1280, 19, 30, "Output"],
+Cell[11341, 298, 1520, 26, 30, "Output"],
 Cell[CellGroupData[{
-Cell[8953, 242, 2191, 45, 80, "Print"],
-Cell[11147, 289, 3131, 59, 95, "Print"],
-Cell[14281, 350, 2446, 47, 50, "Print"]
+Cell[12886, 328, 2078, 41, 36, "Print"],
+Cell[14967, 371, 1942, 39, 23, "Print"]
 }, Open  ]],
-Cell[16742, 400, 6208, 141, 126, "Output"]
+Cell[16924, 413, 2271, 48, 30, "Output"]
 }, Open  ]],
-Cell[22965, 544, 1592, 37, 72, "Input"],
+Cell[19210, 464, 1620, 35, 72, "Input"],
 Cell[CellGroupData[{
-Cell[24582, 585, 2003, 50, 52, "Input"],
-Cell[26588, 637, 2510, 58, 50, "Output"],
-Cell[29101, 697, 2512, 58, 50, "Output"]
+Cell[20855, 503, 2003, 50, 92, "Input"],
+Cell[22861, 555, 1854, 39, 30, "Output"],
+Cell[24718, 596, 1854, 39, 30, "Output"]
 }, Open  ]],
-Cell[31628, 758, 301, 9, 47, "Input"],
+Cell[26587, 638, 301, 9, 47, "Input"],
 Cell[CellGroupData[{
-Cell[31954, 771, 4493, 101, 52, "Input"],
-Cell[36450, 874, 8371, 238, 158, "Output"],
-Cell[44824, 1114, 12755, 279, 259, "Output"]
+Cell[26913, 651, 4493, 101, 112, "Input"],
+Cell[31409, 754, 3112, 73, 84, "Output"],
+Cell[34524, 829, 2889, 57, 69, "Output"]
 }, Open  ]],
-Cell[57594, 1396, 2803, 69, 49, "Input"],
+Cell[37428, 889, 2803, 69, 107, "Input"],
 Cell[CellGroupData[{
-Cell[60422, 1469, 902, 16, 31, "Input"],
-Cell[61327, 1487, 101680, 2244, 2565, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[163044, 3736, 529, 13, 31, "Input"],
-Cell[163576, 3751, 9718, 166, 645, 396, 12, "CachedBoxData", "BoxData", \
-"Output"]
+Cell[40256, 962, 902, 16, 31, "Input"],
+Cell[41161, 980, 4455, 99, 110, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[173331, 3922, 103, 1, 36, "Subsection"],
-Cell[173437, 3925, 571, 13, 52, "Input"],
+Cell[45653, 1084, 103, 1, 36, "Subsection"],
+Cell[45759, 1087, 625, 14, 52, "Input"],
 Cell[CellGroupData[{
-Cell[174033, 3942, 1954, 49, 252, "Input"],
+Cell[46409, 1105, 1954, 49, 252, "Input"],
 Cell[CellGroupData[{
-Cell[176012, 3995, 981, 16, 23, "Print"],
-Cell[176996, 4013, 913, 14, 23, "Print"],
-Cell[177912, 4029, 1862, 39, 80, "Print"],
-Cell[179777, 4070, 2816, 62, 95, "Print"],
-Cell[182596, 4134, 2114, 43, 50, "Print"]
+Cell[48388, 1158, 993, 17, 23, "Print"],
+Cell[49384, 1177, 1023, 17, 23, "Print"],
+Cell[50410, 1196, 1771, 34, 36, "Print"],
+Cell[52184, 1232, 1523, 29, 23, "Print"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[184759, 4183, 174, 3, 31, "Input"],
-Cell[184936, 4188, 5914, 99, 149, "Output"]
+Cell[53756, 1267, 174, 3, 31, "Input"],
+Cell[53933, 1272, 5914, 99, 225, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
