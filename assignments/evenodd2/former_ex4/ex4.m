@@ -1,13 +1,13 @@
 clear ; close all; clc
 
 input_layer_size  = 28*28; 
-hidden_layer_size = 25;   % 25 hidden units
+hidden_layer_size = 100;   % 25 hidden units
 num_labels = 10;          % 10 labels, from 1 to 10   
                           % (note that we have mapped "0" to label 10)
 
 %% =========== Loading and Visualizing Data =============
 
-trainingSetSize = 200;
+trainingSetSize = 1000;
 X = loadData("train-images.idx3-ubyte", trainingSetSize);
 y = loadLabels("train-labels.idx1-ubyte", trainingSetSize);
 m = size(X, 1);
@@ -18,8 +18,6 @@ sel = sel(1:100);
 
 displayData(X(sel, :));
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
 
 
 %% ================ Initializing Pameters ================
@@ -59,31 +57,15 @@ Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...
 Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):end), ...
                  num_labels, (hidden_layer_size + 1));
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
-
-
-%% ================= Part 9: Visualize Weights =================
+%% ================= Visualize Weights =================
 %  You can now "visualize" what the neural network is learning by 
 %  displaying the hidden units to see what features they are capturing in 
 %  the data.
 
-fprintf('\nVisualizing Neural Network... \n')
-
 displayData(Theta1(:, 2:end));
 displayData(Theta2(:, 2:end));
 
-fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
-
-%% ================= Part 10: Implement Predict =================
-%  After training the neural network, we would like to use it to predict
-%  the labels. You will now implement the "predict" function to use the
-%  neural network to predict the labels of the training set. This lets
-%  you compute the training set accuracy.
-
+%% ================= Predict =================
+Y = y * (1:num_labels)';
 pred = predict(Theta1, Theta2, X);
-
-fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == y)) * 100);
-
-
+fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == Y)) * 100);
