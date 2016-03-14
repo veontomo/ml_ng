@@ -1,36 +1,30 @@
 clear ; close all; clc
 
-input_layer_size  = 28*28; 
-hidden_layer_size = 100;   % 25 hidden units
+input_layer_size  = 20*20; 
+hidden_layer_size = 25;   % 25 hidden units
 num_labels = 10;          % 10 labels, from 1 to 10   
                           % (note that we have mapped "0" to label 10)
+archit = [input_layer_size hidden_layer_size num_labels];
 
 %% =========== Loading and Visualizing Data =============
-
-trainingSetSize = 1000;
+trainingSetSize = 100;
 X = loadData("train-images.idx3-ubyte", trainingSetSize);
-y = loadLabels("train-labels.idx1-ubyte", trainingSetSize);
+X = X(:, 1:input_layer_size);
+Y = loadLabels("train-labels.idx1-ubyte", trainingSetSize);
 m = size(X, 1);
-
-% Randomly select 100 data points to display
-sel = randperm(size(X, 1));
-sel = sel(1:100);
-
-displayData(X(sel, :));
-
-
 
 %% ================ Initializing Pameters ================
 
-fprintf('\nInitializing Neural Network Parameters ...\n')
+initial_nn_params = initializeWeights(archit);
 
-initial_Theta1 = randInitializeWeights(input_layer_size, hidden_layer_size);
-initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels);
+%% ================ short hand definitions ================
+specificNNCost = @(p) nnCostFunction(p, input_layer_size, hidden_layer_size, num_labels, X, Y, 1);
+generalNNCost = @(p) neuralCost(X, Y, p, archit, 1);
 
-% Unroll parameters
-initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
+%% ===================  Testing cost function ===================
 
 
+[J grad] = specificNNCost(initial_nn_params);
 
 %% ===================  Training NN ===================
 %  After you have completed the assignment, change the MaxIter to a larger
