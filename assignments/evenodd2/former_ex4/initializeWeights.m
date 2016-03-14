@@ -5,14 +5,19 @@
 %% Returns:
 %% weights - unfolded version of the weight parameters
 %% 
-function weights = initializeWeights(archit)
+function weights = initializeWeights(archit, isProductionMode)
   requiredWeightNum = archit(2:end) * (1 + archit(1:end-1))';
   %% inner parts btw the layers
   inner = size(archit, 2) - 1;
   weights = [];
   for i = 1:inner
     epsilon = sqrt(6/(archit(i) + archit(i+1)))
-    matr = epsilon*(2*rand(archit(i+1), archit(i)+1)-1)(:)';
+    if isProductionMode
+      matr = epsilon*(2*rand(archit(i+1), archit(i)+1)-1)(:)';
+    else
+      s = archit(i+1) * (archit(i)+1);
+      matr = epsilon*sin(1:s);
+    endif;
     weights = [weights, matr];
   end
 

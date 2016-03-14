@@ -13,9 +13,9 @@ X = X(:, 1:input_layer_size);
 Y = loadLabels("train-labels.idx1-ubyte", trainingSetSize);
 m = size(X, 1);
 
-%% ================ Initializing Pameters ================
+%% ================ Initializing Parameters ================
 
-initial_nn_params = initializeWeights(archit);
+initial_nn_params = initializeWeights(archit, false);
 
 %% ================ short hand definitions ================
 specificNNCost = @(p) nnCostFunction(p, input_layer_size, hidden_layer_size, num_labels, X, Y, 1);
@@ -24,7 +24,8 @@ generalNNCost = @(p) neuralCost(X, Y, p, archit, 1);
 %% ===================  Testing cost function ===================
 
 
-[J grad] = specificNNCost(initial_nn_params);
+[J1 grad1] = specificNNCost(initial_nn_params);
+[J2 grad2] = generalNNCost(initial_nn_params);
 
 %% ===================  Training NN ===================
 %  After you have completed the assignment, change the MaxIter to a larger
