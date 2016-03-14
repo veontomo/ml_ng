@@ -217,6 +217,7 @@ pause;
 fprintf('\nVisualizing Neural Network... \n')
 
 displayData(Theta1(:, 2:end));
+displayData(Theta2(:, 2:end));
 
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
