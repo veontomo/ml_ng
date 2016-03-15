@@ -4,6 +4,8 @@
 %% weights - row vector
 %% architecure - row vector defining the network architecture: each element of
 %%               this row is the number of units in corresp. layer
+%% orientation - "v" or "h" (vertical or horizontal). Specifies order in which 
+%%               the row vector elements are inserted into matrices
 %% Returns
 %% c - cell array of size 1 x L, where L = (#layers - 1).
 %%     If c = [a1 a2 a3 ...], then 
@@ -13,7 +15,7 @@
 %%     c{1, L-1} is a aLx(a(L-1) + 1) matrix
 %% s - column vector containing the total number of elements in the above cell
 %%     array
-function [c s] = formMatrices(weights, architecture)
+function [c s] = formMatrices(weights, architecture, orientation)
   %% calculates the number of all weights that a neural network with a given
   %% architecture should have
   requiredWeightNum = architecture(2:end) * (1 + architecture(1:end-1))';
@@ -32,7 +34,11 @@ function [c s] = formMatrices(weights, architecture)
     layerSize = architecture(layer);
     length = (prevLayerSize + 1) * layerSize;
     s(layer - 1) = length;
-    c(1, layer - 1) = reshape(weights((counter+1):(counter + length)), prevLayerSize + 1, layerSize)';
+    if orientation == "v"
+      c(1, layer - 1) = reshape(weights((counter+1):(counter + length)), prevLayerSize + 1, layerSize)';
+    else 
+      c(1, layer - 1) = reshape(weights((counter+1):(counter + length)), layerSize, prevLayerSize + 1);
+    end;
     counter = counter + length;
     prevLayerSize = layerSize;
   endfor

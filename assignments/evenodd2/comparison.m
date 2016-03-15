@@ -4,33 +4,27 @@ addpath('former_ex4');
 
 input_layer_size  = 2; 
 hidden_layer_size = 2;
-num_labels = 1;
+num_labels = 4;
                
 archit = [input_layer_size hidden_layer_size num_labels];
 
 %% =========== Loading and Visualizing Data =============
-trainingSetSize = 100;
-%X = loadData("train-images.idx3-ubyte", trainingSetSize);
-%Y = loadLabels("train-labels.idx1-ubyte", trainingSetSize);
-X = [3 2; 1 0; -2 1];
-Y = [1; 0; 0];
+X = cos([1 2]);
+Y = [0 0 0 1];
 m = size(X, 1);
-%X = X(:, 1:input_layer_size);
-%Y = X(:, 1:num_labels);
+lambda = 4;
 
 %% ================ Initializing Parameters ================
 
-initial_nn_params = initializeWeights(archit, false);
+Theta = initializeWeights(archit, false);
 
 %% ================ short hand definitions ================
-specificNNCost = @(p) nnCostFunction(p, input_layer_size, hidden_layer_size, num_labels, X, Y, 0);
-generalNNCost = @(p) neuralCost(X, Y, p, archit, 0);
+specificNNCost = @(p) nnCostFunction(p, input_layer_size, hidden_layer_size, num_labels, X, Y, lambda);
+generalNNCost = @(p) neuralCost(X, Y, p, archit, lambda);
 
 %% ===================  Testing cost function ===================
-
-
-[J1 grad1] = specificNNCost(initial_nn_params);
-[J2 grad2] = generalNNCost(initial_nn_params);
+[J1 grad1] = specificNNCost(Theta);
+[J2 grad2] = generalNNCost(Theta);
 
 %% ===================  Training NN ===================
 %  After you have completed the assignment, change the MaxIter to a larger
@@ -48,7 +42,7 @@ costFunction = @(p) nnCostFunction(p, ...
 
 % Now, costFunction is a function that takes in only one argument (the
 % neural network parameters)
-[nn_params, cost] = fmincg(costFunction, initial_nn_params, options);
+[nn_params, cost] = fmincg(costFunction, Theta, options);
 
 % Obtain Theta1 and Theta2 back from nn_params
 Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...

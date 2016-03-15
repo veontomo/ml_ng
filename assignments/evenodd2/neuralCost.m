@@ -19,7 +19,7 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
   inputNum = size(X, 1);
   layerNum = size(layers, 2);
   %% restore the weight matrices from the row vector
-  [weightsMatrices lengths] = formMatrices(weights, layers);
+  [weightsMatrices lengths] = formMatrices(weights, layers)
   %% set of activations for every layer
   A = cell(1, layerNum);
   Z = cell(1, layerNum);
@@ -39,10 +39,10 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
   for a = 1:inputNum
     %% feedforward: calculate the activations
     prevLayerSize = layers(1);
-    A(1, 1) = [1; X(a, :)']; %% it is a column
+    A(1, 1) = [1; X(a, :)'] %% it is a column
     for j = 2:layerNum
-      Z(1, j) = weightsMatrices{1, j-1} * A{1, j-1}; 
-      A(1, j) = [1; activationFn(Z{1, j})];
+      Z(1, j) = weightsMatrices{1, j-1} * A{1, j-1}
+      A(1, j) = [1; activationFn(Z{1, j})]
     endfor
     Ya = A{1, layerNum}(2:end); %% it is a column
     deltaJ = - Y(a, :) * log(Ya) - (1-Y(a, :)) * log(1 - Ya);
