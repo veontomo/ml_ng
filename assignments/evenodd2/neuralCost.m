@@ -19,7 +19,7 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
   inputNum = size(X, 1);
   layerNum = size(layers, 2);
   %% restore the weight matrices from the row vector
-  [weightsMatrices lengths] = formMatrices(weights, layers)
+  [weightsMatrices lengths] = formMatrices(weights, layers, "v")
   %% set of activations for every layer
   A = cell(1, layerNum);
   Z = cell(1, layerNum);

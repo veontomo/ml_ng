@@ -34,7 +34,7 @@ function [c s] = formMatrices(weights, architecture, orientation)
     layerSize = architecture(layer);
     length = (prevLayerSize + 1) * layerSize;
     s(layer - 1) = length;
-    if orientation == "v"
+    if orientation == "h"
       c(1, layer - 1) = reshape(weights((counter+1):(counter + length)), prevLayerSize + 1, layerSize)';
     else 
       c(1, layer - 1) = reshape(weights((counter+1):(counter + length)), layerSize, prevLayerSize + 1);

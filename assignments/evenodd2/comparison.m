@@ -12,7 +12,7 @@ archit = [input_layer_size hidden_layer_size num_labels];
 X = cos([1 2]);
 Y = [0 0 0 1];
 m = size(X, 1);
-lambda = 4;
+lambda = 0;
 
 %% ================ Initializing Parameters ================
 
