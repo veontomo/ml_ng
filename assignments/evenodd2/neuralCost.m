@@ -15,11 +15,13 @@
 %% grad - derivatives of the cost function w.r.t the weight parameters at given
 %%        point.
 function [J grad] = neuralCost(X, Y, weights, layers, lambda)
-  printf("\nstart\n");
+  %%% what orientation to use when transforming a row vector into a matrix and
+  %%% viceverse
+  orientation = "v";
   inputNum = size(X, 1);
   layerNum = size(layers, 2);
   %% restore the weight matrices from the row vector
-  [weightsMatrices lengths] = formMatrices(weights, layers, "v")
+  [weightsMatrices lengths] = formMatrices(weights, layers, orientation);
   %% set of activations for every layer
   A = cell(1, layerNum);
   Z = cell(1, layerNum);
@@ -39,14 +41,14 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
   for a = 1:inputNum
     %% feedforward: calculate the activations
     prevLayerSize = layers(1);
-    A(1, 1) = [1; X(a, :)'] %% it is a column
+    A(1, 1) = [1; X(a, :)']; %% it is a column
     for j = 2:layerNum
-      Z(1, j) = weightsMatrices{1, j-1} * A{1, j-1}
-      A(1, j) = [1; activationFn(Z{1, j})]
+      Z(1, j) = weightsMatrices{1, j-1} * A{1, j-1};
+      A(1, j) = [1; activationFn(Z{1, j})];
     endfor
     Ya = A{1, layerNum}(2:end); %% it is a column
     deltaJ = - Y(a, :) * log(Ya) - (1-Y(a, :)) * log(1 - Ya);
-    if isnan(deltaJ) || isinf(deltaJ)
+    if (isnan(deltaJ) || isinf(deltaJ))
       printf("\niteration %u\n", a);
       printf("J = %2.2f + %2.2f\n", J, deltaJ);
       printf("\n actual label =\n");
@@ -79,18 +81,24 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
     endif;
     
   endfor
-  J = (J + 1/2 * lambda * (weights * weights'))/inputNum;
+  %J = (J + 1/2 * lambda * (weights * weights'))/inputNum;
   
   
-  %% unroll the gradient matrices.
-  %% NB: there are two transpositions of the gradient matrix:
-  %% 1. the unrolling (:) goes over columns, while we need it over rows. 
-  %% 2. the result of the unrolling is a row vector, while we need a column one.
+  %% unroll the gradient matrices: pay attention to the orientation (vertical or horizontal)
   grad = [];
   for j = 1: (layerNum-1)
-    grad = [grad, gradientMatrices{1, j}'(:)'];
+    w = gradientMatrices{1, j};
+    %% bias unit weights do not contribute
+    weightNoBias = [zeros(size(weightsMatrices{1, j}, 1), 1), weightsMatrices{1, j}(:, 2:end)];
+    w = w + lambda*weightNoBias;
+    if not(orientation == "v")
+      w = w';
+    end;
+    grad = [grad, w(:)'];
+    wTmp = weightNoBias(:);
+    J = J + lambda * wTmp' * wTmp/2;
   endfor;
-  %% normalize the gradient
-  grad = (grad + lambda * weights) /inputNum;
-  % printf("final J = %4.2f\n", J);
+  %% normalize the gradient and the cost function
+  J = J/inputNum;
+  grad = grad/inputNum;
 end

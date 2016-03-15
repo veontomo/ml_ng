@@ -2,17 +2,17 @@ clear ; close all; clc
 
 addpath('former_ex4');
 
-input_layer_size  = 2; 
-hidden_layer_size = 2;
+input_layer_size  = 10; 
+hidden_layer_size = 5;
 num_labels = 4;
                
 archit = [input_layer_size hidden_layer_size num_labels];
 
 %% =========== Loading and Visualizing Data =============
-X = cos([1 2]);
+X = cos([1:input_layer_size]);
 Y = [0 0 0 1];
 m = size(X, 1);
-lambda = 0;
+lambda = 1;
 
 %% ================ Initializing Parameters ================
 
