@@ -1,5 +1,7 @@
 clear ; close all; clc
 
+addpath('former_ex4');
+
 input_layer_size  = 2; 
 hidden_layer_size = 2;
 num_labels = 1;
