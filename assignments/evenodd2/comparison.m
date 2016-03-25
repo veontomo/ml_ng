@@ -2,17 +2,20 @@ clear ; close all; clc
 
 addpath('former_ex4');
 
-input_layer_size  = 10; 
-hidden_layer_size = 5;
+input_layer_size  = 5; 
+hidden_layer_size = 50;
 num_labels = 4;
-               
+trainingSetSize = 15;
+
 archit = [input_layer_size hidden_layer_size num_labels];
 
-%% =========== Loading and Visualizing Data =============
-X = cos([1:input_layer_size]);
-Y = [0 0 0 1];
+%% =========== Generating Training Set Data =============
+X = cos((1:trainingSetSize)' .* (1:input_layer_size));
+tmp = ceil(trainingSetSize * input_layer_size/(1 + input_layer_size));
+Y = reshape(repmat([1 zeros(1, input_layer_size)], 1, tmp)(1:(trainingSetSize * input_layer_size)), input_layer_size, trainingSetSize)';
 m = size(X, 1);
 lambda = 10;
+
 
 %% ================ Initializing Parameters ================
 
@@ -29,7 +32,11 @@ generalNNCost = @(p) neuralCost(X, Y, p, archit, lambda);
 %% ===================  Training NN ===================
 %  After you have completed the assignment, change the MaxIter to a larger
 %  value to see how more training helps.
-options = optimset('MaxIter', 50);
+options = optimset('MaxIter', 400);
+
+[nn_params1, cost1] = fminunc(specificNNCost, Theta', options);
+[nn_params2, cost2] = fminunc(generalNNCost, Theta, options);
+
 [nn_params1, cost1] = fmincg(specificNNCost, Theta', options);
 [nn_params2, cost2] = fmincg(generalNNCost, Theta, options);
 % Obtain Theta1 and Theta2 back from nn_params
