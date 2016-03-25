@@ -1,4 +1,4 @@
-clear ; close all; clc
+clear ; close all; clc;
 
 addpath('former_ex4');
 
@@ -11,11 +11,9 @@ archit = [input_layer_size hidden_layer_size num_labels];
 
 %% =========== Generating Training Set Data =============
 X = cos((1:trainingSetSize)' .* (1:input_layer_size));
-tmp = ceil(trainingSetSize * input_layer_size/(1 + input_layer_size));
-Y = reshape(repmat([1 zeros(1, input_layer_size)], 1, tmp)(1:(trainingSetSize * input_layer_size)), input_layer_size, trainingSetSize)';
+Y = repmat([1 zeros(1, input_layer_size)], 1, ceil(trainingSetSize /(1 + input_layer_size)))(1:trainingSetSize)';
 m = size(X, 1);
 lambda = 10;
-
 
 %% ================ Initializing Parameters ================
 
