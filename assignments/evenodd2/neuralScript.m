@@ -1,4 +1,4 @@
-
+clc; clear;
 
 
 archit = [2 5 6 3];
