@@ -38,8 +38,8 @@ options = optimset('MaxIter', 400);
 [nn_params1, cost1] = fminunc(specificNNCost, Theta', options);
 [nn_params2, cost2] = fminunc(generalNNCost, Theta, options);
 
-[nn_params1, cost1] = fmincg(specificNNCost, Theta', options);
-[nn_params2, cost2] = fmincg(generalNNCost, Theta, options);
+[nn_params12, cost12] = fmincg(specificNNCost, Theta', options);
+[nn_params22, cost22] = fmincg(generalNNCost, Theta', options);
 % Obtain Theta1 and Theta2 back from nn_params
 Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...
                  hidden_layer_size, (input_layer_size + 1));

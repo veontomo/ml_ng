@@ -4,7 +4,7 @@
 %%     It is a matrix A x M, A - # training examples, M - # features
 %% Y - output matrix A x L, where A is the number of rows of X,
 %%     while L is a value of the last element of the row vector defining the 
-%%     network architecture.
+%%     network architecture. This matrix MUST CONTAIN only 0's and 1's.
 %% weights - row vector of weights. It is an unfolded version of all weights.
 %%         It includes weights for the bias units as well.
 %% layers - row vector that defines the network architecture. Its elements are 
@@ -47,7 +47,13 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
       A(1, j) = [1; activationFn(Z{1, j})];
     endfor
     Ya = A{1, layerNum}(2:end); %% it is a column
-    deltaJ = - Y(a, :) * log(Ya) - (1-Y(a, :)) * log(1 - Ya);
+    % deltaJ = - Y(a, :) * log(Ya) - (1-Y(a, :)) * log(1 - Ya);
+    %% alternative formulation: in order to avoid expressions like 0 * log(0)
+    %% that result in a NaN-value, split the contributions for zero and unity labels
+    zeroPos = find(Y(a, :) == 0); %% positions of zero labels
+    onePos = find(Y(a, :) == 1); %% positions of unity labels
+    deltaJ = - sum(log(Ya(onePos))) - sum(log(1 - (Ya(zeroPos))));
+   
     if (isnan(deltaJ) || isinf(deltaJ))
       printf("\niteration %u\n", a);
       printf("J = %2.2f + %2.2f\n", J, deltaJ);
@@ -55,7 +61,10 @@ function [J grad] = neuralCost(X, Y, weights, layers, lambda)
       printf("%2.2f, ", Y(a, :));
       printf("\n predicted label =\n");
       printf("%2.2f, ", Ya);
+      printf("\nThetas; ");
+      printf("%2.2f, ", weights);
       printf("\nExiting...\n");
+      printf("\n");
       error("Contribution to the cost function is invalid.");
     endif;
     J = J + deltaJ;
