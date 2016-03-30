@@ -25,6 +25,7 @@ Theta = initializeWeights(archit, false);
 %% ================ short hand definitions ================
 specificNNCost = @(p) nnCostFunction(p, input_layer_size, hidden_layer_size, num_labels, X, Y, lambda);
 generalNNCost = @(p) neuralCost(X, Y, p, archit, lambda);
+generalNNCost2 = @(p) fmincg_adapter(X, Y, p, archit, lambda);
 
 %% ===================  Testing cost function ===================
 [J1 grad1] = specificNNCost(Theta);
@@ -39,7 +40,7 @@ options = optimset('MaxIter', 400);
 [nn_params2, cost2] = fminunc(generalNNCost, Theta, options);
 
 [nn_params12, cost12] = fmincg(specificNNCost, Theta', options);
-[nn_params22, cost22] = fmincg(generalNNCost, Theta', options);
+[nn_params22, cost22] = fmincg(generalNNCost2, Theta', options);
 % Obtain Theta1 and Theta2 back from nn_params
 Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...
                  hidden_layer_size, (input_layer_size + 1));
